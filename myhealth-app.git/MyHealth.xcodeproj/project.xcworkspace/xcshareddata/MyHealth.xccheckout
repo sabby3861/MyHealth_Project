@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>92AC124A-FE60-45A0-919D-D4DF3CE3A463</string>
+	<key>IDESourceControlProjectName</key>
+	<string>MyHealth</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>00E02B6A8A88FA89D16E553885D8EEC0FD7CAD35</key>
+		<string>gitlab.com:Chhabra/myhealth.git</string>
+		<key>DAA4EFAA1EA651267C0953A39500A21647840C53</key>
+		<string>https://github.com/iOSRepository/MyHealth.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>MyHealth.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>00E02B6A8A88FA89D16E553885D8EEC0FD7CAD35</key>
+		<string>../../..</string>
+		<key>DAA4EFAA1EA651267C0953A39500A21647840C53</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/iOSRepository/MyHealth.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DAA4EFAA1EA651267C0953A39500A21647840C53</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>00E02B6A8A88FA89D16E553885D8EEC0FD7CAD35</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DAA4EFAA1EA651267C0953A39500A21647840C53</string>
+			<key>IDESourceControlWCCName</key>
+			<string>MyHealth%20App</string>
+		</dict>
+	</array>
+</dict>
+</plist>
