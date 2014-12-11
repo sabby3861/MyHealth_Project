@@ -40,6 +40,16 @@ BOOL keyboardIsShown;
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
     keyboardIsShown = NO;
+
+    if ([[UIScreen mainScreen ] bounds ].size.height != 568) {
+        self.vertical_space1.constant -=5;
+        self.vertical_space2.constant -=5;
+        self.vertical_space3.constant -=5;
+        self.vertical_space4.constant -=5;
+        self.vertical_space5.constant -=5;
+        self.vertical_space6.constant -=5;
+
+    }
 }
 
 - (void)keyboardWillHide:(NSNotification *)n

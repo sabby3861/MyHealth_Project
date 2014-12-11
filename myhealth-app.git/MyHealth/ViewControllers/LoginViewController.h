@@ -19,4 +19,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *btn_back;
 - (IBAction)loginUsingFacebook:(id)sender;
 -(IBAction)rememberMe:(id)sender;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space2;
+
 @end

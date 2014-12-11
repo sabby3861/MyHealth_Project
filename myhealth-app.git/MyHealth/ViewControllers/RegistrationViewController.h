@@ -20,4 +20,12 @@
 @property (nonatomic, retain) IBOutlet UIButton *btn_uploadImage;
 @property (nonatomic, retain) IBOutlet UIButton *btn_register;
 @property (nonatomic, retain) IBOutlet UIButton *btn_back;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space4;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space5;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *vertical_space6;
+
 @end

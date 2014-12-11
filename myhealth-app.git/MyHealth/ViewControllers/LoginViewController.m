@@ -60,6 +60,11 @@
     
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"refresh"];
+    if ([[UIScreen mainScreen ] bounds ].size.height != 568) {
+        self.vertical_space1.constant -=10;
+        self.vertical_space2.constant -=5;
+        
+    }
 }
 -(void)viewDidDisappear:(BOOL)animated
 {

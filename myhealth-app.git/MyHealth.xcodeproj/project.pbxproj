@@ -60,13 +60,15 @@
 		25BB175E1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */; };
 		25BE81C41A369B6500B412AD /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BE81C31A369B6500B412AD /* LiveSDK.framework */; };
 		2FF3A13AC64BF7A56E1B2BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5E22FBDC5BFD208D8D52 /* libPods.a */; };
+		513E49401A39827F00038F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513E493F1A39827F00038F6D /* Main.storyboard */; };
+		513E49431A39829F00038F6D /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513E49421A39829F00038F6D /* RegistrationViewController.m */; };
+		513E49461A3982C400038F6D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513E49451A3982C400038F6D /* LoginViewController.m */; };
 		752644EC19F6060200B67525 /* DoctorProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 752644EA19F6060200B67525 /* DoctorProfileCustomCell.m */; };
 		752644ED19F6060200B67525 /* DoctorProfileCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752644EB19F6060200B67525 /* DoctorProfileCustomCell.xib */; };
 		752644EF19F608F900B67525 /* DoctorProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752644EE19F608F900B67525 /* DoctorProfileHeaderView.xib */; };
 		7528481819F2354B0016F54F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528481719F2354B0016F54F /* main.m */; };
 		7528481B19F2354B0016F54F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528481A19F2354B0016F54F /* AppDelegate.m */; };
 		7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */; };
-		7528482419F2354B0016F54F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7528482219F2354B0016F54F /* Main.storyboard */; };
 		7528482619F2354B0016F54F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7528482519F2354B0016F54F /* Images.xcassets */; };
 		7528482919F2354B0016F54F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7528482719F2354B0016F54F /* LaunchScreen.xib */; };
 		7528483519F2354B0016F54F /* MyHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528483419F2354B0016F54F /* MyHealthTests.m */; };
@@ -134,10 +136,8 @@
 		752848D919F2B83C0016F54F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752848D119F2B83C0016F54F /* Icon@2x.png */; };
 		7558756D1A0C681700BDFE1C /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558756C1A0C681700BDFE1C /* Medication.m */; };
 		755875701A0C6A2000BDFE1C /* DoctorVisits.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558756F1A0C6A2000BDFE1C /* DoctorVisits.m */; };
-		7583698A1A02B75100F83C7B /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758369891A02B75100F83C7B /* LoginViewController.m */; };
 		75898BFF1A03EACD0026C6A2 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75898BFE1A03EACD0026C6A2 /* Connection.m */; };
 		75898C041A03EB190026C6A2 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 75898C031A03EB190026C6A2 /* GlobalVariables.m */; };
-		75898C071A03F8AF0026C6A2 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75898C061A03F8AF0026C6A2 /* RegistrationViewController.m */; };
 		7593E8791A07F0F600E34F73 /* PatientDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7593E8781A07F0F600E34F73 /* PatientDetails.m */; };
 		7593E87C1A07F15000E34F73 /* Patient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7593E87B1A07F15000E34F73 /* Patient.m */; };
 		7593E87E1A07FFC500E34F73 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7593E87D1A07FFC500E34F73 /* FacebookSDK.framework */; };
@@ -373,6 +373,11 @@
 		25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveAuthDialog_iPhone.xib; sourceTree = "<group>"; };
 		25BE81C31A369B6500B412AD /* LiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LiveSDK.framework; sourceTree = "<group>"; };
 		25CBD2A51A361B91005742E9 /* MyHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyHealth.entitlements; sourceTree = "<group>"; };
+		513E493F1A39827F00038F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		513E49411A39829F00038F6D /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		513E49421A39829F00038F6D /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		513E49441A3982C400038F6D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		513E49451A3982C400038F6D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		752644E919F6060200B67525 /* DoctorProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoctorProfileCustomCell.h; path = ../ViewControllers/DoctorProfileCustomCell.h; sourceTree = "<group>"; };
 		752644EA19F6060200B67525 /* DoctorProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoctorProfileCustomCell.m; path = ../ViewControllers/DoctorProfileCustomCell.m; sourceTree = "<group>"; };
 		752644EB19F6060200B67525 /* DoctorProfileCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DoctorProfileCustomCell.xib; path = ../ViewControllers/DoctorProfileCustomCell.xib; sourceTree = "<group>"; };
@@ -383,7 +388,6 @@
 		7528481919F2354B0016F54F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7528481A19F2354B0016F54F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7528481D19F2354B0016F54F /* MyHealth.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHealth.xcdatamodel; sourceTree = "<group>"; };
-		7528482319F2354B0016F54F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7528482519F2354B0016F54F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7528482819F2354B0016F54F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7528482E19F2354B0016F54F /* MyHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -461,15 +465,11 @@
 		7558756C1A0C681700BDFE1C /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
 		7558756E1A0C6A2000BDFE1C /* DoctorVisits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorVisits.h; sourceTree = "<group>"; };
 		7558756F1A0C6A2000BDFE1C /* DoctorVisits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorVisits.m; sourceTree = "<group>"; };
-		758369881A02B75100F83C7B /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		758369891A02B75100F83C7B /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		75898BFD1A03EACD0026C6A2 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
 		75898BFE1A03EACD0026C6A2 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
 		75898C011A03EB190026C6A2 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		75898C021A03EB190026C6A2 /* GlobalVariables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalVariables.h; sourceTree = "<group>"; };
 		75898C031A03EB190026C6A2 /* GlobalVariables.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalVariables.m; sourceTree = "<group>"; };
-		75898C051A03F8AF0026C6A2 /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
-		75898C061A03F8AF0026C6A2 /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		7593E8771A07F0F600E34F73 /* PatientDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientDetails.h; sourceTree = "<group>"; };
 		7593E8781A07F0F600E34F73 /* PatientDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientDetails.m; sourceTree = "<group>"; };
 		7593E87A1A07F15000E34F73 /* Patient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Patient.h; sourceTree = "<group>"; };
@@ -837,7 +837,7 @@
 				7528486119F2491E0016F54F /* ViewControllers */,
 				7528481919F2354B0016F54F /* AppDelegate.h */,
 				7528481A19F2354B0016F54F /* AppDelegate.m */,
-				7528482219F2354B0016F54F /* Main.storyboard */,
+				513E493F1A39827F00038F6D /* Main.storyboard */,
 				7528482519F2354B0016F54F /* Images.xcassets */,
 				7528482719F2354B0016F54F /* LaunchScreen.xib */,
 				7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */,
@@ -941,10 +941,10 @@
 				75CBD3FA19FBFD4400686774 /* ShareViewController.m */,
 				75CBD40E19FC113200686774 /* GloblaSearchViewController.h */,
 				75CBD40F19FC113200686774 /* GloblaSearchViewController.m */,
-				758369881A02B75100F83C7B /* LoginViewController.h */,
-				758369891A02B75100F83C7B /* LoginViewController.m */,
-				75898C051A03F8AF0026C6A2 /* RegistrationViewController.h */,
-				75898C061A03F8AF0026C6A2 /* RegistrationViewController.m */,
+				513E49441A3982C400038F6D /* LoginViewController.h */,
+				513E49451A3982C400038F6D /* LoginViewController.m */,
+				513E49411A39829F00038F6D /* RegistrationViewController.h */,
+				513E49421A39829F00038F6D /* RegistrationViewController.m */,
 				75B5A2141A16254400C1ECCC /* SyncViewController.h */,
 				75B5A2151A16254400C1ECCC /* SyncViewController.m */,
 			);
@@ -1366,6 +1366,7 @@
 				752848C619F2B0ED0016F54F /* Splash_5.png in Resources */,
 				75CBD3F819FBFCC300686774 /* button_share.png in Resources */,
 				75AF8D071A0DEE74000EBF6C /* icon_directions@2x.png in Resources */,
+				513E49401A39827F00038F6D /* Main.storyboard in Resources */,
 				75CBD3C119FBAD1E00686774 /* button_common.png in Resources */,
 				75CBD3EC19FBF75E00686774 /* icon_connectmiddle.png in Resources */,
 				752848D619F2B83C0016F54F /* Icon-60.png in Resources */,
@@ -1431,7 +1432,6 @@
 				75CBD3D019FBB8F800686774 /* icon_fieldempty.png in Resources */,
 				752848D319F2B83C0016F54F /* Icon-29@2x.png in Resources */,
 				75CBD3CA19FBB87D00686774 /* button_checkboxfilled@2x.png in Resources */,
-				7528482419F2354B0016F54F /* Main.storyboard in Resources */,
 				752848D219F2B83C0016F54F /* Icon-29.png in Resources */,
 				7528482919F2354B0016F54F /* LaunchScreen.xib in Resources */,
 				7528487D19F26D660016F54F /* icon_favorite_nactive@2x.png in Resources */,
@@ -1538,6 +1538,7 @@
 				25BB171B1A3747DD00CE80D2 /* GTLRuntimeCommon.m in Sources */,
 				25BB171A1A3747DD00CE80D2 /* GTLQuery.m in Sources */,
 				75ADA08F19F6D2BB00BA3E44 /* DoctorEducationHistroyCell.m in Sources */,
+				513E49461A3982C400038F6D /* LoginViewController.m in Sources */,
 				75B351DA19F8E0B300D02CDA /* DoctorNotesCustomCell.m in Sources */,
 				25BB16F61A37470100CE80D2 /* GTLDriveConstants.m in Sources */,
 				7528484419F237370016F54F /* MenuCustomCollectionViewCell.m in Sources */,
@@ -1549,7 +1550,6 @@
 				75A3D9021A063E3C0068D15E /* CommentListing.m in Sources */,
 				75CBD3DC19FBE30900686774 /* MGSwipeTableCell.m in Sources */,
 				7593E8791A07F0F600E34F73 /* PatientDetails.m in Sources */,
-				7583698A1A02B75100F83C7B /* LoginViewController.m in Sources */,
 				25BB174A1A374A0E00CE80D2 /* SBJsonBase.m in Sources */,
 				75B5A2161A16254400C1ECCC /* SyncViewController.m in Sources */,
 				25BB16F81A37470100CE80D2 /* GTLDriveFileList.m in Sources */,
@@ -1581,7 +1581,6 @@
 				25BB16F91A37470100CE80D2 /* GTLDriveParentList.m in Sources */,
 				75CBD3DB19FBE30900686774 /* MGSwipeButton.m in Sources */,
 				75BC6F891A0A8FF30063289A /* DegreeDetails.m in Sources */,
-				75898C071A03F8AF0026C6A2 /* RegistrationViewController.m in Sources */,
 				75A8074F1A1533E2005210CE /* AllergyInfo.m in Sources */,
 				25BB171C1A3747DD00CE80D2 /* GTLService.m in Sources */,
 				25BB17181A3747DD00CE80D2 /* GTLErrorObject.m in Sources */,
@@ -1630,6 +1629,7 @@
 				75A8074C1A1533BD005210CE /* Allergies.m in Sources */,
 				25BB172A1A37483F00CE80D2 /* GTLUtilities.m in Sources */,
 				7528481819F2354B0016F54F /* main.m in Sources */,
+				513E49431A39829F00038F6D /* RegistrationViewController.m in Sources */,
 				75ADA07C19F6B88C00BA3E44 /* DoctorProfileHeaderView.m in Sources */,
 				75B351EE19F9201400D02CDA /* MedicalDocumentsViewController.m in Sources */,
 				75A807521A1533F4005210CE /* AllergyStatus.m in Sources */,
@@ -1664,14 +1664,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7528482219F2354B0016F54F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7528482319F2354B0016F54F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7528482719F2354B0016F54F /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
