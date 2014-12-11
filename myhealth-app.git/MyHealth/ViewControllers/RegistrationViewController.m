@@ -11,6 +11,10 @@
 #import "MBProgressHUD.h"
 #import "Connection.h"
 #import "Macros.h"
+#import "SSTextFieldValidation.h"
+#import "UIAlertView+Helpers.h"
+
+
 @interface RegistrationViewController ()<UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
     UIActionSheet *actionSheet;
@@ -30,7 +34,7 @@ BOOL keyboardIsShown;
     // Do any additional setup after loading the view.
     
     // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
                                                object:self.view.window];
@@ -39,6 +43,10 @@ BOOL keyboardIsShown;
                                              selector:@selector(keyboardWillHide:)
                                                  name:UIKeyboardWillHideNotification
                                                object:self.view.window];
+    
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardFrameDidChange:)
+                                                 name:UIKeyboardDidChangeFrameNotification object:nil];*/
     keyboardIsShown = NO;
 
     if ([[UIScreen mainScreen ] bounds ].size.height != 568) {
@@ -50,6 +58,104 @@ BOOL keyboardIsShown;
         self.vertical_space6.constant -=5;
 
     }
+}
+CGFloat animatedDistance;
+
+#pragma ˚˚
+#pragma ˚ TEXTFIELD DELEGATES ˚
+#pragma ˚˚
+-(void)textFieldDidBeginEditing:(UITextField *)textField{
+    static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
+    static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
+    static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
+    static const CGFloat PORTRAIT_KEYBOARD_HEIGHT = 192;
+    static const CGFloat LANDSCAPE_KEYBOARD_HEIGHT = 352;
+    //In iOS 7, for iPad it is 402 for Landscape and 314 for Portrait
+    
+    CGRect textFieldRect;
+    CGRect viewRect;
+    
+    textFieldRect =[self.view.window convertRect:textField.bounds fromView:textField];
+    viewRect =[self.view.window convertRect:self.view.bounds fromView:self.view];
+    
+    
+    CGFloat midline = textFieldRect.origin.y + 0.5 * textFieldRect.size.height;
+    CGFloat numerator = midline - viewRect.origin.y - MINIMUM_SCROLL_FRACTION * viewRect.size.height;
+    CGFloat denominator = (MAXIMUM_SCROLL_FRACTION - MINIMUM_SCROLL_FRACTION) * viewRect.size.height;
+    CGFloat heightFraction = numerator / denominator;
+    
+    if (heightFraction < 0.0)
+    {
+        heightFraction = 0.0;
+    }
+    else if (heightFraction > 1.0)
+    {
+        heightFraction = 1.0;
+    }
+    
+    UIInterfaceOrientation orientation =[[UIApplication sharedApplication] statusBarOrientation];
+    if (orientation == UIInterfaceOrientationPortrait ||orientation == UIInterfaceOrientationPortraitUpsideDown)
+    {
+        animatedDistance = floor(PORTRAIT_KEYBOARD_HEIGHT * heightFraction);
+    }
+    else
+    {
+        animatedDistance = floor(LANDSCAPE_KEYBOARD_HEIGHT * heightFraction);
+    }
+    
+    CGRect viewFrame;
+    
+    viewFrame= self.view.frame;
+    viewFrame.origin.y -= animatedDistance;
+    
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    [self.view setFrame:viewFrame];
+    
+    [UIView commitAnimations];
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.2;
+    CGRect viewFrame;
+    
+    viewFrame= self.view .frame;
+    viewFrame.origin.y += animatedDistance;
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:KEYBOARD_ANIMATION_DURATION];
+    
+    
+    [self.view setFrame:viewFrame];
+    [UIView commitAnimations];
+    
+}
+
+-(void)keyboardFrameDidChange:(NSNotification*)notification{
+   /* NSDictionary* info = [notification userInfo];
+    
+    CGRect kKeyBoardFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];
+    [UIView commitAnimations];
+    */
+    
+    NSDictionary *info = [notification userInfo];
+    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+    NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    CGRect keyboardFrame = [kbFrame CGRectValue];
+    CGFloat height = keyboardFrame.size.height;
+    CGRect kKeyBoardFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:animationDuration animations:^{
+        [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];        [self.view setNeedsLayout];
+    }];
+    
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
@@ -63,7 +169,7 @@ BOOL keyboardIsShown;
     // resize the scrollview
     CGRect viewFrame = self.view.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height += (keyboardSize.height - 170);
+    viewFrame.size.height += (keyboardSize.height -100);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -88,7 +194,7 @@ BOOL keyboardIsShown;
     // resize the noteView
     CGRect viewFrame = self.view.frame;
     // I'm also subtracting a constant kTabBarHeight because my UIScrollView was offset by the UITabBar so really only the portion of the keyboard that is leftover pass the UITabBar is obscuring my UIScrollView.
-    viewFrame.size.height -= (keyboardSize.height - 170);
+    viewFrame.size.height -= (keyboardSize.height -100);
     
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationBeginsFromCurrentState:YES];
@@ -106,6 +212,7 @@ BOOL keyboardIsShown;
     // Dispose of any resources that can be recreated.
 }
 
+
 /*
  #pragma mark - Navigation
  
@@ -120,8 +227,30 @@ BOOL keyboardIsShown;
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id delegate){
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"MyHealth" message:message delegate:delegate cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    return alert;
+}
+
 -(IBAction)registerUser:(id)sender
 {
+    if(self.txtfield_firstName.text.length<1)
+        ShowAlertViewWithMessage(@"Please enter first name", nil);
+    else if(self.txtfield_lastName.text.length<1)
+        ShowAlertViewWithMessage(@"Please enter last name", nil);
+    else if(self.txtfield_userName.text.length<1)
+        ShowAlertViewWithMessage(@"Please enter user name", nil);
+    else if(self.txtfield_userEmail.text.length<1)
+        ShowAlertViewWithMessage(@"Please enter user email", nil);
+    else if(self.txtfield_userPassword.text.length<1)
+        ShowAlertViewWithMessage(@"Please enter user password", nil);
+    else if (!imageData){
+        ShowAlertViewWithMessage(@"Please select the image", nil);
+    }
+    else{
+        
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
@@ -153,12 +282,13 @@ BOOL keyboardIsShown;
                 
                 [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"login"];
                 //[MBProgressHUD hideHUDForView:self.view animated:YES];
-                [SVProgressHUD dismiss];
+                
                 
                 NSLog(@"JSON: %@", responseObject);
                 NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
                 [self.navigationController popViewControllerAnimated:YES];
             }
+            [SVProgressHUD dismiss];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Registered successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
             
@@ -172,6 +302,13 @@ BOOL keyboardIsShown;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please upload photo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
+    }
+}
+
+#pragma mark-  Text Field Delegate Method  -
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    return [textField resignFirstResponder];
+    //return YES;
 }
 #pragma mark-  Image Picker
 -(IBAction)uploadPhoto:(id)sender

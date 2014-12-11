@@ -111,6 +111,17 @@
     
 }
 
+#pragma mark-  Text Field Delegate Method  -
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark-  Touch Method  -
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [self.view  endEditing:YES];
+}
+
 - (void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];

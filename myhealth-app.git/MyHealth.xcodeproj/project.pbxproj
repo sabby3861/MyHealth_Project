@@ -256,6 +256,8 @@
 		75CBD40B19FC094F00686774 /* icon_connecticloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CBD40719FC094F00686774 /* icon_connecticloud.png */; };
 		75CBD40D19FC0FD100686774 /* icon_favorite_nactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CBD40C19FC0FD100686774 /* icon_favorite_nactive.png */; };
 		75CBD41019FC113200686774 /* GloblaSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CBD40F19FC113200686774 /* GloblaSearchViewController.m */; };
+		F866FDA01A399A2E009CC7CA /* SCLog.m in Sources */ = {isa = PBXBuildFile; fileRef = F866FD9A1A399A2E009CC7CA /* SCLog.m */; };
+		F866FDA11A399A2E009CC7CA /* SSTextFieldValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = F866FD9F1A399A2E009CC7CA /* SSTextFieldValidation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -637,6 +639,12 @@
 		7B8C5E22FBDC5BFD208D8D52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FBCF72415EE02F8ECC0B81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1643A5D5254EE71D3BABD40 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F866FD991A399A2E009CC7CA /* SCLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCLog.h; sourceTree = "<group>"; };
+		F866FD9A1A399A2E009CC7CA /* SCLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCLog.m; sourceTree = "<group>"; };
+		F866FD9E1A399A2E009CC7CA /* SSTextFieldValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSTextFieldValidation.h; sourceTree = "<group>"; };
+		F866FD9F1A399A2E009CC7CA /* SSTextFieldValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSTextFieldValidation.m; sourceTree = "<group>"; };
+		F866FDA21A399A3F009CC7CA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F866FDA41A399A61009CC7CA /* UIAlertView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helpers.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -826,6 +834,10 @@
 			isa = PBXGroup;
 			children = (
 				25CBD2A51A361B91005742E9 /* MyHealth.entitlements */,
+				F866FDA21A399A3F009CC7CA /* Constants.h */,
+				F866FD981A399A2E009CC7CA /* SC Log */,
+				F866FDA31A399A61009CC7CA /* UIAlertView+Helper */,
+				F866FD9D1A399A2E009CC7CA /* Validate Textfield */,
 				75B7B2F31A11331000038EDF /* Category */,
 				75A3D9061A06A2D40068D15E /* Fonts */,
 				75A3D8F51A0614BD0068D15E /* Data Models */,
@@ -1267,6 +1279,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F866FD981A399A2E009CC7CA /* SC Log */ = {
+			isa = PBXGroup;
+			children = (
+				F866FD991A399A2E009CC7CA /* SCLog.h */,
+				F866FD9A1A399A2E009CC7CA /* SCLog.m */,
+			);
+			path = "SC Log";
+			sourceTree = "<group>";
+		};
+		F866FD9D1A399A2E009CC7CA /* Validate Textfield */ = {
+			isa = PBXGroup;
+			children = (
+				F866FD9E1A399A2E009CC7CA /* SSTextFieldValidation.h */,
+				F866FD9F1A399A2E009CC7CA /* SSTextFieldValidation.m */,
+			);
+			path = "Validate Textfield";
+			sourceTree = "<group>";
+		};
+		F866FDA31A399A61009CC7CA /* UIAlertView+Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F866FDA41A399A61009CC7CA /* UIAlertView+Helpers.h */,
+			);
+			path = "UIAlertView+Helper";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1616,6 +1654,7 @@
 				75898C041A03EB190026C6A2 /* GlobalVariables.m in Sources */,
 				75CBD3BD19FBA83100686774 /* SettingsViewController.m in Sources */,
 				25BB175B1A374AD700CE80D2 /* GTMOAuth2ViewControllerTouch.m in Sources */,
+				F866FDA11A399A2E009CC7CA /* SSTextFieldValidation.m in Sources */,
 				7528484319F237370016F54F /* HomeViewController.m in Sources */,
 				25BB17191A3747DD00CE80D2 /* GTLObject.m in Sources */,
 				7528486619F2498C0016F54F /* MedicalHistoryCustomCell.m in Sources */,
@@ -1625,6 +1664,7 @@
 				25BB171D1A3747DD00CE80D2 /* GTLUploadParameters.m in Sources */,
 				25BB173B1A3748F100CE80D2 /* GTMGatherInputStream.m in Sources */,
 				75B351D519F8DC3200D02CDA /* DoctorCommentsCustomCell.m in Sources */,
+				F866FDA01A399A2E009CC7CA /* SCLog.m in Sources */,
 				75B808661A0BDFA400187A6B /* GeneralInfo.m in Sources */,
 				75A8074C1A1533BD005210CE /* Allergies.m in Sources */,
 				25BB172A1A37483F00CE80D2 /* GTLUtilities.m in Sources */,
