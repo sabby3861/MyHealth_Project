@@ -68,6 +68,8 @@
              swipeSettings:(MGSwipeSettings*) swipeSettings expansionSettings:(MGSwipeExpansionSettings*) expansionSettings
 {
     
+    __weak MedicalDocumentsViewController * me = self;
+
     swipeSettings.transition = MGSwipeTransitionBorder;
     expansionSettings.buttonIndex = 0;
     
@@ -87,12 +89,15 @@
         
         MGSwipeButton * trash = [MGSwipeButton buttonWithTitle:@"Trash" backgroundColor:[UIColor clearColor] padding:padding callback:^BOOL(MGSwipeTableCell *sender) {
          
+            NSIndexPath * indexPath = [me.tblView_medicalHistory indexPathForCell:sender];
+            [me deleteOption:indexPath];
             return YES;
         }];
         [trash setBackgroundImage:[UIImage imageNamed:@"button_delete.png"] forState:UIControlStateNormal];
         [trash setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
         MGSwipeButton * flag = [MGSwipeButton buttonWithTitle:@"Flag" backgroundColor:[UIColor clearColor] padding:padding callback:^BOOL(MGSwipeTableCell *sender) {
-            
+            NSIndexPath * indexPath = [me.tblView_medicalHistory indexPathForCell:sender];
+            [me showMoreOption:indexPath];
             return YES;
         }];
         
@@ -104,6 +109,21 @@
     return nil;
     
 }
+
+-(void)deleteOption:(NSIndexPath*)theIndexPath{
+    ShowAlertViewWithMessage(@"Deleted", nil);
+
+}
+-(void)showMoreOption:(NSIndexPath*)theIndexPath{
+    ShowAlertViewWithMessage(@"More Options", nil);
+}
+
+UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id delegate){
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"MyHealth" message:message delegate:delegate cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    return alert;
+}
+
 // Navigate Back
 -(IBAction)navigateback:(id)sender
 {

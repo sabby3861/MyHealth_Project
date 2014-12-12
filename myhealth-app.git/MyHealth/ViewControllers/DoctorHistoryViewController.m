@@ -12,6 +12,8 @@
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
 #import "DoctorListing.h"
+#import "SVProgressHUD.h"
+
 @interface DoctorHistoryViewController ()<UITextFieldDelegate>
 {
     DoctorHistoryTableViewCell *cell;
@@ -137,18 +139,23 @@
 }
 -(void)getDoctorListing
 {
-    [MBProgressHUD showHUDAddedTo:_tblView_doctorHistory animated:YES];
+    //[MBProgressHUD showHUDAddedTo:_tblView_doctorHistory animated:YES];
+    [SVProgressHUD showWithStatus:@"Fetching..."
+                         maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"pageNo": @"1"};
     [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getAllDoctors?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [MBProgressHUD hideAllHUDsForView:_tblView_doctorHistory animated:YES];
         model.arrayListing = [[responseObject valueForKey:@"DoctorData"] valueForKey:@"doctorDetail"];
         [_tblView_doctorHistory reloadData];
-        
+        [SVProgressHUD dismiss];
+
         NSLog(@"JSON: %@", model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:_tblView_doctorHistory animated:YES];
         NSLog(@"Error: %@", error);
+        [SVProgressHUD dismiss];
+
     }];
 }
 -(IBAction)cancelSearch:(id)sender
