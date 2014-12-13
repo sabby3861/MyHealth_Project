@@ -14,6 +14,8 @@
 #import "ShareViewController.h"
 
 
+#define ShareViewControllerSI @"ShareViewController"
+
 @interface MedicalDocumentsViewController ()
 {
     MedicalDocumentsCustomCell *cell;
@@ -230,14 +232,14 @@
    
     if(buttonIndex == 0){
         
-        UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ShareViewController *shareVC = [stroryboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
-        //[self.navigationController pushViewController:viewCtrl animated:YES];
-        [self presentViewController:shareVC animated:YES completion:nil];
+        
 
         
     } else if (buttonIndex == 1){
-        
+        UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ShareViewController *shareVC = [stroryboard instantiateViewControllerWithIdentifier:ShareViewControllerSI];
+        //[self.navigationController pushViewController:viewCtrl animated:YES];
+        [self presentViewController:shareVC animated:YES completion:nil];
         
     } else {
         

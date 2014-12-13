@@ -125,7 +125,12 @@
 // Navigate Back
 -(IBAction)navigateback:(id)sender
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    if(self.isModal)
+        [self dismissViewControllerAnimated:YES completion:^{
+            
+        }];
+    else
+        [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark -  DropBox Methods
