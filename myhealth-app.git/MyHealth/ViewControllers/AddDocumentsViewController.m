@@ -11,6 +11,7 @@
 #import "AddDocCustomCell.h"
 #import "DocumentsDatabase.h"
 #import "NSString+SCPaths.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 
 @interface AddDocumentsViewController ()<CustomIOS7AlertViewDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
@@ -24,6 +25,7 @@
     UIActionSheet *actionSheet;
     UIImagePickerController *picker;
     NSData *imageData;
+    NSString *imageName;
     
     CustomIOS7AlertView *customAlert;
     CustomIOS7AlertView *addFilesAlert;
@@ -202,7 +204,7 @@
 {
     if (buttonIndex == 0) {
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDirectory = [NSString getLibraryPath];// [paths objectAtIndex:0];
         NSError * error;
         
@@ -212,7 +214,7 @@
             
                 if (imageData) {
                     
-                    NSString *filePath = [dataPath stringByAppendingPathComponent:@"image.png"];
+                    NSString *filePath = [dataPath stringByAppendingPathComponent:imageName];
                     [imageData writeToFile:filePath atomically:YES];
                     
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Media added successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -402,6 +404,18 @@
 
 // After picking the image dismiss the controller-->>
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+   /*
+    NSURL *assetURL = [editingInfo objectForKey:UIImagePickerControllerReferenceURL];
+    __block NSString *fileName = nil;
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:assetURL resultBlock:^(ALAsset *asset)  {
+        fileName = asset.defaultRepresentation.filename;
+        NSLog(@"File Name is %@",fileName);
+    } failureBlock:nil];
+    */
+    NSURL *imagePath = [editingInfo objectForKey:@"UIImagePickerControllerReferenceURL"];
+    imageName = [imagePath lastPathComponent];
+    NSLog(@"imageName Name is %@",imageName);
     
     //_uploadImage = YES;
     imageData  = UIImageJPEGRepresentation(image, 1);

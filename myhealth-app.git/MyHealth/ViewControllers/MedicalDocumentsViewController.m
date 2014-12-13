@@ -122,6 +122,75 @@
     
 }
 -(void)showMoreOption:(NSIndexPath*)theIndexPath{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //NSString *sharedDirectory=@"/Users/Shared";
+    NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+    NSError *error=nil;
+    NSArray *listOfFiles=[fileManager contentsOfDirectoryAtPath:sharedDirectory error:&error];
+    if(!error)
+        NSLog(@"Contents of shared Directory: %@",listOfFiles);
+    NSArray *listOfSubPaths=[fileManager subpathsOfDirectoryAtPath:sharedDirectory error:&error];
+    if(!error)
+        NSLog(@"Sub Paths of shared Direcotry :%@",listOfSubPaths);
+    
+    
+    NSDictionary *currentDitionary = [fileManager attributesOfItemAtPath: sharedDirectory error: nil];
+    NSLog(@"Files are %@",currentDitionary);
+    NSFileManager *fileMgr;
+    NSString *entry;
+    NSString *documentsDir;
+    NSDirectoryEnumerator *enumerator;
+    BOOL isDirectory;
+    
+    // Create file manager
+    fileMgr = [NSFileManager defaultManager];
+    
+    // Path to documents directory
+    documentsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+    
+    // Change to Documents directory
+    [fileMgr changeCurrentDirectoryPath:documentsDir];
+    
+    // Enumerator for docs directory
+    enumerator = [fileMgr enumeratorAtPath:documentsDir];
+    
+    // Get each entry (file or folder)
+    while ((entry = [enumerator nextObject]) != nil)
+    {
+        // File or directory
+        if ([fileMgr fileExistsAtPath:entry isDirectory:&isDirectory] && isDirectory)
+            NSLog (@"Directory - %@", entry);
+        else
+            NSLog (@"  File - %@", entry);
+    }
+    
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    
+   /* NSString* file1 = [documentsPath stringByAppendingPathComponent:@"Private Documents"];
+                       
+    NSURL *dirURL=[NSURL URLWithString:file1];
+    NSArray *contentOfMyFolder = [[NSFileManager defaultManager]
+                                  contentsOfDirectoryAtURL:dirURL
+                                  includingPropertiesForKeys:@[NSURLContentModificationDateKey, NSURLLocalizedNameKey]
+                                  options:NSDirectoryEnumerationSkipsHiddenFiles
+                                  error:nil];
+    for (NSURL *item in contentOfMyFolder) {
+        NSNumber *isDir;
+        NSError *error;
+        if ([item getResourceValue:&isDir forKey:NSURLIsDirectoryKey error:&error]) {
+            if ([isDir boolValue]) {
+                NSLog(@"%@ is a directory", item);
+            } else {
+                NSLog(@"%@ is a file", item);
+            }
+        } else {
+            NSLog(@"error: %@", error);
+        }
+    }
+    */
+    
+    
     ShowAlertViewWithMessage(@"More Options", nil);
 }
 

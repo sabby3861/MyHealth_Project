@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		186A4FB51A3C49D500C72A8C /* NSString+SCPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */; };
+		18A352641A3CAE4900C89CD7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */; };
 		18AE3ED51A3B7B9D00812658 /* DocumentsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */; };
 		25B8CF1C1A362F18008FA631 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25B8CF191A362F18008FA631 /* SVProgressHUD.bundle */; };
 		25B8CF1D1A362F18008FA631 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8CF1B1A362F18008FA631 /* SVProgressHUD.m */; };
@@ -275,6 +276,7 @@
 /* Begin PBXFileReference section */
 		186A4FB31A3C49D500C72A8C /* NSString+SCPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SCPaths.h"; sourceTree = "<group>"; };
 		186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SCPaths.m"; sourceTree = "<group>"; };
+		18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		18AE3ED31A3B7B9D00812658 /* DocumentsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsDatabase.h; sourceTree = "<group>"; };
 		18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsDatabase.m; sourceTree = "<group>"; };
 		25B8CF191A362F18008FA631 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A352641A3CAE4900C89CD7 /* AssetsLibrary.framework in Frameworks */,
 				75B341411A128D8000FC11FD /* QuartzCore.framework in Frameworks */,
 				75AF342F1A13B4DF0018F3B9 /* MobileCoreServices.framework in Frameworks */,
 				75B3413F1A128D7700FC11FD /* SystemConfiguration.framework in Frameworks */,
@@ -1282,6 +1285,7 @@
 		8EB29941551C4B68755BE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */,
 				25BE81C31A369B6500B412AD /* LiveSDK.framework */,
 				75AF342E1A13B4DF0018F3B9 /* MobileCoreServices.framework */,
 				75B341441A128D9400FC11FD /* libz.dylib */,
