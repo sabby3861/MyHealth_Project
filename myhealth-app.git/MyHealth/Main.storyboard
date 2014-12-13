@@ -1216,7 +1216,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Hs-hF-bp8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Hs-hF-bp8">
                                 <rect key="frame" x="40" y="104" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1232,7 +1232,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EB1-Dm-699">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your address" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EB1-Dm-699">
                                 <rect key="frame" x="40" y="164" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1248,7 +1248,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZc-kF-RDd">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+1-000-0000000" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="HZc-kF-RDd">
                                 <rect key="frame" x="41" y="224" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1264,7 +1264,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u5B-lB-cQy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XXXXXXXXXXX" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u5B-lB-cQy">
                                 <rect key="frame" x="41" y="284" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1280,7 +1280,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h7T-Mq-RFF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="00.00.00" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="h7T-Mq-RFF">
                                 <rect key="frame" x="41" y="344" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1296,7 +1296,7 @@
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SHp-F2-mKS">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="+1-000-0000000" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SHp-F2-mKS">
                                 <rect key="frame" x="40" y="404" width="230" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.098039215690000001" green="0.5450980392" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
@@ -1306,23 +1306,74 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_fieldempty.png" translatesAutoresizingMaskIntoConstraints="NO" id="dHm-1H-hcr">
                                 <rect key="frame" x="15" y="412" width="14" height="13"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_checkboxfilled.png" translatesAutoresizingMaskIntoConstraints="NO" id="L3k-KZ-DZX">
-                                <rect key="frame" x="278" y="108" width="21" height="21"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_checkboxfilled.png" translatesAutoresizingMaskIntoConstraints="NO" id="dKa-YW-PPi">
-                                <rect key="frame" x="278" y="228" width="21" height="21"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_checkboxfilled.png" translatesAutoresizingMaskIntoConstraints="NO" id="JC9-qo-7fO">
-                                <rect key="frame" x="278" y="348" width="21" height="21"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_checkboxfilled.png" translatesAutoresizingMaskIntoConstraints="NO" id="GZT-HU-Yy7">
-                                <rect key="frame" x="281" y="408" width="21" height="21"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XJ-e8-VPk">
+                            <button opaque="NO" tag="107" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1XJ-e8-VPk">
                                 <rect key="frame" x="34" y="477" width="253" height="64"/>
                                 <state key="normal" title="Select" backgroundImage="button_common.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="bIK-TN-SqN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="106" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dS-My-ZRM">
+                                <rect key="frame" x="278" y="408" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="1DF-z2-yhb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="105" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zw2-iv-uEj">
+                                <rect key="frame" x="278" y="348" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="CTy-QN-fqn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="104" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8w-ir-4h6">
+                                <rect key="frame" x="278" y="288" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="HzP-Rv-jK1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="103" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-jP-ucF">
+                                <rect key="frame" x="278" y="228" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="raa-ao-Xdl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="102" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="COi-Te-QWg">
+                                <rect key="frame" x="278" y="168" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="qV6-BP-pb1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="101" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJk-ie-Dy4">
+                                <rect key="frame" x="278" y="108" width="21" height="21"/>
+                                <state key="normal" image="button_checkboxempty.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="button_checkboxfilled.png"/>
+                                <connections>
+                                    <action selector="emergencyBtnClicked:" destination="SXc-HJ-M3J" eventType="touchUpInside" id="dJK-Tz-933"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You can select upto 4 positions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmi-Za-R4s">
                                 <rect key="frame" x="38" y="546" width="237" height="21"/>
@@ -1376,6 +1427,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4AD-bN-J1E"/>
+                    <connections>
+                        <outlet property="addressButton" destination="COi-Te-QWg" id="nEf-sl-sFc"/>
+                        <outlet property="addressTextField" destination="EB1-Dm-699" id="ScD-Kn-2wJ"/>
+                        <outlet property="dobButton" destination="Zw2-iv-uEj" id="VhR-92-O2Y"/>
+                        <outlet property="dobTextField" destination="h7T-Mq-RFF" id="3p7-nR-dqF"/>
+                        <outlet property="emergencyButton" destination="5dS-My-ZRM" id="YLg-KG-Jph"/>
+                        <outlet property="emergencyTextField" destination="SHp-F2-mKS" id="XkV-z5-EEP"/>
+                        <outlet property="nameButton" destination="qJk-ie-Dy4" id="0kQ-qk-Ojt"/>
+                        <outlet property="nameTextField" destination="1Hs-hF-bp8" id="O4X-h2-6iL"/>
+                        <outlet property="phoneButton" destination="VWQ-jP-ucF" id="wVK-EG-PPj"/>
+                        <outlet property="phoneTextField" destination="HZc-kF-RDd" id="SG9-OS-EqC"/>
+                        <outlet property="ssnButton" destination="b8w-ir-4h6" id="C4c-o5-vvB"/>
+                        <outlet property="ssnTextField" destination="u5B-lB-cQy" id="B6L-hI-aiN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xat-8c-PVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
