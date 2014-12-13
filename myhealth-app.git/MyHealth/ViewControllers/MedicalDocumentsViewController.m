@@ -9,6 +9,9 @@
 #import "MedicalDocumentsViewController.h"
 #import "MedicalDocumentsCustomCell.h"
 #import "MGSwipeButton.h"
+#import "DocumentsDatabase.h"
+#import "NSString+SCPaths.h"
+
 
 @interface MedicalDocumentsViewController ()
 {
@@ -22,6 +25,7 @@
     
     [super viewDidLoad];
     [self.tblView_medicalHistory registerNib:[UINib nibWithNibName:@"MedicalDocumentsCustomCell" bundle:nil] forCellReuseIdentifier:@"Reuse"];
+    [self.tblView_medicalHistory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // Do any additional setup after loading the view.
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
 }
@@ -45,12 +49,12 @@
         
         cell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_doctorspecial_middle.png"]];
     }
-    
+    cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]];
     return  cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return [[[DocumentsDatabase sharedInstance]loadMyHealthDocs]count];// 20;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -112,7 +116,10 @@
 
 -(void)deleteOption:(NSIndexPath*)theIndexPath{
     ShowAlertViewWithMessage(@"Deleted", nil);
-
+    //[NSString deleteFileAtPath:[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:theIndexPath.row]];
+    [NSString deleteFileAtPath:[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]];
+    [self.tblView_medicalHistory reloadData];
+    
 }
 -(void)showMoreOption:(NSIndexPath*)theIndexPath{
     ShowAlertViewWithMessage(@"More Options", nil);

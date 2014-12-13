@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186A4FB51A3C49D500C72A8C /* NSString+SCPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */; };
+		18AE3ED51A3B7B9D00812658 /* DocumentsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */; };
 		25B8CF1C1A362F18008FA631 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 25B8CF191A362F18008FA631 /* SVProgressHUD.bundle */; };
 		25B8CF1D1A362F18008FA631 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B8CF1B1A362F18008FA631 /* SVProgressHUD.m */; };
 		25BB16EF1A37470100CE80D2 /* GTLDriveAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */; };
@@ -271,6 +273,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		186A4FB31A3C49D500C72A8C /* NSString+SCPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SCPaths.h"; sourceTree = "<group>"; };
+		186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SCPaths.m"; sourceTree = "<group>"; };
+		18AE3ED31A3B7B9D00812658 /* DocumentsDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsDatabase.h; sourceTree = "<group>"; };
+		18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsDatabase.m; sourceTree = "<group>"; };
 		25B8CF191A362F18008FA631 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		25B8CF1A1A362F18008FA631 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		25B8CF1B1A362F18008FA631 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
@@ -685,6 +691,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		186A4FB21A3C49D500C72A8C /* NSString+FilePath */ = {
+			isa = PBXGroup;
+			children = (
+				186A4FB31A3C49D500C72A8C /* NSString+SCPaths.h */,
+				186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */,
+			);
+			path = "NSString+FilePath";
+			sourceTree = "<group>";
+		};
 		25B8CF181A362F18008FA631 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +850,9 @@
 			children = (
 				25CBD2A51A361B91005742E9 /* MyHealth.entitlements */,
 				F866FDA21A399A3F009CC7CA /* Constants.h */,
+				18AE3ED31A3B7B9D00812658 /* DocumentsDatabase.h */,
+				18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */,
+				186A4FB21A3C49D500C72A8C /* NSString+FilePath */,
 				F866FD981A399A2E009CC7CA /* SC Log */,
 				F866FDA31A399A61009CC7CA /* UIAlertView+Helper */,
 				F866FD9D1A399A2E009CC7CA /* Validate Textfield */,
@@ -1652,6 +1670,7 @@
 				75B8086C1A0BDFA400187A6B /* AdditionalQuestions.m in Sources */,
 				752644EC19F6060200B67525 /* DoctorProfileCustomCell.m in Sources */,
 				75898C041A03EB190026C6A2 /* GlobalVariables.m in Sources */,
+				186A4FB51A3C49D500C72A8C /* NSString+SCPaths.m in Sources */,
 				75CBD3BD19FBA83100686774 /* SettingsViewController.m in Sources */,
 				25BB175B1A374AD700CE80D2 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				F866FDA11A399A2E009CC7CA /* SSTextFieldValidation.m in Sources */,
@@ -1672,6 +1691,7 @@
 				513E49431A39829F00038F6D /* RegistrationViewController.m in Sources */,
 				75ADA07C19F6B88C00BA3E44 /* DoctorProfileHeaderView.m in Sources */,
 				75B351EE19F9201400D02CDA /* MedicalDocumentsViewController.m in Sources */,
+				18AE3ED51A3B7B9D00812658 /* DocumentsDatabase.m in Sources */,
 				75A807521A1533F4005210CE /* AllergyStatus.m in Sources */,
 				75CBD3E919FBF59D00686774 /* AddDocumentsViewController.m in Sources */,
 				25BB16FD1A37470100CE80D2 /* GTLDriveRevision.m in Sources */,

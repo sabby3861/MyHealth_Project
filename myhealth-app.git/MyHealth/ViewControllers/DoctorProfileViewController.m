@@ -19,6 +19,8 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "Macros.h"
+
+
 @interface DoctorProfileViewController ()<CustomIOS7AlertViewDelegate,MFMailComposeViewControllerDelegate>
 {
     DoctorProfileCustomCell *cell;

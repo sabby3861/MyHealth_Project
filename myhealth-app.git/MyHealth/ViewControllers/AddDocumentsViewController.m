@@ -9,6 +9,10 @@
 #import "AddDocumentsViewController.h"
 #import "CustomIOS7AlertView.h"
 #import "AddDocCustomCell.h"
+#import "DocumentsDatabase.h"
+#import "NSString+SCPaths.h"
+
+
 @interface AddDocumentsViewController ()<CustomIOS7AlertViewDelegate,UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate,UIAlertViewDelegate>
 {
     AddDocCustomCell *cell;
@@ -22,6 +26,8 @@
     NSData *imageData;
     
     CustomIOS7AlertView *customAlert;
+    CustomIOS7AlertView *addFilesAlert;
+
 }
 @end
 
@@ -30,9 +36,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    NSString *file;
+    NSMutableArray *results = [NSMutableArray array];
+    NSDirectoryEnumerator *dirEnum = [[NSFileManager defaultManager] enumeratorAtPath:[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"]];
+    while (file = [dirEnum nextObject]) [results addObject:file];
+    CFShow((__bridge CFTypeRef)(results));
+    
+    NSLog(@"Directories are %@",[NSString theDirectoryArray]);
+    
+    NSLog(@"Files in folders are %@",[NSString filesInFolder:[NSString stringWithFormat:@"%@/Test",[NSString getLibraryPath]]]);
+    
+    [NSString scanPath:[NSString getLibraryPath]];
+    
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSError * error;
+    directoryContents =  [[NSFileManager defaultManager]
+                          contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    
+    NSLog(@"directoryContents ====== %@",directoryContents);
+    /***** Added by Sanjay for test ****/
+    NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory
+                                                                        error:NULL];
+    NSMutableArray *mp3Files = [[NSMutableArray alloc] init];
+    [dirs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *filename = (NSString *)obj;
+        NSString *extension = [[filename pathExtension] lowercaseString];
+        NSLog(@"files are %@",filename);
+        if ([extension isEqualToString:@"mp3"]) {
+            [mp3Files addObject:[documentsDirectory stringByAppendingPathComponent:filename]];
+        }
+    }];
+    
+    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:documentsDirectory  error:nil];
+    NSLog(@"Sub directories are %@",filePathsArray);
+    /**************  Test *********************/
+    NSLog(@"Documents are %@",[[DocumentsDatabase sharedInstance]loadMyHealthDocs]);
+    
+    
+    
     [self.tblView_add registerNib:[UINib nibWithNibName:@"AddDocCustomCell" bundle:nil] forCellReuseIdentifier:@"Reuse"];
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     // Do any additional setup after loading the view.
+    
+#if TARGET_IPHONE_SIMULATOR
+    // where are you?
+    NSLog(@"Documents Directory: %@", [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject]);
+#endif
 }
 
 - (void)didReceiveMemoryWarning {
@@ -152,7 +203,7 @@
     if (buttonIndex == 0) {
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsDirectory = [NSString getLibraryPath];// [paths objectAtIndex:0];
         NSError * error;
         
         if ([addLable.text isEqualToString:@"Add file under folder"]) {
@@ -164,7 +215,7 @@
                     NSString *filePath = [dataPath stringByAppendingPathComponent:@"image.png"];
                     [imageData writeToFile:filePath atomically:YES];
                     
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Meda added successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Media added successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert show];
                     [customAlert close];
                 }
@@ -201,6 +252,26 @@
     
     NSLog(@"directoryContents ====== %@",directoryContents);
     [_tblView_add reloadData];
+    
+    
+    /***** Added by Sanjay for test ****/
+    NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsDirectory
+                                                                        error:NULL];
+    NSMutableArray *mp3Files = [[NSMutableArray alloc] init];
+    [dirs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *filename = (NSString *)obj;
+        NSString *extension = [[filename pathExtension] lowercaseString];
+        NSLog(@"files are %@",filename);
+        if ([extension isEqualToString:@"mp3"]) {
+            [mp3Files addObject:[documentsDirectory stringByAppendingPathComponent:filename]];
+        }
+    }];
+    
+    /*
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];*/
+    NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:documentsDirectory  error:nil];
+    NSLog(@"Sub directories are %@",filePathsArray);
 }
 -(IBAction)deleteFolder:(id)sender
 {
@@ -236,10 +307,10 @@
      return;
      }*/
     
-    CustomIOS7AlertView *alert = [[CustomIOS7AlertView alloc] init];
-    alert.tag = 100;
-    alert.delegate = self;
-    [alert setButtonTitles:[NSMutableArray arrayWithObjects:@"Add", @"Cancel", nil]];
+    addFilesAlert = [[CustomIOS7AlertView alloc] init];
+    addFilesAlert.tag = 101;
+    addFilesAlert.delegate = self;
+    [addFilesAlert setButtonTitles:[NSMutableArray arrayWithObjects:@"Add", @"Cancel", nil]];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 250)];
     addLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, 250, 30)];
@@ -258,7 +329,7 @@
     
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [NSString getLibraryPath];//[paths objectAtIndex:0];
     NSError * error;
     directoryContents =  [[NSFileManager defaultManager]
                           contentsOfDirectoryAtPath:documentsDirectory error:&error];
@@ -280,8 +351,8 @@
     [btn_addNote setTitle:@"Add Note" forState:UIControlStateNormal];
     [view addSubview:btn_addNote];
     
-    [alert setContainerView:view];
-    [alert show];
+    [addFilesAlert setContainerView:view];
+    [addFilesAlert show];
     
 }
 #pragma mark-  Image Picker
@@ -289,6 +360,8 @@
 {
     //_uploadImage = YES;
     customAlert.hidden = YES;
+    addFilesAlert.hidden=YES;
+   
     actionSheet = [[UIActionSheet alloc] initWithTitle:@"Upload Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:([UIScreen mainScreen].bounds.size.height <= 568 ?nil:@"Cancel") otherButtonTitles:@"Camera",@"Gallery", nil];
     [actionSheet showInView:[self.view window]];
 }
@@ -336,6 +409,8 @@
     //_btn_uploadImage.contentMode=UIViewContentModeScaleToFill;
     [self dismissViewControllerAnimated:YES completion:nil];
     [customAlert show];
+    addFilesAlert.hidden=NO;
+
 }
 -(void)actionSheet:(UIActionSheet *)actionSheeet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
