@@ -170,7 +170,38 @@
     return results;
 }
 
-+(NSMutableArray*)loadAllDirectories{
+/*. This Methods Loads the Folders, without the hidden files
+ *. This will help to eliminate the hidden files.
+ *. @return NSMutableArray containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++(NSMutableArray*)loadDirectoriesOnly{
+    NSDirectoryEnumerator *dirEnumerator = [[NSFileManager defaultManager] enumeratorAtURL:[NSURL fileURLWithPath:[NSString getLibraryPath]] includingPropertiesForKeys:[NSArray arrayWithObjects:NSURLNameKey, NSURLIsDirectoryKey,nil] options:NSDirectoryEnumerationSkipsSubdirectoryDescendants  errorHandler:nil];
+    NSMutableArray *theArray=[NSMutableArray array];
+    
+    for (NSURL *theURL in dirEnumerator) {
+        // Retrieve the file name. From NSURLNameKey, cached during the enumeration.
+        NSString *fileName;
+        [theURL getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
+        // Retrieve whether a directory. From NSURLIsDirectoryKey, also
+        // cached during the enumeration.
+        NSNumber *isDirectory;
+        [theURL getResourceValue:&isDirectory forKey:NSURLIsDirectoryKey error:NULL];
+        
+        if([isDirectory boolValue] == NO)
+        {
+            [theArray addObject: fileName];
+        }
+    }
+    return theArray;
+}
+
+/*. This Methods Loads All Directories and Files
+ *. This will help to eliminate the hidden files.
+ *. @return NSArray containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++(NSMutableArray*)loadAllDirectoriesandFiles{
     NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[NSString getLibraryPath]
                                                                         error:NULL];
     __block NSMutableArray *mp3Files = [[NSMutableArray alloc] init];
@@ -180,9 +211,60 @@
         if ([extension isEqualToString:@"mp3"]) {
             [mp3Files addObject:[[NSString getLibraryPath] stringByAppendingPathComponent:filename]];
         }
+        if(![filename hasPrefix:@"."]) {
+            //The file is hidden
+            [mp3Files addObject:filename];
+        }
         NSLog(@"The file name \n\n%@",filename);
     }];
     return mp3Files;
+}
+
++(NSMutableArray*)getDirectoriesandFilesinFolder:(NSString*)dirPath{
+    NSArray* dirs = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath
+                                                                        error:NULL];
+    __block NSMutableDictionary *theDirList;// = [[NSMutableDictionary alloc] init];
+    __block NSMutableArray *theDirArray = [[NSMutableArray alloc] init];
+    [dirs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSString *filename = (NSString *)obj;
+        NSString *extension = [[filename pathExtension] lowercaseString];
+        /*if ([extension isEqualToString:@"mp3"]) {
+            //[mp3Files addObject:[[NSString getLibraryPath] stringByAppendingPathComponent:filename]];
+        }*/
+        if(![filename hasPrefix:@"."]) {
+            NSString *key= extension.length>1 ? @"file" :@"directory";
+            theDirList = [[NSMutableDictionary alloc] init];
+            //[theDirList setValue:filename forKey:key];
+            theDirList[key]=filename;
+            [theDirArray addObject:theDirList];
+            NSLog(@"The theDirArray \n\n%@",theDirArray);
+            NSLog(@"The theDirList \n\n%@",theDirList);
+        }
+        NSLog(@"The file name \n\n%@",filename);
+    }];
+    return theDirArray;
+}
+
+/*. This Methods Loads the Folders inside folder, without the hidden files
+ *. This will help to eliminate the hidden files.
+ *. @return NSArray containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++(NSArray*)arrayOfFoldersInFolder:(NSString*) folder {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray* files = [fm contentsOfDirectoryAtPath:folder error:nil];
+    NSMutableArray *directoryList = [NSMutableArray arrayWithCapacity:10];
+    
+    for(NSString *file in files) {
+        NSString *path = [folder stringByAppendingPathComponent:file];
+        BOOL isDir = NO;
+        [fm fileExistsAtPath:path isDirectory:(&isDir)];
+        if(isDir) {
+            [directoryList addObject:file];
+        }
+    }
+    NSLog(@"Folders are %@",directoryList);
+    return directoryList;
 }
 
 
@@ -216,6 +298,7 @@
             if([[NSFileManager defaultManager] isDeletableFileAtPath:path])
             {
                 NSLog(@"Here is path %@",path);
+                NSLog(@"Main name is path %@",[path lastPathComponent]);
 
                 [self scanPath:path];
             }

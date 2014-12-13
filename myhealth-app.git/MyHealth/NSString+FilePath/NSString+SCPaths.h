@@ -82,9 +82,12 @@
 
 + (BOOL)deleteFileAtPath:(NSString*)_path;
 +(NSMutableArray*)theDirectoryArray;
++(NSMutableArray*)loadDirectoriesOnly;
++(NSArray*)arrayOfFoldersInFolder:(NSString*)folder;
 
 + (void)scanPath:(NSString *) sPath;
-
++(NSMutableArray*)loadAllDirectoriesandFiles;
++(NSMutableArray*)getDirectoriesandFilesinFolder:(NSString*)dirPath;
 
 + (NSArray *) filesInFolder: (NSString *) path;
 

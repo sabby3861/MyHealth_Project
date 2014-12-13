@@ -11,11 +11,13 @@
 #import "MGSwipeButton.h"
 #import "DocumentsDatabase.h"
 #import "NSString+SCPaths.h"
+#import "ShareViewController.h"
 
 
 @interface MedicalDocumentsViewController ()
 {
     MedicalDocumentsCustomCell *cell;
+    
 }
 @end
 
@@ -28,6 +30,11 @@
     [self.tblView_medicalHistory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // Do any additional setup after loading the view.
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
+    
+    NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
+    NSMutableArray *theDocumentList=[[NSMutableArray alloc]init];
+    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
+    NSLog(@"The Doc Array is %@",theDocumentList);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +57,12 @@
         cell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_doctorspecial_middle.png"]];
     }
     cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]];
+    if ([[[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]pathExtension]length]>1) {
+        cell.mDocImageView.image=[UIImage imageNamed:@"icon_file.png"];
+    }
+    else{
+        cell.mDocImageView.image=[UIImage imageNamed:@"icon_doc.png"];
+    }
     return  cell;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -122,6 +135,7 @@
     
 }
 -(void)showMoreOption:(NSIndexPath*)theIndexPath{
+
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     //NSString *sharedDirectory=@"/Users/Shared";
@@ -133,10 +147,10 @@
     NSArray *listOfSubPaths=[fileManager subpathsOfDirectoryAtPath:sharedDirectory error:&error];
     if(!error)
         NSLog(@"Sub Paths of shared Direcotry :%@",listOfSubPaths);
-    
-    
     NSDictionary *currentDitionary = [fileManager attributesOfItemAtPath: sharedDirectory error: nil];
-    NSLog(@"Files are %@",currentDitionary);
+    NSLog(@"File attribute at path are %@",currentDitionary);
+    
+    
     NSFileManager *fileMgr;
     NSString *entry;
     NSString *documentsDir;
@@ -165,33 +179,95 @@
             NSLog (@"  File - %@", entry);
     }
     
-    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+ 
     
-   /* NSString* file1 = [documentsPath stringByAppendingPathComponent:@"Private Documents"];
-                       
-    NSURL *dirURL=[NSURL URLWithString:file1];
+    
+    NSURL* dirURL = [[[fileMgr URLsForDirectory:NSLibraryDirectory
+                               inDomains:NSUserDomainMask] objectAtIndex:0]
+                   URLByAppendingPathComponent:@"Private Documents"];
     NSArray *contentOfMyFolder = [[NSFileManager defaultManager]
                                   contentsOfDirectoryAtURL:dirURL
-                                  includingPropertiesForKeys:@[NSURLContentModificationDateKey, NSURLLocalizedNameKey]
+                                  includingPropertiesForKeys:@[NSURLContentModificationDateKey, NSURLLocalizedNameKey,NSURLIsDirectoryKey]
                                   options:NSDirectoryEnumerationSkipsHiddenFiles
                                   error:nil];
+    //int count=0;
     for (NSURL *item in contentOfMyFolder) {
         NSNumber *isDir;
         NSError *error;
+        /*NSString *fileName = [contentOfMyFolder objectAtIndex:count];
+        NSLog(@"File Name is %@",fileName);
+        count++;*/
+        NSString *fileName;
+        [item getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
+        NSLog(@"fileName %@", fileName);
+        
+        
+            
         if ([item getResourceValue:&isDir forKey:NSURLIsDirectoryKey error:&error]) {
             if ([isDir boolValue]) {
                 NSLog(@"%@ is a directory", item);
             } else {
                 NSLog(@"%@ is a file", item);
             }
+            NSString* filename = [item lastPathComponent];
+            NSLog(@"Main Name is %@ ", filename);
+            
         } else {
             NSLog(@"error: %@", error);
         }
     }
-    */
     
+    NSMutableArray *array= [NSString loadAllDirectoriesandFiles];
+    NSLog(@"array is %@",array);
+    [self arrayOfFoldersInFolder:[NSString getLibraryPath]];
+    //ShowAlertViewWithMessage(@"More Options", nil);
+    ShowOptionsSheet(self);
     
-    ShowAlertViewWithMessage(@"More Options", nil);
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheeet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+   
+    if(buttonIndex == 0){
+        
+        UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ShareViewController *shareVC = [stroryboard instantiateViewControllerWithIdentifier:@"ShareViewController"];
+        //[self.navigationController pushViewController:viewCtrl animated:YES];
+        [self presentViewController:shareVC animated:YES completion:nil];
+
+        
+    } else if (buttonIndex == 1){
+        
+        
+    } else {
+        
+        [actionSheeet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }
+}
+
+
+-(NSArray*)arrayOfFoldersInFolder:(NSString*) folder {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray* files = [fm contentsOfDirectoryAtPath:folder error:nil];
+    NSMutableArray *directoryList = [NSMutableArray arrayWithCapacity:10];
+    
+    for(NSString *file in files) {
+        NSString *path = [folder stringByAppendingPathComponent:file];
+        BOOL isDir = NO;
+        [fm fileExistsAtPath:path isDirectory:(&isDir)];
+        if(isDir) {
+            [directoryList addObject:file];
+        }
+    }
+    NSLog(@"Folders are %@",directoryList);
+    return directoryList;
+}
+
+UIKIT_STATIC_INLINE UIActionSheet * ShowOptionsSheet(id delegate){
+    UIActionSheet *theOptionsSheet = [[UIActionSheet alloc] initWithTitle:@"MyHealth" delegate:delegate cancelButtonTitle:@"Cancel" destructiveButtonTitle:([UIScreen mainScreen].bounds.size.height <= 568 ?nil:@"Cancel") otherButtonTitles:@"Move",@"Share", nil];
+    __weak MedicalDocumentsViewController *selfObject=delegate;
+    [theOptionsSheet showInView:[selfObject.view window]];
+    return theOptionsSheet;
 }
 
 UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id delegate){

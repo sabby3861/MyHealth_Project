@@ -58,7 +58,12 @@
             ScaryBugDoc *doc = [[ScaryBugDoc alloc] initWithDocPath:fullPath];
             [retval addObject:doc];
         }*/
-        [retval addObject:file];
+        if([file hasPrefix:@"."]) {
+            //The file is hidden
+        }
+        else
+            [retval addObject:file];
+        
         NSLog(@"Files in folders are %@",file);
     }
     

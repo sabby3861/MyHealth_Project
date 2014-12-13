@@ -26,6 +26,7 @@
     UIImagePickerController *picker;
     NSData *imageData;
     NSString *imageName;
+    __block NSString *theImageName;
     
     CustomIOS7AlertView *customAlert;
     CustomIOS7AlertView *addFilesAlert;
@@ -52,7 +53,7 @@
     
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = [NSString getLibraryPath];//[paths objectAtIndex:0];
     NSError * error;
     directoryContents =  [[NSFileManager defaultManager]
                           contentsOfDirectoryAtPath:documentsDirectory error:&error];
@@ -75,6 +76,8 @@
     NSLog(@"Sub directories are %@",filePathsArray);
     /**************  Test *********************/
     NSLog(@"Documents are %@",[[DocumentsDatabase sharedInstance]loadMyHealthDocs]);
+    
+    
     
     
     
@@ -214,7 +217,7 @@
             
                 if (imageData) {
                     
-                    NSString *filePath = [dataPath stringByAppendingPathComponent:imageName];
+                    NSString *filePath = [dataPath stringByAppendingPathComponent:theImageName];
                     [imageData writeToFile:filePath atomically:YES];
                     
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Media added successfully." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -329,13 +332,16 @@
     tblView_paths.delegate = self;
     tblView_paths.dataSource = self;
     
-    
+    /*
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [NSString getLibraryPath];//[paths objectAtIndex:0];
+    NSString *documentsDirectory = [paths objectAtIndex:0];
     NSError * error;
     directoryContents =  [[NSFileManager defaultManager]
                           contentsOfDirectoryAtPath:documentsDirectory error:&error];
+    */
     
+    //NSString *documentsDirectory = [NSString getLibraryPath];
+    directoryContents= [NSString loadAllDirectoriesandFiles];
     NSLog(@"directoryContents ====== %@",directoryContents);
     [tblView_paths reloadData];
     
@@ -404,15 +410,15 @@
 
 // After picking the image dismiss the controller-->>
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-   /*
+   
     NSURL *assetURL = [editingInfo objectForKey:UIImagePickerControllerReferenceURL];
-    __block NSString *fileName = nil;
+    theImageName = nil;
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:assetURL resultBlock:^(ALAsset *asset)  {
-        fileName = asset.defaultRepresentation.filename;
-        NSLog(@"File Name is %@",fileName);
+        theImageName = asset.defaultRepresentation.filename;
+        NSLog(@"imageName File Name is %@",theImageName);
     } failureBlock:nil];
-    */
+    
     NSURL *imagePath = [editingInfo objectForKey:@"UIImagePickerControllerReferenceURL"];
     imageName = [imagePath lastPathComponent];
     NSLog(@"imageName Name is %@",imageName);

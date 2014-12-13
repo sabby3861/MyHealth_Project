@@ -12,5 +12,6 @@
 @interface MedicalDocumentsCustomCell : MGSwipeTableCell
 
 @property (nonatomic, retain) IBOutlet UIImageView *imgView_bg;
+@property (nonatomic, retain) IBOutlet UIImageView *mDocImageView;
 @property (nonatomic, retain) IBOutlet UILabel *theFolderName;
 @end
