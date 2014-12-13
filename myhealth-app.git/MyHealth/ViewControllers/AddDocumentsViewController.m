@@ -42,7 +42,7 @@
     while (file = [dirEnum nextObject]) [results addObject:file];
     CFShow((__bridge CFTypeRef)(results));
     
-    NSLog(@"Directories are %@",[NSString theDirectoryArray]);
+    NSLog(@"The Directories are %@",[NSString theDirectoryArray]);
     
     NSLog(@"Files in folders are %@",[NSString filesInFolder:[NSString stringWithFormat:@"%@/Test",[NSString getLibraryPath]]]);
     
