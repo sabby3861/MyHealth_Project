@@ -14,4 +14,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *lbl_title;
 @property (nonatomic, retain) IBOutlet UITableView *tblView_medicalHistory;
 @property (nonatomic, retain) IBOutlet UIButton *btn_back;
+@property (nonatomic, weak) IBOutlet UILabel *mTitle;
+@property (nonatomic, weak) IBOutlet UITextField *mSearchField;
+@property (nonatomic, strong) NSString *mPathSuffix;
 @end

@@ -19,6 +19,8 @@
 @interface MedicalDocumentsViewController ()
 {
     MedicalDocumentsCustomCell *cell;
+    NSMutableArray *theDocumentList;
+    NSMutableArray *filteredArray;
     
 }
 @end
@@ -32,11 +34,23 @@
     [self.tblView_medicalHistory setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     // Do any additional setup after loading the view.
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Search documents..." attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:63.0/255.0 green:170.0/255.0 blue:247/255.0 alpha:1] }];
+    self.mSearchField.attributedPlaceholder = str;
     
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
-    NSMutableArray *theDocumentList=[[NSMutableArray alloc]init];
-    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
+    theDocumentList=[[NSMutableArray alloc]init];
+    //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
+    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+    filteredArray=[[NSMutableArray alloc]init];
+
+    [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];
     NSLog(@"The Doc Array is %@",theDocumentList);
+    NSLog(@"filteredArray Array is %@",filteredArray);
+     NSLog(@"The Doc Array at index 0 %@",[theDocumentList objectAtIndex:0]);
+    
+    /** Adding Original Values to Filtered Array for search **/
+    theDocumentList=[theDocumentList objectAtIndex:0];
+    self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,8 +72,12 @@
         
         cell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_doctorspecial_middle.png"]];
     }
-    cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]];
-    if ([[[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]pathExtension]length]>1) {
+    NSLog(@"Value at index is %@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]);
+    //cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]];
+    cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]];
+    
+    //if ([[[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]pathExtension]length]>1) {
+    if ([[[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]pathExtension]length]>1) {
         cell.mDocImageView.image=[UIImage imageNamed:@"icon_file.png"];
     }
     else{
@@ -69,13 +87,34 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[DocumentsDatabase sharedInstance]loadMyHealthDocs]count];// 20;
+    //return [[[DocumentsDatabase sharedInstance]loadMyHealthDocs]count];// 20;
+    return [theDocumentList count];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 64;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath == nil)
+        return;
+    self.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+    if ([self.theDocumentsCount count] == 0) {
+        // Do nothing, there are no items in the list. We don't want to download a file that doesn't exist (that'd cause a crash)
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    } else {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MedicalDocumentsViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
+    viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
+    viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+    NSLog(@"path extension is %@",self.mPathSuffix);
+    [self.navigationController pushViewController:viewCrtl animated:YES];
+    }
+}
+
+-(NSMutableArray*)theDocumentsCount{
+    return [NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]];
+}
 #pragma mark -  MGSwipeTableCell Delegate
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
@@ -136,6 +175,119 @@
     [self.tblView_medicalHistory reloadData];
     
 }
+
+-(void)filterDataWithSegmentValueChanged:(NSString*)theValue{
+    NSPredicate *predicate1 =[NSComparisonPredicate predicateWithLeftExpression:[NSExpression expressionForKeyPath:@"MeasureCategory"]
+                                                                rightExpression:[NSExpression expressionForConstantValue:theValue]
+                                                                       modifier:NSDirectPredicateModifier
+                                                                           type:NSEqualToPredicateOperatorType
+                                                                        options:0];
+    
+    //NSArray *result = [self.unfilteredMetricsDataSource filteredArrayUsingPredicate:predicate1];
+    //[theDocumentList addObjectsFromArray:result];
+  
+}
+
+
+#pragma mark  -  TextField Delegate Methods -
+- (void)textFieldDidBeginEditing:(UITextField *)textField{
+    
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+    [searchBar resignFirstResponder];
+    searchBar.showsCancelButton=NO;
+    
+    [theDocumentList removeAllObjects];
+    [theDocumentList addObjectsFromArray:filteredArray];
+    @try{
+        [self.tblView_medicalHistory reloadData];
+    }
+    @catch(NSException *e){
+        
+    }
+    //    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+    
+    
+}
+
+BOOL isFiltered;
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    [theDocumentList  removeAllObjects];// remove all data that belongs to previous search
+    if([textField.text isEqualToString:@""]||textField.text==nil){
+        [theDocumentList addObjectsFromArray:filteredArray];
+        [self.tblView_medicalHistory  reloadData];
+        return YES;
+    }
+    
+    NSInteger counter = 0;
+    for(NSDictionary *name in filteredArray)
+    {
+        NSString *searchStr=[NSString stringWithFormat:@"%@",[name objectForKey:@"name"]];
+        NSRange nameRange = [searchStr rangeOfString:textField.text options:NSCaseInsensitiveSearch];
+        if (nameRange.location != NSNotFound) {
+            [theDocumentList addObject:name];
+        }
+        else{
+            
+        }
+        
+        counter++;
+    }
+    [self.tblView_medicalHistory  reloadData];
+    return YES;
+    /*
+    if(textField.text.length == 0)
+    {
+        isFiltered = FALSE;
+    }
+    else
+    {
+        isFiltered = true;
+        filteredTableData = [[NSMutableArray alloc] init];
+        
+        for (NSDictionary* fileName in theDocumentList)
+        {
+            NSRange nameRange = [[fileName valueForKey:@"name"] rangeOfString:textField.text options:NSCaseInsensitiveSearch];
+            NSRange descriptionRange = [[fileName valueForKey:@"name"] rangeOfString:textField.text options:NSCaseInsensitiveSearch];
+            if(nameRange.location != NSNotFound || descriptionRange.location != NSNotFound)
+            {
+                [filteredTableData addObject:fileName];
+            }
+        }
+    }
+    NSLog(@"filtered array is %@",filteredTableData);
+    [self.tblView_medicalHistory reloadData];
+    return YES;*/
+}
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [theDocumentList removeAllObjects];
+    [theDocumentList addObjectsFromArray:filteredArray];
+    @try{
+        [self.tblView_medicalHistory reloadData];
+    }
+    @catch(NSException *e){
+        
+    }
+    //    [searchBar resignFirstResponder];
+    textField.text=@"";
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+
 -(void)showMoreOption:(NSIndexPath*)theIndexPath{
 
     

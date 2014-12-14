@@ -47,7 +47,7 @@
     
     NSLog(@"The Directories are %@",[NSString theDirectoryArray]);
     
-    NSLog(@"Files in folders are %@",[NSString filesInFolder:[NSString stringWithFormat:@"%@/Test",[NSString getLibraryPath]]]);
+    NSLog(@"Files in folders are %@",[NSString filesInFolder:[NSString stringWithFormat:@"%@",[NSString getLibraryPath]]]);
     
     [NSString scanPath:[NSString getLibraryPath]];
     

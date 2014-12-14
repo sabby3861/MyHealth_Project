@@ -225,6 +225,7 @@
                                                                         error:NULL];
     __block NSMutableDictionary *theDirList;// = [[NSMutableDictionary alloc] init];
     __block NSMutableArray *theDirArray = [[NSMutableArray alloc] init];
+    __block NSUInteger count=0;
     [dirs enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSString *filename = (NSString *)obj;
         NSString *extension = [[filename pathExtension] lowercaseString];
@@ -235,8 +236,15 @@
             NSString *key= extension.length>1 ? @"file" :@"directory";
             theDirList = [[NSMutableDictionary alloc] init];
             //[theDirList setValue:filename forKey:key];
-            theDirList[key]=filename;
-            [theDirArray addObject:theDirList];
+            theDirList[@"type"]=key;
+            theDirList[@"name"]=filename;
+            NSString *path = [dirPath stringByAppendingFormat:@"%@%@",@"/",filename];
+            theDirList[@"Path"]=path;
+            //theDirArray[count]=theDirList;
+            [theDirArray insertObject:theDirList atIndex:count];
+            count++;
+
+            
             NSLog(@"The theDirArray \n\n%@",theDirArray);
             NSLog(@"The theDirList \n\n%@",theDirList);
         }
