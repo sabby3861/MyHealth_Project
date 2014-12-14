@@ -38,22 +38,27 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Search documents..." attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:63.0/255.0 green:170.0/255.0 blue:247/255.0 alpha:1] }];
     self.mSearchField.attributedPlaceholder = str;
     
+   
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
     //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
     [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
     filteredArray=[[NSMutableArray alloc]init];
-
+    
     [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];
     NSLog(@"The Doc Array is %@",theDocumentList);
     NSLog(@"filteredArray Array is %@",filteredArray);
-     NSLog(@"The Doc Array at index 0 %@",[theDocumentList objectAtIndex:0]);
+    NSLog(@"The Doc Array at index 0 %@",[theDocumentList objectAtIndex:0]);
     
     /** Adding Original Values to Filtered Array for search **/
     theDocumentList=[theDocumentList objectAtIndex:0];
     self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
+    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -104,12 +109,12 @@
         // Do nothing, there are no items in the list. We don't want to download a file that doesn't exist (that'd cause a crash)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MedicalDocumentsViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
-    viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
-    viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
-    NSLog(@"path extension is %@",self.mPathSuffix);
-    [self.navigationController pushViewController:viewCrtl animated:YES];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MedicalDocumentsViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
+        viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
+        viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+        NSLog(@"path extension is %@",self.mPathSuffix);
+        [self.navigationController pushViewController:viewCrtl animated:YES];
     }
 }
 
@@ -173,6 +178,13 @@
     ShowAlertViewWithMessage(@"Deleted", nil);
     //[NSString deleteFileAtPath:[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:theIndexPath.row]];
     [NSString deleteFileAtPath:[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]];
+    
+    /*** Added these lines, to update the datasource ***/
+    /*[filteredArray removeAllObjects];
+    [theDocumentList removeAllObjects];
+    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+    [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];*/
+    /*** Added these lines, to update the datasource ***/
     [self.tblView_medicalHistory reloadData];
     
 }
