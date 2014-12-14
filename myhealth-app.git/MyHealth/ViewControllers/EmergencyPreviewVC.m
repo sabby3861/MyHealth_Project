@@ -17,12 +17,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"emergencyDict"]) {
         
         emergencyDict = [[[NSUserDefaults standardUserDefaults] valueForKey:@"emergencyDict"] mutableCopy];
         emergencyLabelDict = [[[NSUserDefaults standardUserDefaults] valueForKey:@"emergencyLabelDict"] mutableCopy];
         [self emergencyField];
-       
+        
     }
 }
 
