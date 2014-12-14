@@ -15,6 +15,9 @@
 @implementation EmergencyViewController
 {
     NSMutableDictionary *statusDict;
+    NSMutableDictionary *emergencyDict;
+    NSMutableDictionary *emergencyLabelDict;
+
     UIColor *placeholdercolor;
 }
 - (void)viewDidLoad {
@@ -23,13 +26,20 @@
     
     if ([[NSUserDefaults standardUserDefaults] valueForKey:@"statusDict"]) {
         statusDict = [[[NSUserDefaults standardUserDefaults] valueForKey:@"statusDict"] mutableCopy];
+        emergencyDict = [[[NSUserDefaults standardUserDefaults] valueForKey:@"emergencyDict"] mutableCopy];
+        emergencyLabelDict = [[[NSUserDefaults standardUserDefaults] valueForKey:@"emergencyLabelDict"] mutableCopy];
+
     }else{
         statusDict = [[NSMutableDictionary alloc] init];
+        emergencyDict = [[NSMutableDictionary alloc] init];
+        emergencyLabelDict = [[NSMutableDictionary alloc] init];
+
         for (int i = 101; i<107; i++) {
             [statusDict setObject:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%d",i]];
         }
      
     }
+    
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     // Do any additional setup after loading the view.
     [self setEmergencyBtnStatus];
@@ -69,6 +79,25 @@
     else
         [self.emergencyButton setSelected:NO];
 
+    
+    if ([emergencyDict objectForKey:@"name"])
+        [self.nameTextField setText:[emergencyDict valueForKey:@"name"]];
+    
+    if ([emergencyDict objectForKey:@"address"])
+        [self.addressTextField setText:[emergencyDict valueForKey:@"address"]];
+
+    if ([emergencyDict objectForKey:@"phone"])
+        [self.phoneTextField setText:[emergencyDict valueForKey:@"phone"]];
+
+    if ([emergencyDict objectForKey:@"ssn"])
+        [self.ssnTextField setText:[emergencyDict valueForKey:@"ssn"]];
+
+    if ([emergencyDict objectForKey:@"dob"])
+        [self.dobTextField setText:[emergencyDict valueForKey:@"dob"]];
+    
+    if ([emergencyDict objectForKey:@"emergency"])
+        [self.emergencyTextField setText:[emergencyDict valueForKey:@"emergency"]];
+
 }
 
 #pragma setPlaceholderText
@@ -104,22 +133,88 @@
 #pragma done by parvind
 
 - (IBAction)emergencyBtnClicked:(UIButton *)sender {
-    if (sender.tag == 107)
+    if (sender.tag == 107){
+        [self performSegueWithIdentifier:@"emerg_prev" sender:self];
         return;
-    
-    if (sender.selected){
-        [statusDict setObject:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-        [sender setSelected:NO];
-    } else {
-        [statusDict setObject:[NSNumber numberWithBool:YES] forKey:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
-        [sender setSelected:YES];
+
     }
     
-    NSLog(@"%@",statusDict);
+    if (sender.selected){
+        
+        [statusDict setObject:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+        [sender setSelected:NO];
+
+        if (sender.tag == 101) {
+            [emergencyDict removeObjectForKey:@"name"];
+            [emergencyLabelDict removeObjectForKey:@"namelabel"];
+
+        }else if (sender.tag == 102) {
+            [emergencyDict removeObjectForKey:@"address"];
+            [emergencyLabelDict removeObjectForKey:@"addresslabel"];
+
+        }else if (sender.tag == 103) {
+            [emergencyDict removeObjectForKey:@"phone"];
+            [emergencyLabelDict removeObjectForKey:@"phonelabel"];
+
+        }else if (sender.tag == 104) {
+            [emergencyDict removeObjectForKey:@"ssn"];
+            [emergencyLabelDict removeObjectForKey:@"ssnlabel"];
+
+        }else if (sender.tag == 105) {
+            [emergencyDict removeObjectForKey:@"dob"];
+            [emergencyLabelDict removeObjectForKey:@"doblabel"];
+
+        }else if (sender.tag == 106) {
+            [emergencyDict removeObjectForKey:@"emergency"];
+            [emergencyLabelDict removeObjectForKey:@"emergencylabel"];
+
+        }
+
+       
+    } else {
+        
+        if ([emergencyDict count]>3) {
+            return;
+        }else {
+            [statusDict setObject:[NSNumber numberWithBool:YES] forKey:[NSString stringWithFormat:@"%ld",(long)sender.tag]];
+            [sender setSelected:YES];
+            
+            if (sender.tag == 101) {
+                [emergencyDict setObject:self.nameTextField.text forKey:@"name"];
+                [emergencyLabelDict setObject:@"Name" forKey:@"namelabel"];
+            }else if (sender.tag == 102) {
+                [emergencyDict setObject:self.addressTextField.text forKey:@"address"];
+                [emergencyLabelDict setObject:@"Address" forKey:@"addresslabel"];
+
+            }else if (sender.tag == 103) {
+                [emergencyDict setObject:self.phoneTextField.text forKey:@"phone"];
+                [emergencyLabelDict setObject:@"Phone number" forKey:@"phonelabel"];
+
+            }else if (sender.tag == 104) {
+                [emergencyDict setObject:self.ssnTextField.text forKey:@"ssn"];
+                [emergencyLabelDict setObject:@"Social security number" forKey:@"ssnlabel"];
+
+            }else if (sender.tag == 105) {
+                [emergencyDict setObject:self.dobTextField.text forKey:@"dob"];
+                [emergencyLabelDict setObject:@"DOB" forKey:@"doblabel"];
+
+            }else if (sender.tag == 106) {
+                [emergencyDict setObject:self.emergencyTextField.text forKey:@"emergency"];
+                [emergencyLabelDict setObject:@"Emergency contact number" forKey:@"emergencylabel"];
+
+            }
+        }
+        
+    }
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
+    [[NSUserDefaults standardUserDefaults] setObject:emergencyDict forKey:@"emergencyDict"];
     [[NSUserDefaults standardUserDefaults] setObject:statusDict forKey:@"statusDict"];
+
+    [[NSUserDefaults standardUserDefaults] setObject:emergencyLabelDict forKey:@"emergencyLabelDict"];
+
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

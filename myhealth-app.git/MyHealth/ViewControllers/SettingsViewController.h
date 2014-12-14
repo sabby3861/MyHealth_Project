@@ -10,4 +10,6 @@
 #import "UIButton+Extentions.h"
 @interface SettingsViewController : UIViewController
 @property (nonatomic, retain) IBOutlet UIButton *btn_back;
+@property (nonatomic, retain) IBOutlet UIButton *termsBtn;
+- (IBAction)termsBtnClicked:(id)sender;
 @end

@@ -63,9 +63,11 @@
 		25BB175E1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */; };
 		25BE81C41A369B6500B412AD /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BE81C31A369B6500B412AD /* LiveSDK.framework */; };
 		2FF3A13AC64BF7A56E1B2BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5E22FBDC5BFD208D8D52 /* libPods.a */; };
+		511D65861A3CD1E3003C5BF6 /* EmergencyPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 511D65851A3CD1E3003C5BF6 /* EmergencyPreviewVC.m */; };
 		513E49401A39827F00038F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513E493F1A39827F00038F6D /* Main.storyboard */; };
 		513E49431A39829F00038F6D /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513E49421A39829F00038F6D /* RegistrationViewController.m */; };
 		513E49461A3982C400038F6D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 513E49451A3982C400038F6D /* LoginViewController.m */; };
+		51EA478A1A3DA3DA00F7759B /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51EA47891A3DA3DA00F7759B /* TermsViewController.m */; };
 		752644EC19F6060200B67525 /* DoctorProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 752644EA19F6060200B67525 /* DoctorProfileCustomCell.m */; };
 		752644ED19F6060200B67525 /* DoctorProfileCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752644EB19F6060200B67525 /* DoctorProfileCustomCell.xib */; };
 		752644EF19F608F900B67525 /* DoctorProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 752644EE19F608F900B67525 /* DoctorProfileHeaderView.xib */; };
@@ -383,11 +385,15 @@
 		25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveAuthDialog_iPhone.xib; sourceTree = "<group>"; };
 		25BE81C31A369B6500B412AD /* LiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LiveSDK.framework; sourceTree = "<group>"; };
 		25CBD2A51A361B91005742E9 /* MyHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyHealth.entitlements; sourceTree = "<group>"; };
+		511D65841A3CD1E3003C5BF6 /* EmergencyPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyPreviewVC.h; sourceTree = "<group>"; };
+		511D65851A3CD1E3003C5BF6 /* EmergencyPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPreviewVC.m; sourceTree = "<group>"; };
 		513E493F1A39827F00038F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		513E49411A39829F00038F6D /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
 		513E49421A39829F00038F6D /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
 		513E49441A3982C400038F6D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		513E49451A3982C400038F6D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		51EA47881A3DA3DA00F7759B /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
+		51EA47891A3DA3DA00F7759B /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
 		752644E919F6060200B67525 /* DoctorProfileCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoctorProfileCustomCell.h; path = ../ViewControllers/DoctorProfileCustomCell.h; sourceTree = "<group>"; };
 		752644EA19F6060200B67525 /* DoctorProfileCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoctorProfileCustomCell.m; path = ../ViewControllers/DoctorProfileCustomCell.m; sourceTree = "<group>"; };
 		752644EB19F6060200B67525 /* DoctorProfileCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DoctorProfileCustomCell.xib; path = ../ViewControllers/DoctorProfileCustomCell.xib; sourceTree = "<group>"; };
@@ -952,6 +958,10 @@
 				75CBD3BC19FBA83100686774 /* SettingsViewController.m */,
 				75CBD3D319FBC3B100686774 /* EmergencyViewController.h */,
 				75CBD3D419FBC3B100686774 /* EmergencyViewController.m */,
+				511D65841A3CD1E3003C5BF6 /* EmergencyPreviewVC.h */,
+				511D65851A3CD1E3003C5BF6 /* EmergencyPreviewVC.m */,
+				51EA47881A3DA3DA00F7759B /* TermsViewController.h */,
+				51EA47891A3DA3DA00F7759B /* TermsViewController.m */,
 				7528483E19F237370016F54F /* HomeViewController.h */,
 				7528483F19F237370016F54F /* HomeViewController.m */,
 				75B91EE619F5602200FDA7F4 /* DoctorProfileViewController.h */,
@@ -1658,6 +1668,7 @@
 				25BB17271A37483F00CE80D2 /* GTLBase64.m in Sources */,
 				75B7B2F61A11332600038EDF /* UIButton+Extentions.m in Sources */,
 				25BB174B1A374A0E00CE80D2 /* SBJsonParser.m in Sources */,
+				51EA478A1A3DA3DA00F7759B /* TermsViewController.m in Sources */,
 				752848A519F2795B0016F54F /* DoctorHistoryViewController.m in Sources */,
 				75B91EE819F5602200FDA7F4 /* DoctorProfileViewController.m in Sources */,
 				25BB16F51A37470100CE80D2 /* GTLDriveChildReference.m in Sources */,
@@ -1666,6 +1677,7 @@
 				75A3D8FF1A0619960068D15E /* DoctorListing.m in Sources */,
 				25BB16FF1A37470100CE80D2 /* GTLQueryDrive.m in Sources */,
 				7593E87C1A07F15000E34F73 /* Patient.m in Sources */,
+				511D65861A3CD1E3003C5BF6 /* EmergencyPreviewVC.m in Sources */,
 				755875701A0C6A2000BDFE1C /* DoctorVisits.m in Sources */,
 				25BB173D1A3748F100CE80D2 /* GTMHTTPFetcherLogging.m in Sources */,
 				75CBD41019FC113200686774 /* GloblaSearchViewController.m in Sources */,

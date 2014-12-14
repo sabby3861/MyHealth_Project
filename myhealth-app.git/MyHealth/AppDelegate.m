@@ -13,7 +13,13 @@
 
 
 @implementation AppDelegate
-@synthesize patient = _patient;
+{
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+}
+
+@synthesize patient = _patient,locationManager = _locationManager;
+@synthesize currentaddress;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -35,6 +41,10 @@
     } else {
         NSLog(@"No iCloud access");
     }
+   _locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
+    
+    [self getCurrentLocation];
     return YES;
 }
 
@@ -179,5 +189,50 @@
         }
     }
 }
+
+- (void)getCurrentLocation {
+    _locationManager.delegate = self;
+    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [_locationManager startUpdatingLocation];
+}
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc]
+                               initWithTitle:@"Error" message:@"Failed to Get Your Location" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        //longitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.longitude];
+       // latitudeLabel.text = [NSString stringWithFormat:@"%.8f", currentLocation.coordinate.latitude];
+    }
+    
+    // Reverse Geocoding
+    NSLog(@"Resolving the Address");
+    
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        //NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            currentaddress = [NSString stringWithFormat:@"%@ %@,%@ %@,%@,%@",
+                                 placemark.subThoroughfare, placemark.thoroughfare,
+                                 placemark.postalCode, placemark.locality,
+                                 placemark.administrativeArea,
+                                 placemark.country];
+        } else {
+            NSLog(@"%@", error.debugDescription);
+        }
+    } ];
+}
+
 
 @end

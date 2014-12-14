@@ -16,11 +16,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *ssnTextField;
 @property (weak, nonatomic) IBOutlet UITextField *dobTextField;
 @property (weak, nonatomic) IBOutlet UITextField *emergencyTextField;
-- (IBAction)emergencyBtnClicked:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UIButton *nameButton;
 @property (weak, nonatomic) IBOutlet UIButton *addressButton;
 @property (weak, nonatomic) IBOutlet UIButton *phoneButton;
 @property (weak, nonatomic) IBOutlet UIButton *ssnButton;
 @property (weak, nonatomic) IBOutlet UIButton *dobButton;
 @property (weak, nonatomic) IBOutlet UIButton *emergencyButton;
+- (IBAction)emergencyBtnClicked:(UIButton *)sender;
+
 @end

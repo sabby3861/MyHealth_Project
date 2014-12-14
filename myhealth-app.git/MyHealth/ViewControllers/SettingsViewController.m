@@ -33,4 +33,8 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+- (IBAction)termsBtnClicked:(id)sender
+{
+    [self performSegueWithIdentifier:@"terms_vc" sender:self];
+}
 @end
