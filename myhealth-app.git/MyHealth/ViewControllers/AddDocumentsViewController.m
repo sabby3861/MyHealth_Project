@@ -271,10 +271,6 @@
             [mp3Files addObject:[documentsDirectory stringByAppendingPathComponent:filename]];
         }
     }];
-    
-    /*
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];*/
     NSArray *filePathsArray = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:documentsDirectory  error:nil];
     NSLog(@"Sub directories are %@",filePathsArray);
 }

@@ -8,11 +8,12 @@
 
 #import "JSONModel.h"
 #import "AllergyInfo.h"
-
+#import "AllergyStatus.h"
 @protocol Allergies <NSObject>
 
 @end
 @interface Allergies : JSONModel
-
-@property (nonatomic, retain) NSMutableArray <AllergyInfo> *eachFiled;
+@property (nonatomic, retain) NSMutableArray  *eachFiled;
+@property (nonatomic, retain) AllergyStatus  *allergyStatus;
++(Allergies*)fromDictionary:(NSDictionary*)dictionary;
 @end

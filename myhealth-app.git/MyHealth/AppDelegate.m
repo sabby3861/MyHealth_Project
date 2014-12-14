@@ -48,6 +48,35 @@
     return YES;
 }
 
+/**
+  *  Class Method Implementation to get the Application Delegate Object.
+  *  It will return shared application delegate.
+  *  You don't need to wirte this everytime, just access it with the class name.
+  * .@param nil
+  **/
++(AppDelegate*)sharedAppDelegate{
+    return (AppDelegate*)[[UIApplication sharedApplication]delegate];
+}
+/**
+  *  Method Implementation to get the rootviewcontroller.
+  *  It will return you UINavigation controller Object.
+  *  You can then use this to Push and Pop to ViewControllers
+  * .@param nil
+  **/
+-(UINavigationController*)theRootNavigationController{
+    return (UINavigationController*) self.window.rootViewController;
+}
+
+/**
+  *  Method Implementation to get the Main StoryBoard Object.
+  *  It will return you the main storyboard Object.
+  *  You can then use this to load any scene from segue
+  * .@param nil
+  **/
+-(UIStoryboard*)theMainStoryBoard{
+    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

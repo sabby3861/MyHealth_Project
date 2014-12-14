@@ -12,7 +12,6 @@
 
 @end
 @interface AllergyStatus : JSONModel
-
 @property (nonatomic, retain) NSString *yesNo;
-
++(AllergyStatus*)getObject:(NSDictionary*)dictionary;
 @end

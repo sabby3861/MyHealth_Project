@@ -14,13 +14,17 @@
 #import "PatientPresentHealth.h"
 #import "PatientPastHistroy.h"
 #import "Medication.h"
+#import "DoctorVisits.h"
 @interface MedicalHistory : JSONModel
+@property (nonatomic, retain) AdditionalInfo *additionalQuestion;
+@property (nonatomic, retain) DoctorVisits *doctorVisits;
+@property (nonatomic, retain) Medication *medication;
 
 @property (nonatomic, retain) GeneralInfo *info;
-@property (nonatomic, retain) GeneralQuestions *questions;
-@property (nonatomic, retain) Medication *medication;
-@property (nonatomic, retain) AdditionalInfo *additionalInfo;
-@property (nonatomic, retain) PatientPresentHealth *patientPresentHealth;
+@property (nonatomic, retain) GeneralQuestions *patientGeneralQuestion;
 @property (nonatomic, retain) FamilyIllness *patientFamilyIllness;
+
+@property (nonatomic, retain) PatientPresentHealth *patientPresentHealth;
 @property (nonatomic, retain) PatientPastHistroy *patientPastHistory;
++(MedicalHistory*)fromDictionary:(NSDictionary*)dictionary;
 @end

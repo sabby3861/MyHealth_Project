@@ -9,5 +9,10 @@
 #import "AllergyStatus.h"
 
 @implementation AllergyStatus
-
++(AllergyStatus*)getObject:(NSDictionary*)dictionary
+{
+    AllergyStatus *allergyStatus = [[AllergyStatus alloc] init];
+    allergyStatus.yesNo=[dictionary objectForKey:@"yesNo"];
+    return allergyStatus;
+}
 @end

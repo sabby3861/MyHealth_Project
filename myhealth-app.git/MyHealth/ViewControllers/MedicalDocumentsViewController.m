@@ -12,6 +12,7 @@
 #import "DocumentsDatabase.h"
 #import "NSString+SCPaths.h"
 #import "ShareViewController.h"
+#import "AppDelegate.h"
 
 
 #define ShareViewControllerSI @"ShareViewController"
@@ -375,8 +376,18 @@ BOOL isFiltered;
     NSLog(@"array is %@",array);
     [self arrayOfFoldersInFolder:[NSString getLibraryPath]];
     //ShowAlertViewWithMessage(@"More Options", nil);
+    NSLog(@"theDocumentList is %@",[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]);
+    UIImage *theDocImage=[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
+    NSLog(@"Image object is %@",theDocImage);
+    [[AppDelegate sharedAppDelegate]setTheDocImage:[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]]];
     ShowOptionsSheet(self);
     
+}
+
+-(UIImage*)theDocumentImageAtPath:(NSString*)filePath{
+    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
+    UIImage *image = [UIImage imageWithData:pngData];
+    return image;
 }
 
 -(void)actionSheet:(UIActionSheet *)actionSheeet clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -390,8 +401,8 @@ BOOL isFiltered;
     } else if (buttonIndex == 1){
         UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ShareViewController *shareVC = [stroryboard instantiateViewControllerWithIdentifier:ShareViewControllerSI];
-        //[self.navigationController pushViewController:viewCtrl animated:YES];
-        [self presentViewController:shareVC animated:YES completion:nil];
+        [self.navigationController pushViewController:shareVC animated:YES];
+        //[self.navigationController presentViewController:shareVC animated:YES completion:nil];
         
     } else {
         

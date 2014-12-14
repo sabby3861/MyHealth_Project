@@ -21,10 +21,36 @@
 @property (nonatomic, strong) Patient *patient;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSString *currentaddress;
-
+@property (strong, nonatomic) UIImage *theDocImage;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 -(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI;
+
+
+
+/**
+  *  Class Method to get the Application Delegate Object.
+  *  This delegate is shared among all classes.
+  * .@param nil
+  **/
++(AppDelegate*)sharedAppDelegate;
+
+-(NSString*)mSetDateFormat:(NSString*)dateToBeConverted;
+
+
+/**
+  *  Method to get the rootviewcontroller.
+  *  You will get the rootviewcontroller of window at any time you call this.
+  * .@param nil
+  **/
+-(UINavigationController*)theRootNavigationController;
+
+/**
+  *  Method Declaration to get the Main StoryBoard Object.
+  *  It will return you the UIStoryboard Object.
+  * .@param nil
+  **/
+-(UIStoryboard*)theMainStoryBoard;
 
 @end
 

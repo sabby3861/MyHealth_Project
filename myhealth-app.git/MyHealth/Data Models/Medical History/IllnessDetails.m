@@ -9,14 +9,11 @@
 #import "IllnessDetails.h"
 
 @implementation IllnessDetails
-
--(id)init
++(IllnessDetails*)fromDictionary:(NSDictionary*)dictionary
 {
-    self = [super init];
-    if (self) {
-        
-        self.who = (id)[SufferingMembers new];
-    }
-    return self;
+    IllnessDetails *illnessDetails = [[IllnessDetails alloc] init];
+    illnessDetails.answer=dictionary[@"answer"];
+    illnessDetails.who = (id)[SufferingMembers fromDictionary:dictionary[@"who"]];
+    return illnessDetails;
 }
 @end

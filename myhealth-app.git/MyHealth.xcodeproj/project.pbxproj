@@ -7,6 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182CB5B61A3E293200BD7C70 /* MedicalHistoryCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5B41A3E293200BD7C70 /* MedicalHistoryCustomCell.m */; };
+		182CB5B71A3E293200BD7C70 /* MedicalHistoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 182CB5B51A3E293200BD7C70 /* MedicalHistoryCustomCell.xib */; };
+		182CB5E11A3E2A7D00BD7C70 /* AdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5BA1A3E2A7D00BD7C70 /* AdditionalInfo.m */; };
+		182CB5E21A3E2A7D00BD7C70 /* AdditionalQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5BC1A3E2A7D00BD7C70 /* AdditionalQuestions.m */; };
+		182CB5E31A3E2A7D00BD7C70 /* Allergies.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5BE1A3E2A7D00BD7C70 /* Allergies.m */; };
+		182CB5E41A3E2A7D00BD7C70 /* AllergyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5C01A3E2A7D00BD7C70 /* AllergyInfo.m */; };
+		182CB5E51A3E2A7D00BD7C70 /* AllergyStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5C21A3E2A7D00BD7C70 /* AllergyStatus.m */; };
+		182CB5E61A3E2A7D00BD7C70 /* DoctorVisitDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5C41A3E2A7D00BD7C70 /* DoctorVisitDetail.m */; };
+		182CB5E71A3E2A7D00BD7C70 /* DoctorVisits.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5C61A3E2A7D00BD7C70 /* DoctorVisits.m */; };
+		182CB5E81A3E2A7D00BD7C70 /* FamilyIllness.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5C81A3E2A7D00BD7C70 /* FamilyIllness.m */; };
+		182CB5E91A3E2A7D00BD7C70 /* GeneralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5CA1A3E2A7D00BD7C70 /* GeneralInfo.m */; };
+		182CB5EA1A3E2A7D00BD7C70 /* GeneralQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5CC1A3E2A7D00BD7C70 /* GeneralQuestions.m */; };
+		182CB5EB1A3E2A7D00BD7C70 /* IllnessDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5CE1A3E2A7D00BD7C70 /* IllnessDetails.m */; };
+		182CB5EC1A3E2A7D00BD7C70 /* IllnessType.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5D01A3E2A7D00BD7C70 /* IllnessType.m */; };
+		182CB5ED1A3E2A7D00BD7C70 /* MedicalDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5D21A3E2A7D00BD7C70 /* MedicalDetails.m */; };
+		182CB5EE1A3E2A7D00BD7C70 /* MedicalHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5D41A3E2A7D00BD7C70 /* MedicalHistory.m */; };
+		182CB5EF1A3E2A7D00BD7C70 /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5D61A3E2A7D00BD7C70 /* Medication.m */; };
+		182CB5F01A3E2A7D00BD7C70 /* MedicationSaveData.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5D81A3E2A7D00BD7C70 /* MedicationSaveData.m */; };
+		182CB5F11A3E2A7D00BD7C70 /* PastRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5DA1A3E2A7D00BD7C70 /* PastRecord.m */; };
+		182CB5F21A3E2A7D00BD7C70 /* PatientPastHistroy.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5DC1A3E2A7D00BD7C70 /* PatientPastHistroy.m */; };
+		182CB5F31A3E2A7D00BD7C70 /* PatientPresentHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5DE1A3E2A7D00BD7C70 /* PatientPresentHealth.m */; };
+		182CB5F41A3E2A7D00BD7C70 /* SufferingMembers.m in Sources */ = {isa = PBXBuildFile; fileRef = 182CB5E01A3E2A7D00BD7C70 /* SufferingMembers.m */; };
 		186A4FB51A3C49D500C72A8C /* NSString+SCPaths.m in Sources */ = {isa = PBXBuildFile; fileRef = 186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */; };
 		18A352641A3CAE4900C89CD7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */; };
 		18AE3ED51A3B7B9D00812658 /* DocumentsDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 18AE3ED41A3B7B9D00812658 /* DocumentsDatabase.m */; };
@@ -90,8 +112,6 @@
 		7528485B19F23CEA0016F54F /* icon_menuseparator_i5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7528485319F23CEA0016F54F /* icon_menuseparator_i5@2x.png */; };
 		7528485D19F23CEA0016F54F /* icon_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7528485519F23CEA0016F54F /* icon_settings@2x.png */; };
 		7528486019F243000016F54F /* MedicalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528485F19F243000016F54F /* MedicalHistoryViewController.m */; };
-		7528486619F2498C0016F54F /* MedicalHistoryCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528486419F2498C0016F54F /* MedicalHistoryCustomCell.m */; };
-		7528486719F2498C0016F54F /* MedicalHistoryCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7528486519F2498C0016F54F /* MedicalHistoryCustomCell.xib */; };
 		7528486A19F24E180016F54F /* icon_doctorspecial_middle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7528486919F24E180016F54F /* icon_doctorspecial_middle@2x.png */; };
 		7528487719F26D660016F54F /* button_commentnote@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7528486B19F26D660016F54F /* button_commentnote@2x.png */; };
 		7528487919F26D660016F54F /* button_pleaserate_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7528486D19F26D660016F54F /* button_pleaserate_full@2x.png */; };
@@ -139,8 +159,6 @@
 		752848D719F2B83C0016F54F /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752848CF19F2B83C0016F54F /* Icon-60@2x.png */; };
 		752848D819F2B83C0016F54F /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 752848D019F2B83C0016F54F /* Icon.png */; };
 		752848D919F2B83C0016F54F /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 752848D119F2B83C0016F54F /* Icon@2x.png */; };
-		7558756D1A0C681700BDFE1C /* Medication.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558756C1A0C681700BDFE1C /* Medication.m */; };
-		755875701A0C6A2000BDFE1C /* DoctorVisits.m in Sources */ = {isa = PBXBuildFile; fileRef = 7558756F1A0C6A2000BDFE1C /* DoctorVisits.m */; };
 		75898BFF1A03EACD0026C6A2 /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 75898BFE1A03EACD0026C6A2 /* Connection.m */; };
 		75898C041A03EB190026C6A2 /* GlobalVariables.m in Sources */ = {isa = PBXBuildFile; fileRef = 75898C031A03EB190026C6A2 /* GlobalVariables.m */; };
 		7593E8791A07F0F600E34F73 /* PatientDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 7593E8781A07F0F600E34F73 /* PatientDetails.m */; };
@@ -152,15 +170,6 @@
 		75A3D8FF1A0619960068D15E /* DoctorListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A3D8FE1A0619960068D15E /* DoctorListing.m */; };
 		75A3D9021A063E3C0068D15E /* CommentListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A3D9011A063E3C0068D15E /* CommentListing.m */; };
 		75A3D9051A0651A50068D15E /* CustomIOS7AlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A3D9041A0651A50068D15E /* CustomIOS7AlertView.m */; };
-		75A807401A152A8A005210CE /* PatientPresentHealth.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8073F1A152A8A005210CE /* PatientPresentHealth.m */; };
-		75A807431A152D58005210CE /* PatientPastHistroy.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A807421A152D58005210CE /* PatientPastHistroy.m */; };
-		75A807461A152D72005210CE /* PastRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A807451A152D72005210CE /* PastRecord.m */; };
-		75A8074C1A1533BD005210CE /* Allergies.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8074B1A1533BD005210CE /* Allergies.m */; };
-		75A8074F1A1533E2005210CE /* AllergyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8074E1A1533E2005210CE /* AllergyInfo.m */; };
-		75A807521A1533F4005210CE /* AllergyStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A807511A1533F4005210CE /* AllergyStatus.m */; };
-		75A807551A153AE6005210CE /* SufferingMembers.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A807541A153AE6005210CE /* SufferingMembers.m */; };
-		75A807581A153B26005210CE /* IllnessDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A807571A153B26005210CE /* IllnessDetails.m */; };
-		75A8075B1A15403C005210CE /* IllnessType.m in Sources */ = {isa = PBXBuildFile; fileRef = 75A8075A1A15403C005210CE /* IllnessType.m */; };
 		75ADA07C19F6B88C00BA3E44 /* DoctorProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ADA07B19F6B88C00BA3E44 /* DoctorProfileHeaderView.m */; };
 		75ADA07F19F6B9AF00BA3E44 /* DoctorProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 75ADA07E19F6B9AF00BA3E44 /* DoctorProfileFooterView.m */; };
 		75ADA08119F6B9BE00BA3E44 /* DoctorProfileFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75ADA08019F6B9BE00BA3E44 /* DoctorProfileFooterView.xib */; };
@@ -214,12 +223,6 @@
 		75B5A2161A16254400C1ECCC /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A2151A16254400C1ECCC /* SyncViewController.m */; };
 		75B5A2181A163C0F00C1ECCC /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B5A2171A163C0F00C1ECCC /* DropboxSDK.framework */; };
 		75B7B2F61A11332600038EDF /* UIButton+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B7B2F51A11332600038EDF /* UIButton+Extentions.m */; };
-		75B808661A0BDFA400187A6B /* GeneralInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B808551A0BDFA400187A6B /* GeneralInfo.m */; };
-		75B808681A0BDFA400187A6B /* GeneralQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B808591A0BDFA400187A6B /* GeneralQuestions.m */; };
-		75B8086A1A0BDFA400187A6B /* FamilyIllness.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B8085D1A0BDFA400187A6B /* FamilyIllness.m */; };
-		75B8086C1A0BDFA400187A6B /* AdditionalQuestions.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B808611A0BDFA400187A6B /* AdditionalQuestions.m */; };
-		75B8086D1A0BDFA400187A6B /* AdditionalInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B808631A0BDFA400187A6B /* AdditionalInfo.m */; };
-		75B8086E1A0BDFA400187A6B /* MedicalHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B808651A0BDFA400187A6B /* MedicalHistory.m */; };
 		75B91EE819F5602200FDA7F4 /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75B91EE719F5602200FDA7F4 /* DoctorProfileViewController.m */; };
 		75BC6F891A0A8FF30063289A /* DegreeDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC6F881A0A8FF30063289A /* DegreeDetails.m */; };
 		75BC6F8C1A0A90A70063289A /* Degree.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC6F8B1A0A90A70063289A /* Degree.m */; };
@@ -276,6 +279,49 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182CB5B31A3E293200BD7C70 /* MedicalHistoryCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistoryCustomCell.h; sourceTree = "<group>"; };
+		182CB5B41A3E293200BD7C70 /* MedicalHistoryCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistoryCustomCell.m; sourceTree = "<group>"; };
+		182CB5B51A3E293200BD7C70 /* MedicalHistoryCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalHistoryCustomCell.xib; sourceTree = "<group>"; };
+		182CB5B91A3E2A7D00BD7C70 /* AdditionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalInfo.h; sourceTree = "<group>"; };
+		182CB5BA1A3E2A7D00BD7C70 /* AdditionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalInfo.m; sourceTree = "<group>"; };
+		182CB5BB1A3E2A7D00BD7C70 /* AdditionalQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalQuestions.h; sourceTree = "<group>"; };
+		182CB5BC1A3E2A7D00BD7C70 /* AdditionalQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalQuestions.m; sourceTree = "<group>"; };
+		182CB5BD1A3E2A7D00BD7C70 /* Allergies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Allergies.h; sourceTree = "<group>"; };
+		182CB5BE1A3E2A7D00BD7C70 /* Allergies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Allergies.m; sourceTree = "<group>"; };
+		182CB5BF1A3E2A7D00BD7C70 /* AllergyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyInfo.h; sourceTree = "<group>"; };
+		182CB5C01A3E2A7D00BD7C70 /* AllergyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergyInfo.m; sourceTree = "<group>"; };
+		182CB5C11A3E2A7D00BD7C70 /* AllergyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyStatus.h; sourceTree = "<group>"; };
+		182CB5C21A3E2A7D00BD7C70 /* AllergyStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergyStatus.m; sourceTree = "<group>"; };
+		182CB5C31A3E2A7D00BD7C70 /* DoctorVisitDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorVisitDetail.h; sourceTree = "<group>"; };
+		182CB5C41A3E2A7D00BD7C70 /* DoctorVisitDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorVisitDetail.m; sourceTree = "<group>"; };
+		182CB5C51A3E2A7D00BD7C70 /* DoctorVisits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorVisits.h; sourceTree = "<group>"; };
+		182CB5C61A3E2A7D00BD7C70 /* DoctorVisits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorVisits.m; sourceTree = "<group>"; };
+		182CB5C71A3E2A7D00BD7C70 /* FamilyIllness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyIllness.h; sourceTree = "<group>"; };
+		182CB5C81A3E2A7D00BD7C70 /* FamilyIllness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyIllness.m; sourceTree = "<group>"; };
+		182CB5C91A3E2A7D00BD7C70 /* GeneralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralInfo.h; sourceTree = "<group>"; };
+		182CB5CA1A3E2A7D00BD7C70 /* GeneralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralInfo.m; sourceTree = "<group>"; };
+		182CB5CB1A3E2A7D00BD7C70 /* GeneralQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralQuestions.h; sourceTree = "<group>"; };
+		182CB5CC1A3E2A7D00BD7C70 /* GeneralQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralQuestions.m; sourceTree = "<group>"; };
+		182CB5CD1A3E2A7D00BD7C70 /* IllnessDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IllnessDetails.h; sourceTree = "<group>"; };
+		182CB5CE1A3E2A7D00BD7C70 /* IllnessDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IllnessDetails.m; sourceTree = "<group>"; };
+		182CB5CF1A3E2A7D00BD7C70 /* IllnessType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IllnessType.h; sourceTree = "<group>"; };
+		182CB5D01A3E2A7D00BD7C70 /* IllnessType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IllnessType.m; sourceTree = "<group>"; };
+		182CB5D11A3E2A7D00BD7C70 /* MedicalDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalDetails.h; sourceTree = "<group>"; };
+		182CB5D21A3E2A7D00BD7C70 /* MedicalDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalDetails.m; sourceTree = "<group>"; };
+		182CB5D31A3E2A7D00BD7C70 /* MedicalHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistory.h; sourceTree = "<group>"; };
+		182CB5D41A3E2A7D00BD7C70 /* MedicalHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistory.m; sourceTree = "<group>"; };
+		182CB5D51A3E2A7D00BD7C70 /* Medication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medication.h; sourceTree = "<group>"; };
+		182CB5D61A3E2A7D00BD7C70 /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
+		182CB5D71A3E2A7D00BD7C70 /* MedicationSaveData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicationSaveData.h; sourceTree = "<group>"; };
+		182CB5D81A3E2A7D00BD7C70 /* MedicationSaveData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicationSaveData.m; sourceTree = "<group>"; };
+		182CB5D91A3E2A7D00BD7C70 /* PastRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRecord.h; sourceTree = "<group>"; };
+		182CB5DA1A3E2A7D00BD7C70 /* PastRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRecord.m; sourceTree = "<group>"; };
+		182CB5DB1A3E2A7D00BD7C70 /* PatientPastHistroy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPastHistroy.h; sourceTree = "<group>"; };
+		182CB5DC1A3E2A7D00BD7C70 /* PatientPastHistroy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPastHistroy.m; sourceTree = "<group>"; };
+		182CB5DD1A3E2A7D00BD7C70 /* PatientPresentHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPresentHealth.h; sourceTree = "<group>"; };
+		182CB5DE1A3E2A7D00BD7C70 /* PatientPresentHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPresentHealth.m; sourceTree = "<group>"; };
+		182CB5DF1A3E2A7D00BD7C70 /* SufferingMembers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SufferingMembers.h; sourceTree = "<group>"; };
+		182CB5E01A3E2A7D00BD7C70 /* SufferingMembers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SufferingMembers.m; sourceTree = "<group>"; };
 		186A4FB31A3C49D500C72A8C /* NSString+SCPaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SCPaths.h"; sourceTree = "<group>"; };
 		186A4FB41A3C49D500C72A8C /* NSString+SCPaths.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SCPaths.m"; sourceTree = "<group>"; };
 		18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -425,9 +471,6 @@
 		7528485519F23CEA0016F54F /* icon_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_settings@2x.png"; sourceTree = "<group>"; };
 		7528485E19F243000016F54F /* MedicalHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MedicalHistoryViewController.h; path = ../MedicalHistoryViewController.h; sourceTree = "<group>"; };
 		7528485F19F243000016F54F /* MedicalHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MedicalHistoryViewController.m; path = ../MedicalHistoryViewController.m; sourceTree = "<group>"; };
-		7528486319F2498C0016F54F /* MedicalHistoryCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistoryCustomCell.h; sourceTree = "<group>"; };
-		7528486419F2498C0016F54F /* MedicalHistoryCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistoryCustomCell.m; sourceTree = "<group>"; };
-		7528486519F2498C0016F54F /* MedicalHistoryCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicalHistoryCustomCell.xib; sourceTree = "<group>"; };
 		7528486919F24E180016F54F /* icon_doctorspecial_middle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_doctorspecial_middle@2x.png"; sourceTree = "<group>"; };
 		7528486B19F26D660016F54F /* button_commentnote@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_commentnote@2x.png"; sourceTree = "<group>"; };
 		7528486D19F26D660016F54F /* button_pleaserate_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_pleaserate_full@2x.png"; sourceTree = "<group>"; };
@@ -477,10 +520,6 @@
 		752848CF19F2B83C0016F54F /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		752848D019F2B83C0016F54F /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		752848D119F2B83C0016F54F /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
-		7558756B1A0C681700BDFE1C /* Medication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Medication.h; sourceTree = "<group>"; };
-		7558756C1A0C681700BDFE1C /* Medication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Medication.m; sourceTree = "<group>"; };
-		7558756E1A0C6A2000BDFE1C /* DoctorVisits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorVisits.h; sourceTree = "<group>"; };
-		7558756F1A0C6A2000BDFE1C /* DoctorVisits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorVisits.m; sourceTree = "<group>"; };
 		75898BFD1A03EACD0026C6A2 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
 		75898BFE1A03EACD0026C6A2 /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
 		75898C011A03EB190026C6A2 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
@@ -502,24 +541,6 @@
 		75A3D9011A063E3C0068D15E /* CommentListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListing.m; sourceTree = "<group>"; };
 		75A3D9031A0651A50068D15E /* CustomIOS7AlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomIOS7AlertView.h; sourceTree = "<group>"; };
 		75A3D9041A0651A50068D15E /* CustomIOS7AlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomIOS7AlertView.m; sourceTree = "<group>"; };
-		75A8073E1A152A8A005210CE /* PatientPresentHealth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPresentHealth.h; sourceTree = "<group>"; };
-		75A8073F1A152A8A005210CE /* PatientPresentHealth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPresentHealth.m; sourceTree = "<group>"; };
-		75A807411A152D58005210CE /* PatientPastHistroy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatientPastHistroy.h; sourceTree = "<group>"; };
-		75A807421A152D58005210CE /* PatientPastHistroy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PatientPastHistroy.m; sourceTree = "<group>"; };
-		75A807441A152D72005210CE /* PastRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PastRecord.h; sourceTree = "<group>"; };
-		75A807451A152D72005210CE /* PastRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PastRecord.m; sourceTree = "<group>"; };
-		75A8074A1A1533BD005210CE /* Allergies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Allergies.h; sourceTree = "<group>"; };
-		75A8074B1A1533BD005210CE /* Allergies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Allergies.m; sourceTree = "<group>"; };
-		75A8074D1A1533E2005210CE /* AllergyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyInfo.h; sourceTree = "<group>"; };
-		75A8074E1A1533E2005210CE /* AllergyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergyInfo.m; sourceTree = "<group>"; };
-		75A807501A1533F4005210CE /* AllergyStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllergyStatus.h; sourceTree = "<group>"; };
-		75A807511A1533F4005210CE /* AllergyStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllergyStatus.m; sourceTree = "<group>"; };
-		75A807531A153AE6005210CE /* SufferingMembers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SufferingMembers.h; sourceTree = "<group>"; };
-		75A807541A153AE6005210CE /* SufferingMembers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SufferingMembers.m; sourceTree = "<group>"; };
-		75A807561A153B26005210CE /* IllnessDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IllnessDetails.h; sourceTree = "<group>"; };
-		75A807571A153B26005210CE /* IllnessDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IllnessDetails.m; sourceTree = "<group>"; };
-		75A807591A15403C005210CE /* IllnessType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IllnessType.h; sourceTree = "<group>"; };
-		75A8075A1A15403C005210CE /* IllnessType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IllnessType.m; sourceTree = "<group>"; };
 		75ADA07A19F6B88C00BA3E44 /* DoctorProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileHeaderView.h; sourceTree = "<group>"; };
 		75ADA07B19F6B88C00BA3E44 /* DoctorProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileHeaderView.m; sourceTree = "<group>"; };
 		75ADA07D19F6B9AF00BA3E44 /* DoctorProfileFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileFooterView.h; sourceTree = "<group>"; };
@@ -583,18 +604,6 @@
 		75B5A2171A163C0F00C1ECCC /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		75B7B2F41A11332600038EDF /* UIButton+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extentions.h"; sourceTree = "<group>"; };
 		75B7B2F51A11332600038EDF /* UIButton+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extentions.m"; sourceTree = "<group>"; };
-		75B808541A0BDFA400187A6B /* GeneralInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralInfo.h; sourceTree = "<group>"; };
-		75B808551A0BDFA400187A6B /* GeneralInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralInfo.m; sourceTree = "<group>"; };
-		75B808581A0BDFA400187A6B /* GeneralQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralQuestions.h; sourceTree = "<group>"; };
-		75B808591A0BDFA400187A6B /* GeneralQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralQuestions.m; sourceTree = "<group>"; };
-		75B8085C1A0BDFA400187A6B /* FamilyIllness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FamilyIllness.h; sourceTree = "<group>"; };
-		75B8085D1A0BDFA400187A6B /* FamilyIllness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamilyIllness.m; sourceTree = "<group>"; };
-		75B808601A0BDFA400187A6B /* AdditionalQuestions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalQuestions.h; sourceTree = "<group>"; };
-		75B808611A0BDFA400187A6B /* AdditionalQuestions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalQuestions.m; sourceTree = "<group>"; };
-		75B808621A0BDFA400187A6B /* AdditionalInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionalInfo.h; sourceTree = "<group>"; };
-		75B808631A0BDFA400187A6B /* AdditionalInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionalInfo.m; sourceTree = "<group>"; };
-		75B808641A0BDFA400187A6B /* MedicalHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistory.h; sourceTree = "<group>"; };
-		75B808651A0BDFA400187A6B /* MedicalHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistory.m; sourceTree = "<group>"; };
 		75B91EE619F5602200FDA7F4 /* DoctorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileViewController.h; sourceTree = "<group>"; };
 		75B91EE719F5602200FDA7F4 /* DoctorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileViewController.m; sourceTree = "<group>"; };
 		75BC6F871A0A8FF30063289A /* DegreeDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DegreeDetails.h; sourceTree = "<group>"; };
@@ -698,6 +707,53 @@
 				D1643A5D5254EE71D3BABD40 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		182CB5B81A3E2A7D00BD7C70 /* Medical History */ = {
+			isa = PBXGroup;
+			children = (
+				182CB5B91A3E2A7D00BD7C70 /* AdditionalInfo.h */,
+				182CB5BA1A3E2A7D00BD7C70 /* AdditionalInfo.m */,
+				182CB5BB1A3E2A7D00BD7C70 /* AdditionalQuestions.h */,
+				182CB5BC1A3E2A7D00BD7C70 /* AdditionalQuestions.m */,
+				182CB5BD1A3E2A7D00BD7C70 /* Allergies.h */,
+				182CB5BE1A3E2A7D00BD7C70 /* Allergies.m */,
+				182CB5BF1A3E2A7D00BD7C70 /* AllergyInfo.h */,
+				182CB5C01A3E2A7D00BD7C70 /* AllergyInfo.m */,
+				182CB5C11A3E2A7D00BD7C70 /* AllergyStatus.h */,
+				182CB5C21A3E2A7D00BD7C70 /* AllergyStatus.m */,
+				182CB5C31A3E2A7D00BD7C70 /* DoctorVisitDetail.h */,
+				182CB5C41A3E2A7D00BD7C70 /* DoctorVisitDetail.m */,
+				182CB5C51A3E2A7D00BD7C70 /* DoctorVisits.h */,
+				182CB5C61A3E2A7D00BD7C70 /* DoctorVisits.m */,
+				182CB5C71A3E2A7D00BD7C70 /* FamilyIllness.h */,
+				182CB5C81A3E2A7D00BD7C70 /* FamilyIllness.m */,
+				182CB5C91A3E2A7D00BD7C70 /* GeneralInfo.h */,
+				182CB5CA1A3E2A7D00BD7C70 /* GeneralInfo.m */,
+				182CB5CB1A3E2A7D00BD7C70 /* GeneralQuestions.h */,
+				182CB5CC1A3E2A7D00BD7C70 /* GeneralQuestions.m */,
+				182CB5CD1A3E2A7D00BD7C70 /* IllnessDetails.h */,
+				182CB5CE1A3E2A7D00BD7C70 /* IllnessDetails.m */,
+				182CB5CF1A3E2A7D00BD7C70 /* IllnessType.h */,
+				182CB5D01A3E2A7D00BD7C70 /* IllnessType.m */,
+				182CB5D11A3E2A7D00BD7C70 /* MedicalDetails.h */,
+				182CB5D21A3E2A7D00BD7C70 /* MedicalDetails.m */,
+				182CB5D31A3E2A7D00BD7C70 /* MedicalHistory.h */,
+				182CB5D41A3E2A7D00BD7C70 /* MedicalHistory.m */,
+				182CB5D51A3E2A7D00BD7C70 /* Medication.h */,
+				182CB5D61A3E2A7D00BD7C70 /* Medication.m */,
+				182CB5D71A3E2A7D00BD7C70 /* MedicationSaveData.h */,
+				182CB5D81A3E2A7D00BD7C70 /* MedicationSaveData.m */,
+				182CB5D91A3E2A7D00BD7C70 /* PastRecord.h */,
+				182CB5DA1A3E2A7D00BD7C70 /* PastRecord.m */,
+				182CB5DB1A3E2A7D00BD7C70 /* PatientPastHistroy.h */,
+				182CB5DC1A3E2A7D00BD7C70 /* PatientPastHistroy.m */,
+				182CB5DD1A3E2A7D00BD7C70 /* PatientPresentHealth.h */,
+				182CB5DE1A3E2A7D00BD7C70 /* PatientPresentHealth.m */,
+				182CB5DF1A3E2A7D00BD7C70 /* SufferingMembers.h */,
+				182CB5E01A3E2A7D00BD7C70 /* SufferingMembers.m */,
+			);
+			path = "Medical History";
 			sourceTree = "<group>";
 		};
 		186A4FB21A3C49D500C72A8C /* NSString+FilePath */ = {
@@ -1000,12 +1056,12 @@
 				752644E919F6060200B67525 /* DoctorProfileCustomCell.h */,
 				752644EA19F6060200B67525 /* DoctorProfileCustomCell.m */,
 				752644EB19F6060200B67525 /* DoctorProfileCustomCell.xib */,
+				182CB5B31A3E293200BD7C70 /* MedicalHistoryCustomCell.h */,
+				182CB5B41A3E293200BD7C70 /* MedicalHistoryCustomCell.m */,
+				182CB5B51A3E293200BD7C70 /* MedicalHistoryCustomCell.xib */,
 				7528484019F237370016F54F /* MenuCustomCollectionViewCell.h */,
 				7528484119F237370016F54F /* MenuCustomCollectionViewCell.m */,
 				7528484219F237370016F54F /* MenuCustomCollectionViewCell.xib */,
-				7528486319F2498C0016F54F /* MedicalHistoryCustomCell.h */,
-				7528486419F2498C0016F54F /* MedicalHistoryCustomCell.m */,
-				7528486519F2498C0016F54F /* MedicalHistoryCustomCell.xib */,
 				7528489B19F278C90016F54F /* DoctorHistoryTableViewCell.h */,
 				7528489C19F278C90016F54F /* DoctorHistoryTableViewCell.m */,
 				7528489D19F278C90016F54F /* DoctorHistoryTableViewCell.xib */,
@@ -1142,7 +1198,7 @@
 		75A3D8F51A0614BD0068D15E /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
-				75B808531A0BDF7E00187A6B /* Medical History */,
+				182CB5B81A3E2A7D00BD7C70 /* Medical History */,
 				7593E8761A07F0D500E34F73 /* Patient */,
 				75A3D8F61A0614DD0068D15E /* Doctor */,
 			);
@@ -1217,47 +1273,6 @@
 				75B7B2F51A11332600038EDF /* UIButton+Extentions.m */,
 			);
 			path = Category;
-			sourceTree = "<group>";
-		};
-		75B808531A0BDF7E00187A6B /* Medical History */ = {
-			isa = PBXGroup;
-			children = (
-				75B808541A0BDFA400187A6B /* GeneralInfo.h */,
-				75B808551A0BDFA400187A6B /* GeneralInfo.m */,
-				75B808581A0BDFA400187A6B /* GeneralQuestions.h */,
-				75B808591A0BDFA400187A6B /* GeneralQuestions.m */,
-				75B8085C1A0BDFA400187A6B /* FamilyIllness.h */,
-				75B8085D1A0BDFA400187A6B /* FamilyIllness.m */,
-				75A807591A15403C005210CE /* IllnessType.h */,
-				75A8075A1A15403C005210CE /* IllnessType.m */,
-				75A807561A153B26005210CE /* IllnessDetails.h */,
-				75A807571A153B26005210CE /* IllnessDetails.m */,
-				75A807531A153AE6005210CE /* SufferingMembers.h */,
-				75A807541A153AE6005210CE /* SufferingMembers.m */,
-				75B808601A0BDFA400187A6B /* AdditionalQuestions.h */,
-				75B808611A0BDFA400187A6B /* AdditionalQuestions.m */,
-				75B808621A0BDFA400187A6B /* AdditionalInfo.h */,
-				75B808631A0BDFA400187A6B /* AdditionalInfo.m */,
-				7558756B1A0C681700BDFE1C /* Medication.h */,
-				7558756C1A0C681700BDFE1C /* Medication.m */,
-				7558756E1A0C6A2000BDFE1C /* DoctorVisits.h */,
-				7558756F1A0C6A2000BDFE1C /* DoctorVisits.m */,
-				75B808641A0BDFA400187A6B /* MedicalHistory.h */,
-				75B808651A0BDFA400187A6B /* MedicalHistory.m */,
-				75A8073E1A152A8A005210CE /* PatientPresentHealth.h */,
-				75A8073F1A152A8A005210CE /* PatientPresentHealth.m */,
-				75A807411A152D58005210CE /* PatientPastHistroy.h */,
-				75A807421A152D58005210CE /* PatientPastHistroy.m */,
-				75A807441A152D72005210CE /* PastRecord.h */,
-				75A807451A152D72005210CE /* PastRecord.m */,
-				75A8074A1A1533BD005210CE /* Allergies.h */,
-				75A8074B1A1533BD005210CE /* Allergies.m */,
-				75A8074D1A1533E2005210CE /* AllergyInfo.h */,
-				75A8074E1A1533E2005210CE /* AllergyInfo.m */,
-				75A807501A1533F4005210CE /* AllergyStatus.h */,
-				75A807511A1533F4005210CE /* AllergyStatus.m */,
-			);
-			path = "Medical History";
 			sourceTree = "<group>";
 		};
 		75CBD3BE19FBACD000686774 /* Settings */ = {
@@ -1466,6 +1481,7 @@
 				75CBD40919FC094F00686774 /* icon_connectdropbox.png in Resources */,
 				7528489319F26D8C0016F54F /* icon_mydoctor@2x.png in Resources */,
 				75AF8D051A0DEE74000EBF6C /* icon_contactdoctor@2x.png in Resources */,
+				182CB5B71A3E293200BD7C70 /* MedicalHistoryCustomCell.xib in Resources */,
 				75B3520D19F9254600D02CDA /* icon_connectmiddle@2x.png in Resources */,
 				75B351E019F8FA7600D02CDA /* icon_stetho.png in Resources */,
 				75CBD40319FC07BC00686774 /* ShareCustomCell.xib in Resources */,
@@ -1480,7 +1496,6 @@
 				752848D419F2B83C0016F54F /* Icon-40.png in Resources */,
 				7528489219F26D8C0016F54F /* icon_favoritedoctor@2x.png in Resources */,
 				7528487F19F26D660016F54F /* icon_mydoctor_nactive@2x.png in Resources */,
-				7528486719F2498C0016F54F /* MedicalHistoryCustomCell.xib in Resources */,
 				75B2DF561A0F9CF5007716AA /* Oswald-Regular.ttf in Resources */,
 				75AF8D061A0DEE74000EBF6C /* icon_degree@2x.png in Resources */,
 				75CBD3ED19FBF75E00686774 /* icon_connecttop.png in Resources */,
@@ -1603,38 +1618,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				182CB5E11A3E2A7D00BD7C70 /* AdditionalInfo.m in Sources */,
 				75A3D9051A0651A50068D15E /* CustomIOS7AlertView.m in Sources */,
-				75B8086A1A0BDFA400187A6B /* FamilyIllness.m in Sources */,
 				25BB171B1A3747DD00CE80D2 /* GTLRuntimeCommon.m in Sources */,
+				182CB5F11A3E2A7D00BD7C70 /* PastRecord.m in Sources */,
+				182CB5EB1A3E2A7D00BD7C70 /* IllnessDetails.m in Sources */,
 				25BB171A1A3747DD00CE80D2 /* GTLQuery.m in Sources */,
 				75ADA08F19F6D2BB00BA3E44 /* DoctorEducationHistroyCell.m in Sources */,
+				182CB5EC1A3E2A7D00BD7C70 /* IllnessType.m in Sources */,
 				513E49461A3982C400038F6D /* LoginViewController.m in Sources */,
 				75B351DA19F8E0B300D02CDA /* DoctorNotesCustomCell.m in Sources */,
 				25BB16F61A37470100CE80D2 /* GTLDriveConstants.m in Sources */,
 				7528484419F237370016F54F /* MenuCustomCollectionViewCell.m in Sources */,
 				25BB16EF1A37470100CE80D2 /* GTLDriveAbout.m in Sources */,
 				75898BFF1A03EACD0026C6A2 /* Connection.m in Sources */,
-				75B8086E1A0BDFA400187A6B /* MedicalHistory.m in Sources */,
 				25BB17171A3747DD00CE80D2 /* GTLDateTime.m in Sources */,
 				25BB173F1A3748F100CE80D2 /* GTMHTTPFetchHistory.m in Sources */,
 				75A3D9021A063E3C0068D15E /* CommentListing.m in Sources */,
 				75CBD3DC19FBE30900686774 /* MGSwipeTableCell.m in Sources */,
 				7593E8791A07F0F600E34F73 /* PatientDetails.m in Sources */,
+				182CB5E51A3E2A7D00BD7C70 /* AllergyStatus.m in Sources */,
 				25BB174A1A374A0E00CE80D2 /* SBJsonBase.m in Sources */,
 				75B5A2161A16254400C1ECCC /* SyncViewController.m in Sources */,
 				25BB16F81A37470100CE80D2 /* GTLDriveFileList.m in Sources */,
+				182CB5B61A3E293200BD7C70 /* MedicalHistoryCustomCell.m in Sources */,
 				75CBD40219FC07BC00686774 /* ShareCustomCell.m in Sources */,
 				75A3D8FC1A06151A0068D15E /* Comments.m in Sources */,
 				25BB16FC1A37470100CE80D2 /* GTLDrivePermissionList.m in Sources */,
-				75B8086D1A0BDFA400187A6B /* AdditionalInfo.m in Sources */,
 				25BB17571A374ABB00CE80D2 /* GTMOAuth2WindowController.m in Sources */,
-				75A807431A152D58005210CE /* PatientPastHistroy.m in Sources */,
 				7528486019F243000016F54F /* MedicalHistoryViewController.m in Sources */,
 				75BC6F8F1A0A94C60063289A /* NoteDetails.m in Sources */,
-				7558756D1A0C681700BDFE1C /* Medication.m in Sources */,
-				75A807461A152D72005210CE /* PastRecord.m in Sources */,
+				182CB5EF1A3E2A7D00BD7C70 /* Medication.m in Sources */,
 				25BB174C1A374A0E00CE80D2 /* SBJsonWriter.m in Sources */,
 				25BB16F71A37470100CE80D2 /* GTLDriveFile.m in Sources */,
+				182CB5E31A3E2A7D00BD7C70 /* Allergies.m in Sources */,
 				25BB17411A3748F100CE80D2 /* GTMMIMEDocument.m in Sources */,
 				25BB16F21A37470100CE80D2 /* GTLDriveChange.m in Sources */,
 				75ADA07F19F6B9AF00BA3E44 /* DoctorProfileFooterView.m in Sources */,
@@ -1642,7 +1659,6 @@
 				25BB17421A3748F100CE80D2 /* GTMReadMonitorInputStream.m in Sources */,
 				25BB16F31A37470100CE80D2 /* GTLDriveChangeList.m in Sources */,
 				25BB17001A37470100CE80D2 /* GTLServiceDrive.m in Sources */,
-				75A807401A152A8A005210CE /* PatientPresentHealth.m in Sources */,
 				7528481B19F2354B0016F54F /* AppDelegate.m in Sources */,
 				25BB17291A37483F00CE80D2 /* GTLJSONParser.m in Sources */,
 				75CBD3F119FBF92900686774 /* AddDocCustomCell.m in Sources */,
@@ -1651,7 +1667,7 @@
 				25BB16F91A37470100CE80D2 /* GTLDriveParentList.m in Sources */,
 				75CBD3DB19FBE30900686774 /* MGSwipeButton.m in Sources */,
 				75BC6F891A0A8FF30063289A /* DegreeDetails.m in Sources */,
-				75A8074F1A1533E2005210CE /* AllergyInfo.m in Sources */,
+				182CB5F41A3E2A7D00BD7C70 /* SufferingMembers.m in Sources */,
 				25BB171C1A3747DD00CE80D2 /* GTLService.m in Sources */,
 				25BB17181A3747DD00CE80D2 /* GTLErrorObject.m in Sources */,
 				25BB16FA1A37470100CE80D2 /* GTLDriveParentReference.m in Sources */,
@@ -1660,9 +1676,9 @@
 				25BB17521A374A4B00CE80D2 /* GTMOAuth2SignIn.m in Sources */,
 				25BB17161A3747DD00CE80D2 /* GTLBatchResult.m in Sources */,
 				25BB16F01A37470100CE80D2 /* GTLDriveApp.m in Sources */,
+				182CB5E91A3E2A7D00BD7C70 /* GeneralInfo.m in Sources */,
 				25BB17151A3747DD00CE80D2 /* GTLBatchQuery.m in Sources */,
 				7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */,
-				75A807551A153AE6005210CE /* SufferingMembers.m in Sources */,
 				25BB17281A37483F00CE80D2 /* GTLFramework.m in Sources */,
 				25BB16FE1A37470100CE80D2 /* GTLDriveRevisionList.m in Sources */,
 				25BB17271A37483F00CE80D2 /* GTLBase64.m in Sources */,
@@ -1672,18 +1688,20 @@
 				752848A519F2795B0016F54F /* DoctorHistoryViewController.m in Sources */,
 				75B91EE819F5602200FDA7F4 /* DoctorProfileViewController.m in Sources */,
 				25BB16F51A37470100CE80D2 /* GTLDriveChildReference.m in Sources */,
-				75A8075B1A15403C005210CE /* IllnessType.m in Sources */,
 				25BB16FB1A37470100CE80D2 /* GTLDrivePermission.m in Sources */,
+				182CB5EA1A3E2A7D00BD7C70 /* GeneralQuestions.m in Sources */,
 				75A3D8FF1A0619960068D15E /* DoctorListing.m in Sources */,
 				25BB16FF1A37470100CE80D2 /* GTLQueryDrive.m in Sources */,
 				7593E87C1A07F15000E34F73 /* Patient.m in Sources */,
 				511D65861A3CD1E3003C5BF6 /* EmergencyPreviewVC.m in Sources */,
-				755875701A0C6A2000BDFE1C /* DoctorVisits.m in Sources */,
 				25BB173D1A3748F100CE80D2 /* GTMHTTPFetcherLogging.m in Sources */,
+				182CB5E21A3E2A7D00BD7C70 /* AdditionalQuestions.m in Sources */,
+				182CB5E41A3E2A7D00BD7C70 /* AllergyInfo.m in Sources */,
 				75CBD41019FC113200686774 /* GloblaSearchViewController.m in Sources */,
 				25BB173E1A3748F100CE80D2 /* GTMHTTPFetcherService.m in Sources */,
+				182CB5F01A3E2A7D00BD7C70 /* MedicationSaveData.m in Sources */,
 				75B351F219F923C400D02CDA /* MedicalDocumentsCustomCell.m in Sources */,
-				75B8086C1A0BDFA400187A6B /* AdditionalQuestions.m in Sources */,
+				182CB5E61A3E2A7D00BD7C70 /* DoctorVisitDetail.m in Sources */,
 				752644EC19F6060200B67525 /* DoctorProfileCustomCell.m in Sources */,
 				75898C041A03EB190026C6A2 /* GlobalVariables.m in Sources */,
 				186A4FB51A3C49D500C72A8C /* NSString+SCPaths.m in Sources */,
@@ -1692,32 +1710,32 @@
 				F866FDA11A399A2E009CC7CA /* SSTextFieldValidation.m in Sources */,
 				7528484319F237370016F54F /* HomeViewController.m in Sources */,
 				25BB17191A3747DD00CE80D2 /* GTLObject.m in Sources */,
-				7528486619F2498C0016F54F /* MedicalHistoryCustomCell.m in Sources */,
 				75CBD3D519FBC3B100686774 /* EmergencyViewController.m in Sources */,
 				75BC6F921A0A97D50063289A /* Notes.m in Sources */,
 				75CBD3FB19FBFD4400686774 /* ShareViewController.m in Sources */,
+				182CB5F21A3E2A7D00BD7C70 /* PatientPastHistroy.m in Sources */,
 				25BB171D1A3747DD00CE80D2 /* GTLUploadParameters.m in Sources */,
+				182CB5EE1A3E2A7D00BD7C70 /* MedicalHistory.m in Sources */,
+				182CB5E81A3E2A7D00BD7C70 /* FamilyIllness.m in Sources */,
+				182CB5ED1A3E2A7D00BD7C70 /* MedicalDetails.m in Sources */,
 				25BB173B1A3748F100CE80D2 /* GTMGatherInputStream.m in Sources */,
 				75B351D519F8DC3200D02CDA /* DoctorCommentsCustomCell.m in Sources */,
 				F866FDA01A399A2E009CC7CA /* SCLog.m in Sources */,
-				75B808661A0BDFA400187A6B /* GeneralInfo.m in Sources */,
-				75A8074C1A1533BD005210CE /* Allergies.m in Sources */,
 				25BB172A1A37483F00CE80D2 /* GTLUtilities.m in Sources */,
 				7528481819F2354B0016F54F /* main.m in Sources */,
 				513E49431A39829F00038F6D /* RegistrationViewController.m in Sources */,
 				75ADA07C19F6B88C00BA3E44 /* DoctorProfileHeaderView.m in Sources */,
 				75B351EE19F9201400D02CDA /* MedicalDocumentsViewController.m in Sources */,
 				18AE3ED51A3B7B9D00812658 /* DocumentsDatabase.m in Sources */,
-				75A807521A1533F4005210CE /* AllergyStatus.m in Sources */,
 				75CBD3E919FBF59D00686774 /* AddDocumentsViewController.m in Sources */,
 				25BB16FD1A37470100CE80D2 /* GTLDriveRevision.m in Sources */,
 				75A3D8F91A0615080068D15E /* DoctorInfo.m in Sources */,
-				75A807581A153B26005210CE /* IllnessDetails.m in Sources */,
-				75B808681A0BDFA400187A6B /* GeneralQuestions.m in Sources */,
 				75B2DF501A0F32CC007716AA /* STCollapseTableView.m in Sources */,
+				182CB5F31A3E2A7D00BD7C70 /* PatientPresentHealth.m in Sources */,
 				25BB17511A374A4B00CE80D2 /* GTMOAuth2Authentication.m in Sources */,
 				25BB17401A3748F100CE80D2 /* GTMHTTPUploadFetcher.m in Sources */,
 				7528489E19F278C90016F54F /* DoctorHistoryTableViewCell.m in Sources */,
+				182CB5E71A3E2A7D00BD7C70 /* DoctorVisits.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

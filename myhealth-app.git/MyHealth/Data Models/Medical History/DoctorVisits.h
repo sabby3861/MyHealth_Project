@@ -7,18 +7,12 @@
 //
 
 #import "JSONModel.h"
+#import "DoctorVisitDetail.h"
 
 @protocol DoctorVisits <NSObject>
 
 @end
 @interface DoctorVisits : JSONModel
-
-@property (nonatomic, retain) NSString *appointmentReason;
-@property (nonatomic, retain) NSString *comments;
-@property (nonatomic, retain) NSString *date;
-@property (nonatomic, retain) NSString *doctorName;
-@property (nonatomic, retain) NSString *linkToFilesInAppilication;
-@property (nonatomic, retain) NSString *linkToMedication;
-@property (nonatomic, retain) NSString *patientID;
-
+@property (nonatomic, retain) NSMutableArray *doctorVisitArray;
++(DoctorVisits*)getObject:(NSMutableArray*)arr;
 @end

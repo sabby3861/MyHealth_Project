@@ -15,16 +15,18 @@
 
 @interface PatientPastHistroy : JSONModel
 
-@property (nonatomic, retain) PastRecord *PAPSmear;
-@property (nonatomic, retain) PastRecord *bloodTransfusion;
-@property (nonatomic, retain) PastRecord *colonoscopy;
-@property (nonatomic, retain) NSString *date;
-@property (nonatomic, retain) PastRecord *fluShot;
-@property (nonatomic, retain) PastRecord *mammogram;
 @property (nonatomic, retain) PastRecord *pataintInHospital;
-@property (nonatomic, retain) NSString *patientID;
-@property (nonatomic, retain) PastRecord *pneumoniaShot;
-@property (nonatomic, retain) PastRecord *pregnantW;
+@property (nonatomic, retain) PastRecord *colonoscopy;
+@property (nonatomic, retain) PastRecord *bloodTransfusion;
 @property (nonatomic, retain) PastRecord *tetanusShot;
+@property (nonatomic, retain) PastRecord *pneumoniaShot;
+@property (nonatomic, retain) PastRecord *fluShot;
+@property (nonatomic, retain) PastRecord *pregnantW;
+@property (nonatomic, retain) PastRecord *PAPSmear;
+@property (nonatomic, retain) PastRecord *mammogram;
+@property (nonatomic, retain) NSString *patientID;
+@property (nonatomic, retain) NSString *date;
+@property (nonatomic, retain) NSMutableArray *patientPastHealthArray;
 
++(PatientPastHistroy*)fromDictionary:(NSDictionary*)dictionary;
 @end

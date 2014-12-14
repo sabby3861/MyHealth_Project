@@ -17,5 +17,5 @@
 @property (nonatomic, retain) NSString *dadsMomDad;
 @property (nonatomic, retain) NSString *mom;
 @property (nonatomic, retain) NSString *momsMomDad;
-
++(SufferingMembers*)fromDictionary:(NSDictionary*)dictionary;
 @end

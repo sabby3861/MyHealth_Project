@@ -15,4 +15,5 @@
 
 @property (nonatomic, retain) NSString *result;
 @property (nonatomic, retain) NSString *title;
++(AllergyInfo*)fromDictionary:(NSDictionary*)dictionary;
 @end

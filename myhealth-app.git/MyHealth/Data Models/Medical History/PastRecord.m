@@ -9,5 +9,11 @@
 #import "PastRecord.h"
 
 @implementation PastRecord
-
++(PastRecord*)fromDictionary:(NSDictionary*)dictionary
+{
+    PastRecord *pastRecord = [[PastRecord alloc] init];
+    pastRecord.when = dictionary[@"when"];
+    pastRecord.yesNo = dictionary[@"yesNo"];
+    return pastRecord;
+}
 @end

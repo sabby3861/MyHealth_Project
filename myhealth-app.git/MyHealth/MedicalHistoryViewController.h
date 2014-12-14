@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UIButton+Extentions.h"
-@interface MedicalHistoryViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import <MessageUI/MFMailComposeViewController.h>
+@interface MedicalHistoryViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
+{
+    MFMailComposeViewController *picker;
+}
 
 @property (nonatomic, retain) IBOutlet UILabel *lbl_title;
 @property (nonatomic, retain) IBOutlet UIButton *btn_search;

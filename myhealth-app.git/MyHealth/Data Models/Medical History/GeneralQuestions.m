@@ -7,18 +7,23 @@
 //
 
 #import "GeneralQuestions.h"
-
 @implementation GeneralQuestions
-
--(id)init
++(GeneralQuestions*)fromDictionary:(NSDictionary*)dictionary
 {
-    self = [super init];
-
-    if (self) {
-        
-        self.Allergies = [Allergies new];
+    if ([dictionary allKeys].count>0)
+    {
+        GeneralQuestions *generalQuestions = [[GeneralQuestions alloc] init];
+        generalQuestions.bloodPressure = dictionary[@"bloodPressure"];
+        generalQuestions.bloodResult = dictionary[@"bloodResult"];
+        generalQuestions.bloodType = dictionary[@"bloodType"];
+        generalQuestions.date = dictionary[@"date"];
+        generalQuestions.patientID = dictionary[@"patientID"];
+        generalQuestions.weight = dictionary[@"weight"];
+        generalQuestions.yesNo = dictionary[@"yesNo"];
+        generalQuestions.Allergies = [Allergies fromDictionary:dictionary[@"Allergies"]];
+        return generalQuestions;
     }
-    
-    return self;
+    else
+        return nil;
 }
 @end

@@ -13,5 +13,5 @@
 @interface FamilyIllness : JSONModel
 
 @property (nonatomic, retain) IllnessType *patientFamilyIllness;
-
++(FamilyIllness*)fromDictionary:(NSDictionary*)dictionary;
 @end

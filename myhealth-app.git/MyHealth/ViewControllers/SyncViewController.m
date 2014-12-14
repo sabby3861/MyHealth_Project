@@ -7,6 +7,7 @@
 //
 
 #import "SyncViewController.h"
+#import "AppDelegate.h"
 
 //Google Drive
 static NSString *const kKeychainItemNameGoogleDrive = @"Google Drive Quickstart";
@@ -32,7 +33,7 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.uploadImage.image=[[AppDelegate sharedAppDelegate]theDocImage];
     switch (self.whichPlatform)
     {
         case 0:

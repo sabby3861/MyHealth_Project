@@ -12,7 +12,6 @@
 @end
 
 @interface GeneralQuestions : JSONModel
-
 @property (nonatomic, retain) NSString *bloodPressure;
 @property (nonatomic, retain) NSString *bloodResult;
 @property (nonatomic, retain) NSString *bloodType;
@@ -21,6 +20,5 @@
 @property (nonatomic, retain) NSString *weight;
 @property (nonatomic, retain) NSString *yesNo;
 @property (nonatomic, retain) Allergies *Allergies;
-
-
++(GeneralQuestions*)fromDictionary:(NSDictionary*)dictionary;
 @end

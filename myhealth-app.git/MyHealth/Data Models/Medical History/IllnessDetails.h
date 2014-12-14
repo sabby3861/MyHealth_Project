@@ -14,7 +14,7 @@
 @end
 
 @interface IllnessDetails : JSONModel
-
 @property (nonatomic, retain) NSString *answer;
 @property (nonatomic, retain) SufferingMembers *who;
++(IllnessDetails*)fromDictionary:(NSDictionary*)dictionary;
 @end

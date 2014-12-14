@@ -13,7 +13,6 @@
 @end
 
 @interface IllnessType : JSONModel
-
 @property (nonatomic, retain) IllnessDetails *alcoholism;
 @property (nonatomic, retain) IllnessDetails *allergy;
 @property (nonatomic, retain) IllnessDetails *asthma;
@@ -32,5 +31,6 @@
 @property (nonatomic, retain) IllnessDetails *tuberculosis;
 @property (nonatomic, retain) NSString *patientID;
 @property (nonatomic, retain) NSString *date;
-
+@property (nonatomic, retain) NSMutableArray *illnessTypeArray;
++(IllnessType*)fromDictionary:(NSDictionary*)dictionary;
 @end

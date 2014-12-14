@@ -9,15 +9,20 @@
 #import "Allergies.h"
 
 @implementation Allergies
-
--(id)init
++(Allergies*)fromDictionary:(NSDictionary*)dictionary
 {
-    self = [super init];
-    
-    if (self) {
-        
-        self.eachFiled = (id)[AllergyInfo new];
-    }
-    return self;
+    Allergies *allergies = [[Allergies alloc] init];
+    NSMutableArray *eachfiledAllergies=[Allergies fromArray:[dictionary objectForKey:@"eachFiled"]];
+    allergies.eachFiled = eachfiledAllergies;
+    allergies.allergyStatus=[AllergyStatus getObject:[dictionary objectForKey:@"status"]];
+    return allergies;
+}
+
++(NSMutableArray*)fromArray:(NSMutableArray*)arr
+{
+    NSMutableArray *allergyArray=[[NSMutableArray alloc]init];
+    for (int i=0; i<[arr count]; i++)
+        [allergyArray addObject:[AllergyInfo fromDictionary:[arr objectAtIndex:i]]];
+    return allergyArray;
 }
 @end

@@ -9,6 +9,10 @@
 #import "FamilyIllness.h"
 
 @implementation FamilyIllness
-
-
++(FamilyIllness*)fromDictionary:(NSDictionary*)dictionary
+{
+    FamilyIllness *familyIllness = [[FamilyIllness alloc] init];
+    familyIllness.patientFamilyIllness = [IllnessType fromDictionary:dictionary];
+    return familyIllness;
+}
 @end

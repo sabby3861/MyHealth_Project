@@ -7,14 +7,9 @@
 //
 
 #import "JSONModel.h"
+#import "MedicalDetails.h"
 
 @interface Medication : JSONModel
-
-@property (nonatomic, retain) NSString *date;
-@property (nonatomic, retain) NSString *dateEnded;
-@property (nonatomic, retain) NSString *dateStarted;
-@property (nonatomic, retain) NSString *dose;
-@property (nonatomic, retain) NSString *howAndHowOftenYouTakeTheMedication;
-@property (nonatomic, retain) NSString *linksToFilesInApplication;
-@property (nonatomic, retain) NSString *medication;
+@property (nonatomic, retain) NSMutableArray *medicationArray;
++(Medication*)getObject:(NSMutableArray*)arr;
 @end

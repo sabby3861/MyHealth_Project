@@ -10,5 +10,6 @@
 #import "AdditionalQuestions.h"
 @interface AdditionalInfo : JSONModel
 
-@property (nonatomic, retain) NSMutableArray <AdditionalQuestions> *arrayQuestions;
+@property (nonatomic, retain) NSMutableArray *arrayQuestions;
++(AdditionalInfo*)getObject:(NSMutableArray*)arr;
 @end

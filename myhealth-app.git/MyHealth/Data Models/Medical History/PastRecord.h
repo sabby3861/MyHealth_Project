@@ -11,8 +11,9 @@
 @protocol PastRecord <NSObject>
 
 @end
-@interface PastRecord : JSONModel
 
+@interface PastRecord : JSONModel
 @property (nonatomic, retain) NSString *when;
 @property (nonatomic, retain) NSString *yesNo;
++(PastRecord*)fromDictionary:(NSDictionary*)dictionary;
 @end

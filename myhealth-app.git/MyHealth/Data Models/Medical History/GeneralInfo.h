@@ -13,7 +13,6 @@
 @end
 
 @interface GeneralInfo : JSONModel
-
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSString *address;
 @property (nonatomic, retain) NSString *phone;
@@ -21,4 +20,5 @@
 @property (nonatomic, retain) NSString *dob;
 @property (nonatomic, retain) NSString *emergencyContact;
 @property (nonatomic, retain) NSString *sex;
++(GeneralInfo*)fromDictionary:(NSDictionary*)dictionary;
 @end
