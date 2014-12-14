@@ -33,6 +33,8 @@
     UILabel *addLable;
     NSString *docName;
     int rating;
+    AppDelegate *delegate;
+    NSMutableString *destAddress;
 }
 @end
 
@@ -41,6 +43,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     [_tblView_profile registerNib:[UINib nibWithNibName:@"DoctorEducationHistroyCell" bundle:nil] forCellReuseIdentifier:@"Reuse"];
     [_tblView_profile registerNib:[UINib nibWithNibName:@"DoctorCommentsCustomCell" bundle:nil] forCellReuseIdentifier:@"ReuseCommentCell"];
@@ -58,12 +61,21 @@
     
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     
+  
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     docName = [NSString stringWithFormat:@"%@ %@",[_docInfo valueForKey:@"firstName"],[_docInfo valueForKey:@"lastName"]];
     _lbl_title.text = docName;
     
+    
+    if ([_docInfo valueForKey:@"doctorStreetAddress1"] || [_docInfo valueForKey:@"doctorStreetAddress2"]|| [_docInfo valueForKey:@"doctorStreetAddress3"] || [_docInfo valueForKey:@"doctorCity1"]|| [_docInfo valueForKey:@"doctorCity2"]|| [_docInfo valueForKey:@"doctorCity3"]|| [_docInfo valueForKey:@"doctorCountry1"]|| [_docInfo valueForKey:@"doctorCountry2"]|| [_docInfo valueForKey:@"doctorCountry3"]) {
+          destAddress = [NSMutableString stringWithFormat:@"%@,%@,%@,%@,%@",[_docInfo valueForKey:@"doctorStreetAddress1"],[_docInfo valueForKey:@"doctorStreetAddress2"],[_docInfo valueForKey:@"doctorStreetAddress3"],[_docInfo valueForKey:@"doctorCity1"],[_docInfo valueForKey:@"doctorCountry1"]];
+    }
+    
+    [destAddress stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
+
+    NSLog(@"%@ %@",destAddress,delegate.currentaddress);
 }
 
 #pragma mark  CustomIOS7AlertView
@@ -540,7 +552,7 @@
 {
     UIApplication *app = [UIApplication sharedApplication];
     
-    NSString *coordinates = @"http://maps.apple.com/?daddr=San+Francisco,+CA&saddr=cupertino";
+    NSString *coordinates =[NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@,&saddr=%@",destAddress,delegate.currentaddress] ;
     [app openURL:[NSURL URLWithString: coordinates]];
 }
 -(IBAction)composemail:(UIButton *)sender
