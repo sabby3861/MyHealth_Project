@@ -57,6 +57,8 @@
     /** Adding Original Values to Filtered Array for search **/
     theDocumentList=[theDocumentList objectAtIndex:0];
     self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
+    [self.tblView_medicalHistory reloadData];
+
     
 }
 - (void)didReceiveMemoryWarning {
@@ -179,12 +181,22 @@
     //[NSString deleteFileAtPath:[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:theIndexPath.row]];
     [NSString deleteFileAtPath:[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]];
     
+    
     /*** Added these lines, to update the datasource ***/
     /*[filteredArray removeAllObjects];
     [theDocumentList removeAllObjects];
+     */
+    //[NSString deleteFileAtPath:[[theDocumentList valueForKey:@"Path"] objectAtIndex:theIndexPath.row]];
+
+    /*
+    theDocumentList=[[NSMutableArray alloc]init];
+    filteredArray=[[NSMutableArray alloc]init];
+
     [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
     [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];*/
     /*** Added these lines, to update the datasource ***/
+    
+    [theDocumentList removeObjectAtIndex:theIndexPath.row];
     [self.tblView_medicalHistory reloadData];
     
 }
