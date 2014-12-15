@@ -79,6 +79,32 @@
     return [[NSFileManager defaultManager] removeItemAtPath:_path error:nil];
 }
 
++(BOOL)deleteFileOrDirectoryAtPath:(NSString*)theFilePath{
+    NSMutableString *filePath=[NSMutableString stringWithString:theFilePath];// assume we have this
+    // Remove prefix string:
+    NSString *prefix = [NSString getLibraryPath];
+    NSRange range = [filePath rangeOfString:prefix options:NSAnchoredSearch range:NSMakeRange(0, filePath.length) locale:nil];
+    if (range.location != NSNotFound) {
+        [filePath deleteCharactersInRange:range];
+    }
+    NSLog(@"Here is the main path %@",filePath);
+    
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    filePath=[NSMutableString stringWithString:[NSString getPathByFileName:filePath]];
+    BOOL fileExists = [fileManager fileExistsAtPath:filePath];
+    NSLog(@"Path to file: %@", filePath);
+    NSLog(@"File exists: %d", fileExists);
+    NSLog(@"Is deletable file at path: %d", [fileManager isDeletableFileAtPath:filePath]);
+    if (fileExists)
+    {
+        BOOL success = [fileManager removeItemAtPath:filePath error:&error];
+        if (!success) NSLog(@"Error: %@", [error localizedDescription]);
+        return success;
+    }
+    return NO;
+}
 
 
 /**
@@ -237,9 +263,16 @@
             theDirList = [[NSMutableDictionary alloc] init];
             //[theDirList setValue:filename forKey:key];
             theDirList[@"type"]=key;
-            theDirList[@"name"]=filename;
+            
+            //theDirList[@"name"]=filename;
+            [theDirList setObject:[NSString stringWithFormat:@"%@",filename] forKey:@"name"];
+
             NSString *path = [dirPath stringByAppendingFormat:@"%@%@",@"/",filename];
-            theDirList[@"Path"]=path;
+            
+            //theDirList[@"Path"]=path;
+            [theDirList setObject:[NSString stringWithFormat:@"%@",path] forKey:@"Path"];
+            
+            
             //theDirArray[count]=theDirList;
             [theDirArray insertObject:theDirList atIndex:count];
             count++;

@@ -81,6 +81,9 @@
 - (NSString *)pathByDeletingSequenceNumber;
 
 + (BOOL)deleteFileAtPath:(NSString*)_path;
++(BOOL)deleteFileOrDirectoryAtPath:(NSString*)theFilePath;
+
+
 +(NSMutableArray*)theDirectoryArray;
 +(NSMutableArray*)loadDirectoriesOnly;
 +(NSArray*)arrayOfFoldersInFolder:(NSString*)folder;

@@ -12,6 +12,8 @@
 #import "DocumentsDatabase.h"
 #import "NSString+SCPaths.h"
 #import "ShareViewController.h"
+#import "MoveDocumentViewController.h"
+
 #import "AppDelegate.h"
 
 
@@ -24,6 +26,8 @@
     NSMutableArray *filteredArray;
     
 }
+
+@property (nonatomic, weak) NSString *thePreviousFilePath;
 @end
 
 @implementation MedicalDocumentsViewController
@@ -38,11 +42,7 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Search documents..." attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:63.0/255.0 green:170.0/255.0 blue:247/255.0 alpha:1] }];
     self.mSearchField.attributedPlaceholder = str;
     
-   
-}
-
--(void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:YES];
+    /*** Update the TableView once your view is loaded ***/
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
     //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
@@ -57,7 +57,18 @@
     /** Adding Original Values to Filtered Array for search **/
     theDocumentList=[theDocumentList objectAtIndex:0];
     self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
-    [self.tblView_medicalHistory reloadData];
+    self.thePreviousFilePath=self.mPathSuffix;
+    
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+
+    NSLog(@"SPath is %@",self.mPathSuffix);
+    NSLog(@"SPath Previus is %@",self.thePreviousFilePath);
+    
+     NSLog(@"On ViewWillAppear %@",[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]);
+    //[self.tblView_medicalHistory reloadData];
 
     
 }
@@ -176,30 +187,193 @@
     
 }
 
+
 -(void)deleteOption:(NSIndexPath*)theIndexPath{
-    ShowAlertViewWithMessage(@"Deleted", nil);
+    ShowAlertViewWithMessage(@"Deleted", self);
     //[NSString deleteFileAtPath:[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:theIndexPath.row]];
-    [NSString deleteFileAtPath:[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]];
+    //[NSString deleteFileAtPath:[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]];
     
     
     /*** Added these lines, to update the datasource ***/
     /*[filteredArray removeAllObjects];
-    [theDocumentList removeAllObjects];
+     [theDocumentList removeAllObjects];
      */
     //[NSString deleteFileAtPath:[[theDocumentList valueForKey:@"Path"] objectAtIndex:theIndexPath.row]];
+    
+    NSLog(@"Value is %@",[[NSString theDirectoryArray] objectAtIndex:theIndexPath.row]);
 
-    /*
+    
+    //[NSString deleteFileAtPath:[[theDocumentList objectAtIndex:theIndexPath.row]valueForKey:@"Path"]];
+
+    [NSString deleteFileOrDirectoryAtPath:[[theDocumentList objectAtIndex:theIndexPath.row]valueForKey:@"Path"]];
+
+    
+    
+    NSString *theFileName=[NSString stringWithFormat:@"%@",[[theDocumentList objectAtIndex:theIndexPath.row]valueForKey:@"name"]];
+    NSLog(@"theFileName Path is %@",theFileName);
+    NSLog(@"Selected Path is %@",self.mPathSuffix);
     theDocumentList=[[NSMutableArray alloc]init];
     filteredArray=[[NSMutableArray alloc]init];
-
-    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
-    [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];*/
+    [theDocumentList addObjectsFromArray:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:theFileName]]];
+    [filteredArray addObjectsFromArray:theDocumentList];
     /*** Added these lines, to update the datasource ***/
-    
-    [theDocumentList removeObjectAtIndex:theIndexPath.row];
+    //[theDocumentList removeObjectAtIndex:theIndexPath.row];
     [self.tblView_medicalHistory reloadData];
     
 }
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([theDocumentList count]==0) {
+        SS_POPVIEWCONTROLLER;
+    }
+}
+NSUInteger theIndex;
+
+-(void)showMoreOption:(NSIndexPath*)theIndexPath{
+    
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    //NSString *sharedDirectory=@"/Users/Shared";
+    NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+    NSError *error=nil;
+    NSArray *listOfFiles=[fileManager contentsOfDirectoryAtPath:sharedDirectory error:&error];
+    if(!error)
+        NSLog(@"Contents of shared Directory: %@",listOfFiles);
+    NSArray *listOfSubPaths=[fileManager subpathsOfDirectoryAtPath:sharedDirectory error:&error];
+    if(!error)
+        NSLog(@"Sub Paths of shared Direcotry :%@",listOfSubPaths);
+    NSDictionary *currentDitionary = [fileManager attributesOfItemAtPath: sharedDirectory error: nil];
+    NSLog(@"File attribute at path are %@",currentDitionary);
+    
+    
+    NSFileManager *fileMgr;
+    NSString *entry;
+    NSString *documentsDir;
+    NSDirectoryEnumerator *enumerator;
+    BOOL isDirectory;
+    
+    // Create file manager
+    fileMgr = [NSFileManager defaultManager];
+    
+    // Path to documents directory
+    documentsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+    
+    // Change to Documents directory
+    [fileMgr changeCurrentDirectoryPath:documentsDir];
+    
+    // Enumerator for docs directory
+    enumerator = [fileMgr enumeratorAtPath:documentsDir];
+    
+    // Get each entry (file or folder)
+    while ((entry = [enumerator nextObject]) != nil)
+    {
+        // File or directory
+        if ([fileMgr fileExistsAtPath:entry isDirectory:&isDirectory] && isDirectory)
+            NSLog (@"Directory - %@", entry);
+        else
+            NSLog (@"  File - %@", entry);
+    }
+    
+    
+    
+    
+    NSURL* dirURL = [[[fileMgr URLsForDirectory:NSLibraryDirectory
+                                      inDomains:NSUserDomainMask] objectAtIndex:0]
+                     URLByAppendingPathComponent:@"Private Documents"];
+    NSArray *contentOfMyFolder = [[NSFileManager defaultManager]
+                                  contentsOfDirectoryAtURL:dirURL
+                                  includingPropertiesForKeys:@[NSURLContentModificationDateKey, NSURLLocalizedNameKey,NSURLIsDirectoryKey]
+                                  options:NSDirectoryEnumerationSkipsHiddenFiles
+                                  error:nil];
+    //int count=0;
+    for (NSURL *item in contentOfMyFolder) {
+        NSNumber *isDir;
+        NSError *error;
+        /*NSString *fileName = [contentOfMyFolder objectAtIndex:count];
+         NSLog(@"File Name is %@",fileName);
+         count++;*/
+        NSString *fileName;
+        [item getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
+        NSLog(@"fileName %@", fileName);
+        
+        
+        
+        if ([item getResourceValue:&isDir forKey:NSURLIsDirectoryKey error:&error]) {
+            if ([isDir boolValue]) {
+                NSLog(@"%@ is a directory", item);
+            } else {
+                NSLog(@"%@ is a file", item);
+            }
+            NSString* filename = [item lastPathComponent];
+            NSLog(@"Main Name is %@ ", filename);
+            
+        } else {
+            NSLog(@"error: %@", error);
+        }
+    }
+    
+    NSMutableArray *array= [NSString loadAllDirectoriesandFiles];
+    NSLog(@"array is %@",array);
+    [self arrayOfFoldersInFolder:[NSString getLibraryPath]];
+    //ShowAlertViewWithMessage(@"More Options", nil);
+    NSLog(@"theDocumentList is %@",[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]);
+    UIImage *theDocImage=[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
+    NSLog(@"Image object is %@",theDocImage);
+    [[AppDelegate sharedAppDelegate]setTheDocImage:[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]]];
+    theIndex=theIndexPath.row;
+    ShowOptionsSheet(self);
+    
+}
+
+-(UIImage*)theDocumentImageAtPath:(NSString*)filePath{
+    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
+    UIImage *image = [UIImage imageWithData:pngData];
+    return image;
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheeet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if(buttonIndex == 0){
+        
+        MoveDocumentViewController *moveDocumentVC = [[[AppDelegate sharedAppDelegate]theMainStoryBoard] instantiateViewControllerWithIdentifier:MOVEDOCUMENT_VIEW];
+        moveDocumentVC.mPathSuffix = [[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];//[subpath lastPathComponent];
+        //viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];
+        //moveDocumentVC.mPathSuffix=self.thePreviousFilePath;
+        NSLog(@"path extension is %@",self.mPathSuffix);
+        [self.navigationController pushViewController:moveDocumentVC animated:YES];
+        
+        
+    } else if (buttonIndex == 1){
+        //UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ShareViewController *shareVC = [[[AppDelegate sharedAppDelegate]theMainStoryBoard] instantiateViewControllerWithIdentifier:ShareViewControllerSI];
+        [self.navigationController pushViewController:shareVC animated:YES];
+        //[self.navigationController presentViewController:shareVC animated:YES completion:nil];
+        
+    } else {
+        
+        [actionSheeet dismissWithClickedButtonIndex:buttonIndex animated:YES];
+    }
+}
+
+
+-(NSArray*)arrayOfFoldersInFolder:(NSString*) folder {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSArray* files = [fm contentsOfDirectoryAtPath:folder error:nil];
+    NSMutableArray *directoryList = [NSMutableArray arrayWithCapacity:10];
+    
+    for(NSString *file in files) {
+        NSString *path = [folder stringByAppendingPathComponent:file];
+        BOOL isDir = NO;
+        [fm fileExistsAtPath:path isDirectory:(&isDir)];
+        if(isDir) {
+            [directoryList addObject:file];
+        }
+    }
+    NSLog(@"Folders are %@",directoryList);
+    return directoryList;
+}
+
 
 -(void)filterDataWithSegmentValueChanged:(NSString*)theValue{
     NSPredicate *predicate1 =[NSComparisonPredicate predicateWithLeftExpression:[NSExpression expressionForKeyPath:@"MeasureCategory"]
@@ -312,145 +486,6 @@ BOOL isFiltered;
 }
 
 
-
--(void)showMoreOption:(NSIndexPath*)theIndexPath{
-
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    //NSString *sharedDirectory=@"/Users/Shared";
-    NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
-    NSError *error=nil;
-    NSArray *listOfFiles=[fileManager contentsOfDirectoryAtPath:sharedDirectory error:&error];
-    if(!error)
-        NSLog(@"Contents of shared Directory: %@",listOfFiles);
-    NSArray *listOfSubPaths=[fileManager subpathsOfDirectoryAtPath:sharedDirectory error:&error];
-    if(!error)
-        NSLog(@"Sub Paths of shared Direcotry :%@",listOfSubPaths);
-    NSDictionary *currentDitionary = [fileManager attributesOfItemAtPath: sharedDirectory error: nil];
-    NSLog(@"File attribute at path are %@",currentDitionary);
-    
-    
-    NSFileManager *fileMgr;
-    NSString *entry;
-    NSString *documentsDir;
-    NSDirectoryEnumerator *enumerator;
-    BOOL isDirectory;
-    
-    // Create file manager
-    fileMgr = [NSFileManager defaultManager];
-    
-    // Path to documents directory
-    documentsDir = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
-    
-    // Change to Documents directory
-    [fileMgr changeCurrentDirectoryPath:documentsDir];
-    
-    // Enumerator for docs directory
-    enumerator = [fileMgr enumeratorAtPath:documentsDir];
-    
-    // Get each entry (file or folder)
-    while ((entry = [enumerator nextObject]) != nil)
-    {
-        // File or directory
-        if ([fileMgr fileExistsAtPath:entry isDirectory:&isDirectory] && isDirectory)
-            NSLog (@"Directory - %@", entry);
-        else
-            NSLog (@"  File - %@", entry);
-    }
-    
- 
-    
-    
-    NSURL* dirURL = [[[fileMgr URLsForDirectory:NSLibraryDirectory
-                               inDomains:NSUserDomainMask] objectAtIndex:0]
-                   URLByAppendingPathComponent:@"Private Documents"];
-    NSArray *contentOfMyFolder = [[NSFileManager defaultManager]
-                                  contentsOfDirectoryAtURL:dirURL
-                                  includingPropertiesForKeys:@[NSURLContentModificationDateKey, NSURLLocalizedNameKey,NSURLIsDirectoryKey]
-                                  options:NSDirectoryEnumerationSkipsHiddenFiles
-                                  error:nil];
-    //int count=0;
-    for (NSURL *item in contentOfMyFolder) {
-        NSNumber *isDir;
-        NSError *error;
-        /*NSString *fileName = [contentOfMyFolder objectAtIndex:count];
-        NSLog(@"File Name is %@",fileName);
-        count++;*/
-        NSString *fileName;
-        [item getResourceValue:&fileName forKey:NSURLNameKey error:NULL];
-        NSLog(@"fileName %@", fileName);
-        
-        
-            
-        if ([item getResourceValue:&isDir forKey:NSURLIsDirectoryKey error:&error]) {
-            if ([isDir boolValue]) {
-                NSLog(@"%@ is a directory", item);
-            } else {
-                NSLog(@"%@ is a file", item);
-            }
-            NSString* filename = [item lastPathComponent];
-            NSLog(@"Main Name is %@ ", filename);
-            
-        } else {
-            NSLog(@"error: %@", error);
-        }
-    }
-    
-    NSMutableArray *array= [NSString loadAllDirectoriesandFiles];
-    NSLog(@"array is %@",array);
-    [self arrayOfFoldersInFolder:[NSString getLibraryPath]];
-    //ShowAlertViewWithMessage(@"More Options", nil);
-    NSLog(@"theDocumentList is %@",[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]);
-    UIImage *theDocImage=[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
-    NSLog(@"Image object is %@",theDocImage);
-    [[AppDelegate sharedAppDelegate]setTheDocImage:[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]]];
-    ShowOptionsSheet(self);
-    
-}
-
--(UIImage*)theDocumentImageAtPath:(NSString*)filePath{
-    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-    UIImage *image = [UIImage imageWithData:pngData];
-    return image;
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheeet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-   
-    if(buttonIndex == 0){
-        
-        
-
-        
-    } else if (buttonIndex == 1){
-        UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        ShareViewController *shareVC = [stroryboard instantiateViewControllerWithIdentifier:ShareViewControllerSI];
-        [self.navigationController pushViewController:shareVC animated:YES];
-        //[self.navigationController presentViewController:shareVC animated:YES completion:nil];
-        
-    } else {
-        
-        [actionSheeet dismissWithClickedButtonIndex:buttonIndex animated:YES];
-    }
-}
-
-
--(NSArray*)arrayOfFoldersInFolder:(NSString*) folder {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSArray* files = [fm contentsOfDirectoryAtPath:folder error:nil];
-    NSMutableArray *directoryList = [NSMutableArray arrayWithCapacity:10];
-    
-    for(NSString *file in files) {
-        NSString *path = [folder stringByAppendingPathComponent:file];
-        BOOL isDir = NO;
-        [fm fileExistsAtPath:path isDirectory:(&isDir)];
-        if(isDir) {
-            [directoryList addObject:file];
-        }
-    }
-    NSLog(@"Folders are %@",directoryList);
-    return directoryList;
-}
 
 UIKIT_STATIC_INLINE UIActionSheet * ShowOptionsSheet(id delegate){
     UIActionSheet *theOptionsSheet = [[UIActionSheet alloc] initWithTitle:@"MyHealth" delegate:delegate cancelButtonTitle:@"Cancel" destructiveButtonTitle:([UIScreen mainScreen].bounds.size.height <= 568 ?nil:@"Cancel") otherButtonTitles:@"Move",@"Share", nil];

@@ -91,6 +91,8 @@
 		18DB5FB61A3F5140002F069C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F9E1A3F5140002F069C /* ShareViewController.m */; };
 		18DB5FB71A3F5140002F069C /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FA11A3F5140002F069C /* SyncViewController.m */; };
 		18DB5FB81A3F5140002F069C /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FA41A3F5140002F069C /* TermsViewController.m */; };
+		18DB5FBE1A3F5999002F069C /* SSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FBD1A3F5999002F069C /* SSConstants.m */; };
+		18DB5FCF1A3F616A002F069C /* MoveDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FCE1A3F616A002F069C /* MoveDocumentViewController.m */; };
 		25BB16EF1A37470100CE80D2 /* GTLDriveAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */; };
 		25BB16F01A37470100CE80D2 /* GTLDriveApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CE1A37470100CE80D2 /* GTLDriveApp.m */; };
 		25BB16F11A37470100CE80D2 /* GTLDriveAppList.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16D01A37470100CE80D2 /* GTLDriveAppList.m */; };
@@ -284,7 +286,6 @@
 		18DB5E001A3F4DC9002F069C /* UIButton+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extentions.m"; sourceTree = "<group>"; };
 		18DB5E021A3F4DC9002F069C /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
 		18DB5E031A3F4DC9002F069C /* Connection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Connection.m; sourceTree = "<group>"; };
-		18DB5E041A3F4DC9002F069C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		18DB5E071A3F4DC9002F069C /* CommentListing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListing.h; sourceTree = "<group>"; };
 		18DB5E081A3F4DC9002F069C /* CommentListing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListing.m; sourceTree = "<group>"; };
 		18DB5E091A3F4DC9002F069C /* Comments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comments.h; sourceTree = "<group>"; };
@@ -436,6 +437,11 @@
 		18DB5FA11A3F5140002F069C /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
 		18DB5FA31A3F5140002F069C /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
 		18DB5FA41A3F5140002F069C /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
+		18DB5FBB1A3F5999002F069C /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		18DB5FBC1A3F5999002F069C /* SSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSConstants.h; sourceTree = "<group>"; };
+		18DB5FBD1A3F5999002F069C /* SSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConstants.m; sourceTree = "<group>"; };
+		18DB5FCD1A3F616A002F069C /* MoveDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveDocumentViewController.h; sourceTree = "<group>"; };
+		18DB5FCE1A3F616A002F069C /* MoveDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveDocumentViewController.m; sourceTree = "<group>"; };
 		25BB16CA1A37470100CE80D2 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
 		25BB16CB1A37470100CE80D2 /* GTLDriveAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDriveAbout.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.h"; sourceTree = "<group>"; };
 		25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDriveAbout.m; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.m"; sourceTree = "<group>"; };
@@ -711,9 +717,9 @@
 		18DB5DFD1A3F4DC9002F069C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				18DB5FBA1A3F5999002F069C /* Constant */,
 				18DB5DFE1A3F4DC9002F069C /* Category */,
 				18DB5E011A3F4DC9002F069C /* Connection Classes */,
-				18DB5E041A3F4DC9002F069C /* Constants.h */,
 				18DB5E051A3F4DC9002F069C /* Data Models */,
 				18DB5E451A3F4DC9002F069C /* File Management */,
 				18DB5E481A3F4DC9002F069C /* Helper Classes */,
@@ -1071,6 +1077,7 @@
 				18DB5F871A3F5140002F069C /* Home View Controller */,
 				18DB5F8A1A3F5140002F069C /* Login View Controller */,
 				18DB5F8D1A3F5140002F069C /* Medical Documents View Controller */,
+				18DB5FCC1A3F616A002F069C /* MoveDocument View Controller */,
 				18DB5F901A3F5140002F069C /* Medical History View Controller */,
 				18DB5F961A3F5140002F069C /* Registration View Controller */,
 				18DB5F991A3F5140002F069C /* Settings View Controller */,
@@ -1234,6 +1241,25 @@
 				18DB5FA41A3F5140002F069C /* TermsViewController.m */,
 			);
 			path = "Terms View Controller";
+			sourceTree = "<group>";
+		};
+		18DB5FBA1A3F5999002F069C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				18DB5FBB1A3F5999002F069C /* Constants.h */,
+				18DB5FBC1A3F5999002F069C /* SSConstants.h */,
+				18DB5FBD1A3F5999002F069C /* SSConstants.m */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		18DB5FCC1A3F616A002F069C /* MoveDocument View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18DB5FCD1A3F616A002F069C /* MoveDocumentViewController.h */,
+				18DB5FCE1A3F616A002F069C /* MoveDocumentViewController.m */,
+			);
+			path = "MoveDocument View Controller";
 			sourceTree = "<group>";
 		};
 		25BB16C91A3746BF00CE80D2 /* Drive API */ = {
@@ -1876,6 +1902,7 @@
 			files = (
 				18DB5ECC1A3F4DD5002F069C /* MGSwipeButton.m in Sources */,
 				18DB5ECB1A3F4DD5002F069C /* CustomIOS7AlertView.m in Sources */,
+				18DB5FBE1A3F5999002F069C /* SSConstants.m in Sources */,
 				18DB5FA71A3F5140002F069C /* DoctorProfileFooterView.m in Sources */,
 				18DB5EC51A3F4DD5002F069C /* MenuCustomCollectionViewCell.m in Sources */,
 				18DB5E6B1A3F4DC9002F069C /* MedicalDetails.m in Sources */,
@@ -1973,6 +2000,7 @@
 				25BB175B1A374AD700CE80D2 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				25BB17191A3747DD00CE80D2 /* GTLObject.m in Sources */,
 				18DB5E761A3F4DC9002F069C /* GlobalVariables.m in Sources */,
+				18DB5FCF1A3F616A002F069C /* MoveDocumentViewController.m in Sources */,
 				25BB171D1A3747DD00CE80D2 /* GTLUploadParameters.m in Sources */,
 				25BB173B1A3748F100CE80D2 /* GTMGatherInputStream.m in Sources */,
 				25BB172A1A37483F00CE80D2 /* GTLUtilities.m in Sources */,

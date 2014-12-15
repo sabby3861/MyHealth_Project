@@ -74,7 +74,7 @@
   * .@param nil
   **/
 -(UIStoryboard*)theMainStoryBoard{
-    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    return [UIStoryboard storyboardWithName:MAIN_STORYBOARD bundle:nil];
 }
 
 
