@@ -72,26 +72,25 @@
 		18DB5ECC1A3F4DD5002F069C /* MGSwipeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5EAF1A3F4DD5002F069C /* MGSwipeButton.m */; };
 		18DB5ECD1A3F4DD5002F069C /* MGSwipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5EB11A3F4DD5002F069C /* MGSwipeTableCell.m */; };
 		18DB5ED11A3F4E1B002F069C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5ED01A3F4E1B002F069C /* AppDelegate.m */; };
-		18DB5F581A3F5090002F069C /* AddDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F221A3F5090002F069C /* AddDocumentsViewController.m */; };
-		18DB5F591A3F5090002F069C /* DoctorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F251A3F5090002F069C /* DoctorHistoryViewController.m */; };
-		18DB5F5A1A3F5090002F069C /* DoctorProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F281A3F5090002F069C /* DoctorProfileFooterView.m */; };
-		18DB5F5B1A3F5090002F069C /* DoctorProfileFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5F291A3F5090002F069C /* DoctorProfileFooterView.xib */; };
-		18DB5F5C1A3F5090002F069C /* DoctorProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F2C1A3F5090002F069C /* DoctorProfileHeaderView.m */; };
-		18DB5F5D1A3F5090002F069C /* DoctorProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5F2D1A3F5090002F069C /* DoctorProfileHeaderView.xib */; };
-		18DB5F5E1A3F5090002F069C /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F301A3F5090002F069C /* DoctorProfileViewController.m */; };
-		18DB5F5F1A3F5090002F069C /* EmergencyPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F331A3F5090002F069C /* EmergencyPreviewVC.m */; };
-		18DB5F601A3F5090002F069C /* EmergencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F361A3F5090002F069C /* EmergencyViewController.m */; };
-		18DB5F611A3F5090002F069C /* GloblaSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F391A3F5090002F069C /* GloblaSearchViewController.m */; };
-		18DB5F621A3F5090002F069C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F3C1A3F5090002F069C /* HomeViewController.m */; };
-		18DB5F631A3F5090002F069C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F3F1A3F5090002F069C /* LoginViewController.m */; };
-		18DB5F641A3F5090002F069C /* MedicalDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F421A3F5090002F069C /* MedicalDocumentsViewController.m */; };
-		18DB5F651A3F5090002F069C /* MedicalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F451A3F5090002F069C /* MedicalHistoryViewController.m */; };
-		18DB5F661A3F5090002F069C /* MedicalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F481A3F5090002F069C /* MedicalHistoryViewController.m */; };
-		18DB5F671A3F5090002F069C /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F4B1A3F5090002F069C /* RegistrationViewController.m */; };
-		18DB5F681A3F5090002F069C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F4E1A3F5090002F069C /* SettingsViewController.m */; };
-		18DB5F691A3F5090002F069C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F511A3F5090002F069C /* ShareViewController.m */; };
-		18DB5F6A1A3F5090002F069C /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F541A3F5090002F069C /* SyncViewController.m */; };
-		18DB5F6B1A3F5090002F069C /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F571A3F5090002F069C /* TermsViewController.m */; };
+		18DB5FA51A3F5140002F069C /* AddDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F6F1A3F5140002F069C /* AddDocumentsViewController.m */; };
+		18DB5FA61A3F5140002F069C /* DoctorHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F721A3F5140002F069C /* DoctorHistoryViewController.m */; };
+		18DB5FA71A3F5140002F069C /* DoctorProfileFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F751A3F5140002F069C /* DoctorProfileFooterView.m */; };
+		18DB5FA81A3F5140002F069C /* DoctorProfileFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5F761A3F5140002F069C /* DoctorProfileFooterView.xib */; };
+		18DB5FA91A3F5140002F069C /* DoctorProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F791A3F5140002F069C /* DoctorProfileHeaderView.m */; };
+		18DB5FAA1A3F5140002F069C /* DoctorProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5F7A1A3F5140002F069C /* DoctorProfileHeaderView.xib */; };
+		18DB5FAB1A3F5140002F069C /* DoctorProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F7D1A3F5140002F069C /* DoctorProfileViewController.m */; };
+		18DB5FAC1A3F5140002F069C /* EmergencyPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F801A3F5140002F069C /* EmergencyPreviewVC.m */; };
+		18DB5FAD1A3F5140002F069C /* EmergencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F831A3F5140002F069C /* EmergencyViewController.m */; };
+		18DB5FAE1A3F5140002F069C /* GloblaSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F861A3F5140002F069C /* GloblaSearchViewController.m */; };
+		18DB5FAF1A3F5140002F069C /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F891A3F5140002F069C /* HomeViewController.m */; };
+		18DB5FB01A3F5140002F069C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F8C1A3F5140002F069C /* LoginViewController.m */; };
+		18DB5FB11A3F5140002F069C /* MedicalDocumentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F8F1A3F5140002F069C /* MedicalDocumentsViewController.m */; };
+		18DB5FB21A3F5140002F069C /* MedicalHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F921A3F5140002F069C /* MedicalHistoryViewController.m */; };
+		18DB5FB41A3F5140002F069C /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F981A3F5140002F069C /* RegistrationViewController.m */; };
+		18DB5FB51A3F5140002F069C /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F9B1A3F5140002F069C /* SettingsViewController.m */; };
+		18DB5FB61A3F5140002F069C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5F9E1A3F5140002F069C /* ShareViewController.m */; };
+		18DB5FB71A3F5140002F069C /* SyncViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FA11A3F5140002F069C /* SyncViewController.m */; };
+		18DB5FB81A3F5140002F069C /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FA41A3F5140002F069C /* TermsViewController.m */; };
 		25BB16EF1A37470100CE80D2 /* GTLDriveAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */; };
 		25BB16F01A37470100CE80D2 /* GTLDriveApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CE1A37470100CE80D2 /* GTLDriveApp.m */; };
 		25BB16F11A37470100CE80D2 /* GTLDriveAppList.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16D01A37470100CE80D2 /* GTLDriveAppList.m */; };
@@ -401,44 +400,42 @@
 		18DB5EB31A3F4DD5002F069C /* UIAlertView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Helpers.h"; sourceTree = "<group>"; };
 		18DB5ECF1A3F4E1B002F069C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18DB5ED01A3F4E1B002F069C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18DB5F211A3F5090002F069C /* AddDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDocumentsViewController.h; sourceTree = "<group>"; };
-		18DB5F221A3F5090002F069C /* AddDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDocumentsViewController.m; sourceTree = "<group>"; };
-		18DB5F241A3F5090002F069C /* DoctorHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHistoryViewController.h; sourceTree = "<group>"; };
-		18DB5F251A3F5090002F069C /* DoctorHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHistoryViewController.m; sourceTree = "<group>"; };
-		18DB5F271A3F5090002F069C /* DoctorProfileFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileFooterView.h; sourceTree = "<group>"; };
-		18DB5F281A3F5090002F069C /* DoctorProfileFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileFooterView.m; sourceTree = "<group>"; };
-		18DB5F291A3F5090002F069C /* DoctorProfileFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorProfileFooterView.xib; sourceTree = "<group>"; };
-		18DB5F2B1A3F5090002F069C /* DoctorProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileHeaderView.h; sourceTree = "<group>"; };
-		18DB5F2C1A3F5090002F069C /* DoctorProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileHeaderView.m; sourceTree = "<group>"; };
-		18DB5F2D1A3F5090002F069C /* DoctorProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorProfileHeaderView.xib; sourceTree = "<group>"; };
-		18DB5F2F1A3F5090002F069C /* DoctorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileViewController.h; sourceTree = "<group>"; };
-		18DB5F301A3F5090002F069C /* DoctorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileViewController.m; sourceTree = "<group>"; };
-		18DB5F321A3F5090002F069C /* EmergencyPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyPreviewVC.h; sourceTree = "<group>"; };
-		18DB5F331A3F5090002F069C /* EmergencyPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPreviewVC.m; sourceTree = "<group>"; };
-		18DB5F351A3F5090002F069C /* EmergencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyViewController.h; sourceTree = "<group>"; };
-		18DB5F361A3F5090002F069C /* EmergencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyViewController.m; sourceTree = "<group>"; };
-		18DB5F381A3F5090002F069C /* GloblaSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GloblaSearchViewController.h; sourceTree = "<group>"; };
-		18DB5F391A3F5090002F069C /* GloblaSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GloblaSearchViewController.m; sourceTree = "<group>"; };
-		18DB5F3B1A3F5090002F069C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		18DB5F3C1A3F5090002F069C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		18DB5F3E1A3F5090002F069C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		18DB5F3F1A3F5090002F069C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		18DB5F411A3F5090002F069C /* MedicalDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalDocumentsViewController.h; sourceTree = "<group>"; };
-		18DB5F421A3F5090002F069C /* MedicalDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalDocumentsViewController.m; sourceTree = "<group>"; };
-		18DB5F441A3F5090002F069C /* MedicalHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistoryViewController.h; sourceTree = "<group>"; };
-		18DB5F451A3F5090002F069C /* MedicalHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistoryViewController.m; sourceTree = "<group>"; };
-		18DB5F471A3F5090002F069C /* MedicalHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistoryViewController.h; sourceTree = "<group>"; };
-		18DB5F481A3F5090002F069C /* MedicalHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistoryViewController.m; sourceTree = "<group>"; };
-		18DB5F4A1A3F5090002F069C /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
-		18DB5F4B1A3F5090002F069C /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
-		18DB5F4D1A3F5090002F069C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		18DB5F4E1A3F5090002F069C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		18DB5F501A3F5090002F069C /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
-		18DB5F511A3F5090002F069C /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
-		18DB5F531A3F5090002F069C /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
-		18DB5F541A3F5090002F069C /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
-		18DB5F561A3F5090002F069C /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
-		18DB5F571A3F5090002F069C /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
+		18DB5F6E1A3F5140002F069C /* AddDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDocumentsViewController.h; sourceTree = "<group>"; };
+		18DB5F6F1A3F5140002F069C /* AddDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDocumentsViewController.m; sourceTree = "<group>"; };
+		18DB5F711A3F5140002F069C /* DoctorHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHistoryViewController.h; sourceTree = "<group>"; };
+		18DB5F721A3F5140002F069C /* DoctorHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHistoryViewController.m; sourceTree = "<group>"; };
+		18DB5F741A3F5140002F069C /* DoctorProfileFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileFooterView.h; sourceTree = "<group>"; };
+		18DB5F751A3F5140002F069C /* DoctorProfileFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileFooterView.m; sourceTree = "<group>"; };
+		18DB5F761A3F5140002F069C /* DoctorProfileFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorProfileFooterView.xib; sourceTree = "<group>"; };
+		18DB5F781A3F5140002F069C /* DoctorProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileHeaderView.h; sourceTree = "<group>"; };
+		18DB5F791A3F5140002F069C /* DoctorProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileHeaderView.m; sourceTree = "<group>"; };
+		18DB5F7A1A3F5140002F069C /* DoctorProfileHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorProfileHeaderView.xib; sourceTree = "<group>"; };
+		18DB5F7C1A3F5140002F069C /* DoctorProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorProfileViewController.h; sourceTree = "<group>"; };
+		18DB5F7D1A3F5140002F069C /* DoctorProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorProfileViewController.m; sourceTree = "<group>"; };
+		18DB5F7F1A3F5140002F069C /* EmergencyPreviewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyPreviewVC.h; sourceTree = "<group>"; };
+		18DB5F801A3F5140002F069C /* EmergencyPreviewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyPreviewVC.m; sourceTree = "<group>"; };
+		18DB5F821A3F5140002F069C /* EmergencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmergencyViewController.h; sourceTree = "<group>"; };
+		18DB5F831A3F5140002F069C /* EmergencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmergencyViewController.m; sourceTree = "<group>"; };
+		18DB5F851A3F5140002F069C /* GloblaSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GloblaSearchViewController.h; sourceTree = "<group>"; };
+		18DB5F861A3F5140002F069C /* GloblaSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GloblaSearchViewController.m; sourceTree = "<group>"; };
+		18DB5F881A3F5140002F069C /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		18DB5F891A3F5140002F069C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		18DB5F8B1A3F5140002F069C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		18DB5F8C1A3F5140002F069C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		18DB5F8E1A3F5140002F069C /* MedicalDocumentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalDocumentsViewController.h; sourceTree = "<group>"; };
+		18DB5F8F1A3F5140002F069C /* MedicalDocumentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalDocumentsViewController.m; sourceTree = "<group>"; };
+		18DB5F911A3F5140002F069C /* MedicalHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalHistoryViewController.h; sourceTree = "<group>"; };
+		18DB5F921A3F5140002F069C /* MedicalHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MedicalHistoryViewController.m; sourceTree = "<group>"; };
+		18DB5F971A3F5140002F069C /* RegistrationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		18DB5F981A3F5140002F069C /* RegistrationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		18DB5F9A1A3F5140002F069C /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		18DB5F9B1A3F5140002F069C /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		18DB5F9D1A3F5140002F069C /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		18DB5F9E1A3F5140002F069C /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		18DB5FA01A3F5140002F069C /* SyncViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncViewController.h; sourceTree = "<group>"; };
+		18DB5FA11A3F5140002F069C /* SyncViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncViewController.m; sourceTree = "<group>"; };
+		18DB5FA31A3F5140002F069C /* TermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TermsViewController.h; sourceTree = "<group>"; };
+		18DB5FA41A3F5140002F069C /* TermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TermsViewController.m; sourceTree = "<group>"; };
 		25BB16CA1A37470100CE80D2 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
 		25BB16CB1A37470100CE80D2 /* GTLDriveAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDriveAbout.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.h"; sourceTree = "<group>"; };
 		25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDriveAbout.m; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.m"; sourceTree = "<group>"; };
@@ -1060,191 +1057,181 @@
 			path = "App Delegate";
 			sourceTree = "<group>";
 		};
-		18DB5F1F1A3F5090002F069C /* View Controllers */ = {
+		18DB5F6C1A3F5140002F069C /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F201A3F5090002F069C /* Add Document */,
-				18DB5F231A3F5090002F069C /* Doctor History View Controller */,
-				18DB5F261A3F5090002F069C /* Doctor Profile Footer View */,
-				18DB5F2A1A3F5090002F069C /* Doctor Profile Header View */,
-				18DB5F2E1A3F5090002F069C /* Doctor Profile View Controller */,
-				18DB5F311A3F5090002F069C /* Emergency Preview View Controller */,
-				18DB5F341A3F5090002F069C /* Emergency View Controller */,
-				18DB5F371A3F5090002F069C /* Global Search View Controller */,
-				18DB5F3A1A3F5090002F069C /* Home View Controller */,
-				18DB5F3D1A3F5090002F069C /* Login View Controller */,
-				18DB5F401A3F5090002F069C /* Medical Documents View Controller */,
-				18DB5F431A3F5090002F069C /* Medical History View Controller */,
-				18DB5F461A3F5090002F069C /* Medical Histroy View Controller */,
-				18DB5F491A3F5090002F069C /* Registration View Controller */,
-				18DB5F4C1A3F5090002F069C /* Settings View Controller */,
-				18DB5F4F1A3F5090002F069C /* Share View Controller */,
-				18DB5F521A3F5090002F069C /* Sync View Controller */,
-				18DB5F551A3F5090002F069C /* Terms View Controller */,
+				18DB5F6D1A3F5140002F069C /* Add Document */,
+				18DB5F701A3F5140002F069C /* Doctor History View Controller */,
+				18DB5F731A3F5140002F069C /* Doctor Profile Footer View */,
+				18DB5F771A3F5140002F069C /* Doctor Profile Header View */,
+				18DB5F7B1A3F5140002F069C /* Doctor Profile View Controller */,
+				18DB5F7E1A3F5140002F069C /* Emergency Preview View Controller */,
+				18DB5F811A3F5140002F069C /* Emergency View Controller */,
+				18DB5F841A3F5140002F069C /* Global Search View Controller */,
+				18DB5F871A3F5140002F069C /* Home View Controller */,
+				18DB5F8A1A3F5140002F069C /* Login View Controller */,
+				18DB5F8D1A3F5140002F069C /* Medical Documents View Controller */,
+				18DB5F901A3F5140002F069C /* Medical History View Controller */,
+				18DB5F961A3F5140002F069C /* Registration View Controller */,
+				18DB5F991A3F5140002F069C /* Settings View Controller */,
+				18DB5F9C1A3F5140002F069C /* Share View Controller */,
+				18DB5F9F1A3F5140002F069C /* Sync View Controller */,
+				18DB5FA21A3F5140002F069C /* Terms View Controller */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		18DB5F201A3F5090002F069C /* Add Document */ = {
+		18DB5F6D1A3F5140002F069C /* Add Document */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F211A3F5090002F069C /* AddDocumentsViewController.h */,
-				18DB5F221A3F5090002F069C /* AddDocumentsViewController.m */,
+				18DB5F6E1A3F5140002F069C /* AddDocumentsViewController.h */,
+				18DB5F6F1A3F5140002F069C /* AddDocumentsViewController.m */,
 			);
 			path = "Add Document";
 			sourceTree = "<group>";
 		};
-		18DB5F231A3F5090002F069C /* Doctor History View Controller */ = {
+		18DB5F701A3F5140002F069C /* Doctor History View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F241A3F5090002F069C /* DoctorHistoryViewController.h */,
-				18DB5F251A3F5090002F069C /* DoctorHistoryViewController.m */,
+				18DB5F711A3F5140002F069C /* DoctorHistoryViewController.h */,
+				18DB5F721A3F5140002F069C /* DoctorHistoryViewController.m */,
 			);
 			path = "Doctor History View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F261A3F5090002F069C /* Doctor Profile Footer View */ = {
+		18DB5F731A3F5140002F069C /* Doctor Profile Footer View */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F271A3F5090002F069C /* DoctorProfileFooterView.h */,
-				18DB5F281A3F5090002F069C /* DoctorProfileFooterView.m */,
-				18DB5F291A3F5090002F069C /* DoctorProfileFooterView.xib */,
+				18DB5F741A3F5140002F069C /* DoctorProfileFooterView.h */,
+				18DB5F751A3F5140002F069C /* DoctorProfileFooterView.m */,
+				18DB5F761A3F5140002F069C /* DoctorProfileFooterView.xib */,
 			);
 			path = "Doctor Profile Footer View";
 			sourceTree = "<group>";
 		};
-		18DB5F2A1A3F5090002F069C /* Doctor Profile Header View */ = {
+		18DB5F771A3F5140002F069C /* Doctor Profile Header View */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F2B1A3F5090002F069C /* DoctorProfileHeaderView.h */,
-				18DB5F2C1A3F5090002F069C /* DoctorProfileHeaderView.m */,
-				18DB5F2D1A3F5090002F069C /* DoctorProfileHeaderView.xib */,
+				18DB5F781A3F5140002F069C /* DoctorProfileHeaderView.h */,
+				18DB5F791A3F5140002F069C /* DoctorProfileHeaderView.m */,
+				18DB5F7A1A3F5140002F069C /* DoctorProfileHeaderView.xib */,
 			);
 			path = "Doctor Profile Header View";
 			sourceTree = "<group>";
 		};
-		18DB5F2E1A3F5090002F069C /* Doctor Profile View Controller */ = {
+		18DB5F7B1A3F5140002F069C /* Doctor Profile View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F2F1A3F5090002F069C /* DoctorProfileViewController.h */,
-				18DB5F301A3F5090002F069C /* DoctorProfileViewController.m */,
+				18DB5F7C1A3F5140002F069C /* DoctorProfileViewController.h */,
+				18DB5F7D1A3F5140002F069C /* DoctorProfileViewController.m */,
 			);
 			path = "Doctor Profile View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F311A3F5090002F069C /* Emergency Preview View Controller */ = {
+		18DB5F7E1A3F5140002F069C /* Emergency Preview View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F321A3F5090002F069C /* EmergencyPreviewVC.h */,
-				18DB5F331A3F5090002F069C /* EmergencyPreviewVC.m */,
+				18DB5F7F1A3F5140002F069C /* EmergencyPreviewVC.h */,
+				18DB5F801A3F5140002F069C /* EmergencyPreviewVC.m */,
 			);
 			path = "Emergency Preview View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F341A3F5090002F069C /* Emergency View Controller */ = {
+		18DB5F811A3F5140002F069C /* Emergency View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F351A3F5090002F069C /* EmergencyViewController.h */,
-				18DB5F361A3F5090002F069C /* EmergencyViewController.m */,
+				18DB5F821A3F5140002F069C /* EmergencyViewController.h */,
+				18DB5F831A3F5140002F069C /* EmergencyViewController.m */,
 			);
 			path = "Emergency View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F371A3F5090002F069C /* Global Search View Controller */ = {
+		18DB5F841A3F5140002F069C /* Global Search View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F381A3F5090002F069C /* GloblaSearchViewController.h */,
-				18DB5F391A3F5090002F069C /* GloblaSearchViewController.m */,
+				18DB5F851A3F5140002F069C /* GloblaSearchViewController.h */,
+				18DB5F861A3F5140002F069C /* GloblaSearchViewController.m */,
 			);
 			path = "Global Search View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F3A1A3F5090002F069C /* Home View Controller */ = {
+		18DB5F871A3F5140002F069C /* Home View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F3B1A3F5090002F069C /* HomeViewController.h */,
-				18DB5F3C1A3F5090002F069C /* HomeViewController.m */,
+				18DB5F881A3F5140002F069C /* HomeViewController.h */,
+				18DB5F891A3F5140002F069C /* HomeViewController.m */,
 			);
 			path = "Home View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F3D1A3F5090002F069C /* Login View Controller */ = {
+		18DB5F8A1A3F5140002F069C /* Login View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F3E1A3F5090002F069C /* LoginViewController.h */,
-				18DB5F3F1A3F5090002F069C /* LoginViewController.m */,
+				18DB5F8B1A3F5140002F069C /* LoginViewController.h */,
+				18DB5F8C1A3F5140002F069C /* LoginViewController.m */,
 			);
 			path = "Login View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F401A3F5090002F069C /* Medical Documents View Controller */ = {
+		18DB5F8D1A3F5140002F069C /* Medical Documents View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F411A3F5090002F069C /* MedicalDocumentsViewController.h */,
-				18DB5F421A3F5090002F069C /* MedicalDocumentsViewController.m */,
+				18DB5F8E1A3F5140002F069C /* MedicalDocumentsViewController.h */,
+				18DB5F8F1A3F5140002F069C /* MedicalDocumentsViewController.m */,
 			);
 			path = "Medical Documents View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F431A3F5090002F069C /* Medical History View Controller */ = {
+		18DB5F901A3F5140002F069C /* Medical History View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F441A3F5090002F069C /* MedicalHistoryViewController.h */,
-				18DB5F451A3F5090002F069C /* MedicalHistoryViewController.m */,
+				18DB5F911A3F5140002F069C /* MedicalHistoryViewController.h */,
+				18DB5F921A3F5140002F069C /* MedicalHistoryViewController.m */,
 			);
 			path = "Medical History View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F461A3F5090002F069C /* Medical Histroy View Controller */ = {
+		18DB5F961A3F5140002F069C /* Registration View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F471A3F5090002F069C /* MedicalHistoryViewController.h */,
-				18DB5F481A3F5090002F069C /* MedicalHistoryViewController.m */,
-			);
-			path = "Medical Histroy View Controller";
-			sourceTree = "<group>";
-		};
-		18DB5F491A3F5090002F069C /* Registration View Controller */ = {
-			isa = PBXGroup;
-			children = (
-				18DB5F4A1A3F5090002F069C /* RegistrationViewController.h */,
-				18DB5F4B1A3F5090002F069C /* RegistrationViewController.m */,
+				18DB5F971A3F5140002F069C /* RegistrationViewController.h */,
+				18DB5F981A3F5140002F069C /* RegistrationViewController.m */,
 			);
 			path = "Registration View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F4C1A3F5090002F069C /* Settings View Controller */ = {
+		18DB5F991A3F5140002F069C /* Settings View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F4D1A3F5090002F069C /* SettingsViewController.h */,
-				18DB5F4E1A3F5090002F069C /* SettingsViewController.m */,
+				18DB5F9A1A3F5140002F069C /* SettingsViewController.h */,
+				18DB5F9B1A3F5140002F069C /* SettingsViewController.m */,
 			);
 			path = "Settings View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F4F1A3F5090002F069C /* Share View Controller */ = {
+		18DB5F9C1A3F5140002F069C /* Share View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F501A3F5090002F069C /* ShareViewController.h */,
-				18DB5F511A3F5090002F069C /* ShareViewController.m */,
+				18DB5F9D1A3F5140002F069C /* ShareViewController.h */,
+				18DB5F9E1A3F5140002F069C /* ShareViewController.m */,
 			);
 			path = "Share View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F521A3F5090002F069C /* Sync View Controller */ = {
+		18DB5F9F1A3F5140002F069C /* Sync View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F531A3F5090002F069C /* SyncViewController.h */,
-				18DB5F541A3F5090002F069C /* SyncViewController.m */,
+				18DB5FA01A3F5140002F069C /* SyncViewController.h */,
+				18DB5FA11A3F5140002F069C /* SyncViewController.m */,
 			);
 			path = "Sync View Controller";
 			sourceTree = "<group>";
 		};
-		18DB5F551A3F5090002F069C /* Terms View Controller */ = {
+		18DB5FA21A3F5140002F069C /* Terms View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				18DB5F561A3F5090002F069C /* TermsViewController.h */,
-				18DB5F571A3F5090002F069C /* TermsViewController.m */,
+				18DB5FA31A3F5140002F069C /* TermsViewController.h */,
+				18DB5FA41A3F5140002F069C /* TermsViewController.m */,
 			);
 			path = "Terms View Controller";
 			sourceTree = "<group>";
@@ -1389,7 +1376,7 @@
 				18DB5ECE1A3F4E1B002F069C /* App Delegate */,
 				18DB5DFD1A3F4DC9002F069C /* Model */,
 				18DB5E7A1A3F4DD5002F069C /* View */,
-				18DB5F1F1A3F5090002F069C /* View Controllers */,
+				18DB5F6C1A3F5140002F069C /* View Controllers */,
 				75A3D9061A06A2D40068D15E /* Fonts */,
 				7528484819F23CCD0016F54F /* Images */,
 				513E493F1A39827F00038F6D /* Main.storyboard */,
@@ -1753,7 +1740,7 @@
 				75B3520D19F9254600D02CDA /* icon_connectmiddle@2x.png in Resources */,
 				75B351E019F8FA7600D02CDA /* icon_stetho.png in Resources */,
 				7528489119F26D8C0016F54F /* button_searchdel@2x.png in Resources */,
-				18DB5F5D1A3F5090002F069C /* DoctorProfileHeaderView.xib in Resources */,
+				18DB5FAA1A3F5140002F069C /* DoctorProfileHeaderView.xib in Resources */,
 				7528487A19F26D660016F54F /* button_pleaserate_null@2x.png in Resources */,
 				752848BA19F2822E0016F54F /* icon_separator@2x.png in Resources */,
 				18DB5EBA1A3F4DD5002F069C /* DoctorEducationHistroyCell.xib in Resources */,
@@ -1793,7 +1780,7 @@
 				75B2DF5A1A0FD584007716AA /* uploadImage@2x.png in Resources */,
 				7528484D19F23CDF0016F54F /* icon_header@2x.png in Resources */,
 				75B2DF5C1A0FD813007716AA /* userImage@2x.png in Resources */,
-				18DB5F5B1A3F5090002F069C /* DoctorProfileFooterView.xib in Resources */,
+				18DB5FA81A3F5140002F069C /* DoctorProfileFooterView.xib in Resources */,
 				752848B319F2822E0016F54F /* button_deselectall@2x.png in Resources */,
 				75CBD40B19FC094F00686774 /* icon_connecticloud.png in Resources */,
 				752848B919F2822E0016F54F /* icon_selectall@2x.png in Resources */,
@@ -1889,7 +1876,7 @@
 			files = (
 				18DB5ECC1A3F4DD5002F069C /* MGSwipeButton.m in Sources */,
 				18DB5ECB1A3F4DD5002F069C /* CustomIOS7AlertView.m in Sources */,
-				18DB5F5A1A3F5090002F069C /* DoctorProfileFooterView.m in Sources */,
+				18DB5FA71A3F5140002F069C /* DoctorProfileFooterView.m in Sources */,
 				18DB5EC51A3F4DD5002F069C /* MenuCustomCollectionViewCell.m in Sources */,
 				18DB5E6B1A3F4DC9002F069C /* MedicalDetails.m in Sources */,
 				25BB171B1A3747DD00CE80D2 /* GTLRuntimeCommon.m in Sources */,
@@ -1909,7 +1896,7 @@
 				25BB17571A374ABB00CE80D2 /* GTMOAuth2WindowController.m in Sources */,
 				18DB5E621A3F4DC9002F069C /* AllergyInfo.m in Sources */,
 				25BB174C1A374A0E00CE80D2 /* SBJsonWriter.m in Sources */,
-				18DB5F5F1A3F5090002F069C /* EmergencyPreviewVC.m in Sources */,
+				18DB5FAC1A3F5140002F069C /* EmergencyPreviewVC.m in Sources */,
 				18DB5E551A3F4DC9002F069C /* UIButton+Extentions.m in Sources */,
 				25BB16F71A37470100CE80D2 /* GTLDriveFile.m in Sources */,
 				18DB5E631A3F4DC9002F069C /* AllergyStatus.m in Sources */,
@@ -1925,8 +1912,8 @@
 				18DB5E581A3F4DC9002F069C /* Comments.m in Sources */,
 				18DB5E671A3F4DC9002F069C /* GeneralInfo.m in Sources */,
 				25BB17291A37483F00CE80D2 /* GTLJSONParser.m in Sources */,
-				18DB5F5E1A3F5090002F069C /* DoctorProfileViewController.m in Sources */,
-				18DB5F681A3F5090002F069C /* SettingsViewController.m in Sources */,
+				18DB5FAB1A3F5140002F069C /* DoctorProfileViewController.m in Sources */,
+				18DB5FB51A3F5140002F069C /* SettingsViewController.m in Sources */,
 				25BB173C1A3748F100CE80D2 /* GTMHTTPFetcher.m in Sources */,
 				25BB16F91A37470100CE80D2 /* GTLDriveParentList.m in Sources */,
 				25BB171C1A3747DD00CE80D2 /* GTLService.m in Sources */,
@@ -1934,10 +1921,9 @@
 				18DB5E781A3F4DC9002F069C /* SCLog.m in Sources */,
 				25BB16FA1A37470100CE80D2 /* GTLDriveParentReference.m in Sources */,
 				18DB5E6C1A3F4DC9002F069C /* MedicalHistory.m in Sources */,
-				18DB5F651A3F5090002F069C /* MedicalHistoryViewController.m in Sources */,
-				18DB5F601A3F5090002F069C /* EmergencyViewController.m in Sources */,
-				18DB5F591A3F5090002F069C /* DoctorHistoryViewController.m in Sources */,
-				18DB5F661A3F5090002F069C /* MedicalHistoryViewController.m in Sources */,
+				18DB5FB21A3F5140002F069C /* MedicalHistoryViewController.m in Sources */,
+				18DB5FAD1A3F5140002F069C /* EmergencyViewController.m in Sources */,
+				18DB5FA61A3F5140002F069C /* DoctorHistoryViewController.m in Sources */,
 				18DB5E691A3F4DC9002F069C /* IllnessDetails.m in Sources */,
 				25BB16F11A37470100CE80D2 /* GTLDriveAppList.m in Sources */,
 				25BB16F41A37470100CE80D2 /* GTLDriveChildList.m in Sources */,
@@ -1954,44 +1940,44 @@
 				18DB5E641A3F4DC9002F069C /* DoctorVisitDetail.m in Sources */,
 				7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */,
 				18DB5E5D1A3F4DC9002F069C /* NoteDetails.m in Sources */,
-				18DB5F6A1A3F5090002F069C /* SyncViewController.m in Sources */,
+				18DB5FB71A3F5140002F069C /* SyncViewController.m in Sources */,
 				25BB17281A37483F00CE80D2 /* GTLFramework.m in Sources */,
 				18DB5E5F1A3F4DC9002F069C /* AdditionalInfo.m in Sources */,
 				18DB5ECD1A3F4DD5002F069C /* MGSwipeTableCell.m in Sources */,
 				25BB16FE1A37470100CE80D2 /* GTLDriveRevisionList.m in Sources */,
-				18DB5F5C1A3F5090002F069C /* DoctorProfileHeaderView.m in Sources */,
+				18DB5FA91A3F5140002F069C /* DoctorProfileHeaderView.m in Sources */,
 				18DB5E5C1A3F4DC9002F069C /* DoctorListing.m in Sources */,
-				18DB5F641A3F5090002F069C /* MedicalDocumentsViewController.m in Sources */,
+				18DB5FB11A3F5140002F069C /* MedicalDocumentsViewController.m in Sources */,
 				18DB5E6A1A3F4DC9002F069C /* IllnessType.m in Sources */,
 				25BB17271A37483F00CE80D2 /* GTLBase64.m in Sources */,
 				25BB174B1A374A0E00CE80D2 /* SBJsonParser.m in Sources */,
 				18DB5E5E1A3F4DC9002F069C /* Notes.m in Sources */,
-				18DB5F631A3F5090002F069C /* LoginViewController.m in Sources */,
+				18DB5FB01A3F5140002F069C /* LoginViewController.m in Sources */,
 				18DB5E601A3F4DC9002F069C /* AdditionalQuestions.m in Sources */,
 				18DB5E711A3F4DC9002F069C /* PatientPresentHealth.m in Sources */,
 				25BB16F51A37470100CE80D2 /* GTLDriveChildReference.m in Sources */,
 				18DB5E751A3F4DC9002F069C /* DocumentsDatabase.m in Sources */,
-				18DB5F6B1A3F5090002F069C /* TermsViewController.m in Sources */,
+				18DB5FB81A3F5140002F069C /* TermsViewController.m in Sources */,
 				18DB5E731A3F4DC9002F069C /* Patient.m in Sources */,
 				18DB5EB71A3F4DD5002F069C /* DoctorCommentsCustomCell.m in Sources */,
 				18DB5E591A3F4DC9002F069C /* Degree.m in Sources */,
 				25BB16FB1A37470100CE80D2 /* GTLDrivePermission.m in Sources */,
 				25BB16FF1A37470100CE80D2 /* GTLQueryDrive.m in Sources */,
-				18DB5F691A3F5090002F069C /* ShareViewController.m in Sources */,
-				18DB5F621A3F5090002F069C /* HomeViewController.m in Sources */,
+				18DB5FB61A3F5140002F069C /* ShareViewController.m in Sources */,
+				18DB5FAF1A3F5140002F069C /* HomeViewController.m in Sources */,
 				25BB173D1A3748F100CE80D2 /* GTMHTTPFetcherLogging.m in Sources */,
 				18DB5E651A3F4DC9002F069C /* DoctorVisits.m in Sources */,
 				25BB173E1A3748F100CE80D2 /* GTMHTTPFetcherService.m in Sources */,
 				18DB5E6E1A3F4DC9002F069C /* MedicationSaveData.m in Sources */,
-				18DB5F671A3F5090002F069C /* RegistrationViewController.m in Sources */,
+				18DB5FB41A3F5140002F069C /* RegistrationViewController.m in Sources */,
 				25BB175B1A374AD700CE80D2 /* GTMOAuth2ViewControllerTouch.m in Sources */,
 				25BB17191A3747DD00CE80D2 /* GTLObject.m in Sources */,
 				18DB5E761A3F4DC9002F069C /* GlobalVariables.m in Sources */,
 				25BB171D1A3747DD00CE80D2 /* GTLUploadParameters.m in Sources */,
 				25BB173B1A3748F100CE80D2 /* GTMGatherInputStream.m in Sources */,
 				25BB172A1A37483F00CE80D2 /* GTLUtilities.m in Sources */,
-				18DB5F581A3F5090002F069C /* AddDocumentsViewController.m in Sources */,
-				18DB5F611A3F5090002F069C /* GloblaSearchViewController.m in Sources */,
+				18DB5FA51A3F5140002F069C /* AddDocumentsViewController.m in Sources */,
+				18DB5FAE1A3F5140002F069C /* GloblaSearchViewController.m in Sources */,
 				18DB5E661A3F4DC9002F069C /* FamilyIllness.m in Sources */,
 				18DB5EBB1A3F4DD5002F069C /* DoctorHistoryTableViewCell.m in Sources */,
 				7528481819F2354B0016F54F /* main.m in Sources */,
