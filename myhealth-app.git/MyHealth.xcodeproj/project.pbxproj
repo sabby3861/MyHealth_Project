@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		18A352641A3CAE4900C89CD7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */; };
+		18C38D631A40C739007D38DC /* DoctorHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C38D621A40C739007D38DC /* DoctorHistoryTableViewCell.xib */; };
+		18C38D651A40CBB8007D38DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C38D641A40CBB8007D38DC /* Main.storyboard */; };
 		18DB5E551A3F4DC9002F069C /* UIButton+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E001A3F4DC9002F069C /* UIButton+Extentions.m */; };
 		18DB5E561A3F4DC9002F069C /* Connection.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E031A3F4DC9002F069C /* Connection.m */; };
 		18DB5E571A3F4DC9002F069C /* CommentListing.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E081A3F4DC9002F069C /* CommentListing.m */; };
@@ -53,7 +55,6 @@
 		18DB5EB91A3F4DD5002F069C /* DoctorEducationHistroyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E891A3F4DD5002F069C /* DoctorEducationHistroyCell.m */; };
 		18DB5EBA1A3F4DD5002F069C /* DoctorEducationHistroyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5E8A1A3F4DD5002F069C /* DoctorEducationHistroyCell.xib */; };
 		18DB5EBB1A3F4DD5002F069C /* DoctorHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E8D1A3F4DD5002F069C /* DoctorHistoryTableViewCell.m */; };
-		18DB5EBC1A3F4DD5002F069C /* DoctorHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5E8E1A3F4DD5002F069C /* DoctorHistoryTableViewCell.xib */; };
 		18DB5EBD1A3F4DD5002F069C /* DoctorNotesCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E911A3F4DD5002F069C /* DoctorNotesCustomCell.m */; };
 		18DB5EBE1A3F4DD5002F069C /* DoctorNotesCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DB5E921A3F4DD5002F069C /* DoctorNotesCustomCell.xib */; };
 		18DB5EBF1A3F4DD5002F069C /* DoctorProfileCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5E951A3F4DD5002F069C /* DoctorProfileCustomCell.m */; };
@@ -144,7 +145,6 @@
 		25BB175E1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */; };
 		25BE81C41A369B6500B412AD /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BE81C31A369B6500B412AD /* LiveSDK.framework */; };
 		2FF3A13AC64BF7A56E1B2BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5E22FBDC5BFD208D8D52 /* libPods.a */; };
-		513E49401A39827F00038F6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 513E493F1A39827F00038F6D /* Main.storyboard */; };
 		7528481819F2354B0016F54F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528481719F2354B0016F54F /* main.m */; };
 		7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */; };
 		7528482619F2354B0016F54F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7528482519F2354B0016F54F /* Images.xcassets */; };
@@ -283,6 +283,8 @@
 
 /* Begin PBXFileReference section */
 		18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		18C38D621A40C739007D38DC /* DoctorHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		18C38D641A40CBB8007D38DC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		18DB5DFF1A3F4DC9002F069C /* UIButton+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extentions.h"; sourceTree = "<group>"; };
 		18DB5E001A3F4DC9002F069C /* UIButton+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extentions.m"; sourceTree = "<group>"; };
 		18DB5E021A3F4DC9002F069C /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
@@ -371,7 +373,6 @@
 		18DB5E8A1A3F4DD5002F069C /* DoctorEducationHistroyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorEducationHistroyCell.xib; sourceTree = "<group>"; };
 		18DB5E8C1A3F4DD5002F069C /* DoctorHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorHistoryTableViewCell.h; sourceTree = "<group>"; };
 		18DB5E8D1A3F4DD5002F069C /* DoctorHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorHistoryTableViewCell.m; sourceTree = "<group>"; };
-		18DB5E8E1A3F4DD5002F069C /* DoctorHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		18DB5E901A3F4DD5002F069C /* DoctorNotesCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorNotesCustomCell.h; sourceTree = "<group>"; };
 		18DB5E911A3F4DD5002F069C /* DoctorNotesCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorNotesCustomCell.m; sourceTree = "<group>"; };
 		18DB5E921A3F4DD5002F069C /* DoctorNotesCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorNotesCustomCell.xib; sourceTree = "<group>"; };
@@ -543,7 +544,6 @@
 		25BB175A1A374AD700CE80D2 /* GTMOAuth2ViewTouch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GTMOAuth2ViewTouch.xib; path = "../google-api-objectivec-client/Source/OAuth2/Touch/GTMOAuth2ViewTouch.xib"; sourceTree = "<group>"; };
 		25BB175D1A3757B200CE80D2 /* LiveAuthDialog_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveAuthDialog_iPhone.xib; sourceTree = "<group>"; };
 		25BE81C31A369B6500B412AD /* LiveSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LiveSDK.framework; sourceTree = "<group>"; };
-		513E493F1A39827F00038F6D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7528481219F2354B0016F54F /* MyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7528481619F2354B0016F54F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7528481719F2354B0016F54F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -964,7 +964,7 @@
 			children = (
 				18DB5E8C1A3F4DD5002F069C /* DoctorHistoryTableViewCell.h */,
 				18DB5E8D1A3F4DD5002F069C /* DoctorHistoryTableViewCell.m */,
-				18DB5E8E1A3F4DD5002F069C /* DoctorHistoryTableViewCell.xib */,
+				18C38D621A40C739007D38DC /* DoctorHistoryTableViewCell.xib */,
 			);
 			path = "Doctor History  Cell";
 			sourceTree = "<group>";
@@ -1412,7 +1412,7 @@
 				18DB5F6C1A3F5140002F069C /* View Controllers */,
 				75A3D9061A06A2D40068D15E /* Fonts */,
 				7528484819F23CCD0016F54F /* Images */,
-				513E493F1A39827F00038F6D /* Main.storyboard */,
+				18C38D641A40CBB8007D38DC /* Main.storyboard */,
 				7528482519F2354B0016F54F /* Images.xcassets */,
 				7528482719F2354B0016F54F /* LaunchScreen.xib */,
 				7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */,
@@ -1739,10 +1739,9 @@
 				752848C619F2B0ED0016F54F /* Splash_5.png in Resources */,
 				75CBD3F819FBFCC300686774 /* button_share.png in Resources */,
 				75AF8D071A0DEE74000EBF6C /* icon_directions@2x.png in Resources */,
-				513E49401A39827F00038F6D /* Main.storyboard in Resources */,
 				75CBD3C119FBAD1E00686774 /* button_common.png in Resources */,
+				18C38D651A40CBB8007D38DC /* Main.storyboard in Resources */,
 				75CBD3EC19FBF75E00686774 /* icon_connectmiddle.png in Resources */,
-				18DB5EBC1A3F4DD5002F069C /* DoctorHistoryTableViewCell.xib in Resources */,
 				752848D619F2B83C0016F54F /* Icon-60.png in Resources */,
 				75CBD3C219FBAD1E00686774 /* button_common@2x.png in Resources */,
 				75CBD3CB19FBB87D00686774 /* icon_fieldempty@2x.png in Resources */,
@@ -1841,6 +1840,7 @@
 				75B3521219F9254600D02CDA /* icon_image@2x.png in Resources */,
 				7528488019F26D660016F54F /* icon_ratebg@2x.png in Resources */,
 				7528485919F23CEA0016F54F /* icon_medicaldocs@2x.png in Resources */,
+				18C38D631A40C739007D38DC /* DoctorHistoryTableViewCell.xib in Resources */,
 				75CBD40A19FC094F00686774 /* icon_connectg+.png in Resources */,
 				75CBD40D19FC0FD100686774 /* icon_favorite_nactive.png in Resources */,
 				18DB5EC81A3F4DD5002F069C /* ShareCustomCell.xib in Resources */,
@@ -2079,8 +2079,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2100,7 +2100,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "158f2e02-b482-4e04-9c85-e0b4c6725624";
+				PROVISIONING_PROFILE = "978ee05a-7f8a-4597-8998-089ee12d8406";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "arm64 armv7";
 			};
@@ -2124,8 +2124,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2139,7 +2139,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "158f2e02-b482-4e04-9c85-e0b4c6725624";
+				PROVISIONING_PROFILE = "978ee05a-7f8a-4597-8998-089ee12d8406";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 armv7";
@@ -2153,8 +2153,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyHealth/MyHealth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2201,7 +2201,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "978ee05a-7f8a-4597-8998-089ee12d8406";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 arm64";
 			};
@@ -2214,8 +2214,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = MyHealth/MyHealth.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2262,7 +2262,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "978ee05a-7f8a-4597-8998-089ee12d8406";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 arm64";
 			};

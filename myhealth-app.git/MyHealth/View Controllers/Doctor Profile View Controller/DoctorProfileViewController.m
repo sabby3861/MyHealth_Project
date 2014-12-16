@@ -19,7 +19,8 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "Macros.h"
-
+#import "LoginViewController.h"
+#import "NSString+SCPaths.h"
 
 @interface DoctorProfileViewController ()<CustomIOS7AlertViewDelegate,MFMailComposeViewControllerDelegate>
 {
@@ -61,7 +62,7 @@
     
     [_btn_back setHitTestEdgeInsets:UIEdgeInsetsMake(-10, -10, -10, -10)];
     
-  
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -70,19 +71,19 @@
     
     
     if ([_docInfo valueForKey:@"doctorStreetAddress1"] || [_docInfo valueForKey:@"doctorStreetAddress2"]|| [_docInfo valueForKey:@"doctorStreetAddress3"] || [_docInfo valueForKey:@"doctorCity1"]|| [_docInfo valueForKey:@"doctorCity2"]|| [_docInfo valueForKey:@"doctorCity3"]|| [_docInfo valueForKey:@"doctorCountry1"]|| [_docInfo valueForKey:@"doctorCountry2"]|| [_docInfo valueForKey:@"doctorCountry3"]) {
-          destAddress = [NSMutableString stringWithFormat:@"%@,%@,%@,%@,%@",[_docInfo valueForKey:@"doctorStreetAddress1"],[_docInfo valueForKey:@"doctorStreetAddress2"],[_docInfo valueForKey:@"doctorStreetAddress3"],[_docInfo valueForKey:@"doctorCity1"],[_docInfo valueForKey:@"doctorCountry1"]];
+        destAddress = [NSMutableString stringWithFormat:@"%@,%@,%@,%@,%@",[_docInfo valueForKey:@"doctorStreetAddress1"],[_docInfo valueForKey:@"doctorStreetAddress2"],[_docInfo valueForKey:@"doctorStreetAddress3"],[_docInfo valueForKey:@"doctorCity1"],[_docInfo valueForKey:@"doctorCountry1"]];
     }
     
     [destAddress stringByReplacingOccurrencesOfString:@"(null)" withString:@""];
-
+    
     NSLog(@"%@ %@",destAddress,delegate.currentaddress);
 }
 
 #pragma mark  CustomIOS7AlertView
 - (void)customIOS7dialogButtonTouchUpInside:(id)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 0) {
-        
+    if (buttonIndex == 0)
+    {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
@@ -90,8 +91,8 @@
         [parameters setValue:[_docInfo valueForKey:@"doctorID"] forKey:@"doctorID"];
         [parameters setValue:[((APP_DELEGATE).patient) valueForKey:@"patientID"] forKey:@"patientID"];
         
-        if ([addLable.text isEqualToString:@"Add Comment"]) {
-            
+        if ([addLable.text isEqualToString:@"Add Comment"])
+        {
             [parameters setValue:textViewComment.text forKey:@"commentText"];
             [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addComment?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSLog(@"JSON: %@", responseObject);
@@ -103,9 +104,15 @@
                 [MBProgressHUD hideAllHUDsForView:_tblView_profile animated:YES];
                 NSLog(@"Error: %@", error);
             }];
-
             
-        } else {
+        }
+        else
+        {
+            NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+            NSString *path = [sharedDirectory stringByAppendingPathComponent:[NSString stringWithFormat:@"PatientNotes.txt"]];
+            
+            [textViewComment.text writeToFile:path atomically:YES
+                                     encoding:NSUTF8StringEncoding error:nil];
             
             [parameters setValue:textViewComment.text forKey:@"noteText"];
             [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addNotes?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -119,10 +126,10 @@
                 NSLog(@"Response-->%@",operation.responseString);
                 NSLog(@"Error: %@", error);
             }];
-
+            
         }
         
-       // NSDictionary *parameters = @{@"doctorID": @"1"};
+        // NSDictionary *parameters = @{@"doctorID": @"1"};
         
         NSLog(@"Send Comment");
     }
@@ -155,7 +162,7 @@
         }
         
         
-      return eductaionCell;
+        return eductaionCell;
         
     } else if (indexPath.section == 1){
         
@@ -367,11 +374,12 @@
         NSLog(@"Error: %@", error);
     }];
 }
+
 -(void)addComment:(id)sender
 {
     if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] isEqualToString:@"LoggedIn"]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to make a comment." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to make a comment." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login",nil];
         [alert show];
         return;
     }
@@ -393,11 +401,12 @@
     [alert show];
     
 }
+
 -(void)addNote:(id)sender
 {
     if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] isEqualToString:@"LoggedIn"]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to add a note." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to add a note." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login",nil];
         [alert show];
         return;
     }
@@ -405,7 +414,7 @@
     CustomIOS7AlertView *alert = [[CustomIOS7AlertView alloc] init];
     alert.tag = 100;
     alert.delegate = self;
-    [alert setButtonTitles:[NSMutableArray arrayWithObjects:@"Send", @"Cancel", nil]];
+    [alert setButtonTitles:[NSMutableArray arrayWithObjects:@"Save", @"Cancel", nil]];
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 250, 200)];
     addLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 30)];
     addLable.text = @"Add Note";
@@ -413,21 +422,21 @@
     [view addSubview:addLable];
     
     textViewComment = [[UITextView alloc] initWithFrame:CGRectMake(0, 30, 250, 170)];
-    textViewComment.text = @"Write Note..";
+    //    textViewComment.text = @"Write Note..";
     [view addSubview:textViewComment];
     [alert setContainerView:view];
     [alert show];
-    
 }
+
 -(void)rateDoctor:(UIButton *)sender
 {
     if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] isEqualToString:@"LoggedIn"]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to rate a doctor." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please login to rate a doctor." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Login",nil];
         [alert show];
         return;
     }
-
+    
     if (sender.tag == 11) {
         
         rating = 1;
@@ -483,7 +492,7 @@
     [parameters setValue:[NSString stringWithFormat:@"%d",rating] forKey:@"ratingPoint"];
     
     [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/rating?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
+        
         NSLog(@"JSON: %@", responseObject);
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
@@ -598,5 +607,19 @@
     }
     // Close the Mail Interface
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.message isEqualToString:@"Please login to make a comment."]||[alertView.message isEqualToString:@"Please login to add a note."]||[alertView.message isEqualToString:@"Please login to rate a doctor."])
+    {
+        if (buttonIndex==1)
+        {
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LoginViewController *viewCtrl = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            [self.navigationController pushViewController:viewCtrl animated:YES];
+        }
+    }
+    
 }
 @end

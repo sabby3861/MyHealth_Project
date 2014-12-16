@@ -37,7 +37,13 @@
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
     //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
-    [theDocumentList addObjectsFromArray:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+    
+    if([self.mPathSuffix pathExtension])
+        [theDocumentList addObjectsFromArray:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByDeletingPathExtension]]];
+    else
+        [theDocumentList addObjectsFromArray:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+        
+        
 }
 - (IBAction)theBackButtonClicked:(UIButton *)sender{
     SS_POPVIEWCONTROLLER;

@@ -17,6 +17,8 @@
 #import "AppDelegate.h"
 #import "PathHelper.h"
 #import "NSString+SCPaths.h"
+#import "AppDelegate.h"
+#import "SVProgressHUD.h"
 
 @interface HomeViewController ()<WYPopoverControllerDelegate,UIAlertViewDelegate>
 {
@@ -35,7 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    /*
     UIImage *theImage=[UIImage imageNamed:@"icon_file@2x.png"];
     NSData *theData=UIImagePNGRepresentation(theImage);
     NSString *path = [[PathHelper documentDirectoryPath] stringByAppendingPathComponent:@"icon_file@2x.png"];
@@ -57,7 +59,7 @@
                                        NSLog(@"File info is %@",fileInfo);
                                        return  true;
                                    }];*/
-                                   
+                                   /*
                                    [NSString asyncRemoveDirectoryAtPath:[PathHelper documentDirectoryPath] condition:^BOOL(NSDictionary *fileInfo) {
                                        NSLog(@"File info is %@",fileInfo);
                                        return  true;
@@ -67,6 +69,8 @@
         NSLog(@"开始读取...");
     }];
     NSLog(@"开始写入...");
+    */
+    
     
     /*
     [NSString writeAppendToFile:path fromObject:theData];
@@ -99,7 +103,10 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"]) {
+    
+    
+    
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"remember"]) {
         
         _btn_login.hidden = YES;
         
@@ -115,7 +122,18 @@
             [self loginAppAutomatically];
         }
         
-    } else {
+    }
+    else if ([[AppDelegate sharedAppDelegate]isUserLoggedIn]==1) {
+        _btn_login.hidden = YES;
+        btn_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn_menu.frame = CGRectMake(20, 30, 30, 30);
+        btn_menu.layer.cornerRadius = 15.0f;
+        btn_menu.layer.masksToBounds = YES;
+        [btn_menu addTarget:self action:@selector(showPopover:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:btn_menu];
+        [self loginAppAutomatically];
+    }
+    else {
         
         _btn_login.hidden = NO;
         btn_menu.hidden = YES;
@@ -184,7 +202,9 @@
     _btn_login.hidden = YES;
     
     [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"refresh"];
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [SVProgressHUD showWithStatus:@""
+                         maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
     [tempDictionary setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"] forKeyPath:@"user_name"];
@@ -202,7 +222,8 @@
     [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/get_login?" parameters:tempDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         [[NSUserDefaults standardUserDefaults] setValue:@"LoggedIn" forKey:@"login"];
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //[MBProgressHUD hideHUDForView:self.view animated:YES];
+        [SVProgressHUD dismiss];
         NSLog(@"JSON: %@", responseObject);
         if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"]) {
             
@@ -221,7 +242,8 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        //[MBProgressHUD hideHUDForView:self.view animated:YES];
+        [SVProgressHUD dismiss];
          NSLog(@"Response-->>%@",operation.responseString);
         NSLog(@"Error: %@", error);
     }];
@@ -281,6 +303,10 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"remember"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
         
         _btn_login.hidden = NO;
         btn_menu.hidden = YES;

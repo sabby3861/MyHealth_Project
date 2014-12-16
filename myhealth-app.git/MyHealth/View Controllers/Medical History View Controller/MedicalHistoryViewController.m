@@ -116,6 +116,8 @@
 #import "MBProgressHUD.h"
 #import "MedicalHistory.h"
 #import "AFNetworking.h"
+#import "NSString+SCPaths.h"
+
 @interface MedicalHistoryViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     NSMutableArray *headerValues;
@@ -607,9 +609,8 @@
 
 - (IBAction)createPDF:(id)sender
 {
-    NSArray* documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES);
-    NSString* documentDirectory = [documentDirectories objectAtIndex:0];
-    NSString *pdfFileName = [documentDirectory stringByAppendingPathComponent:@"PatientPDF.pdf"];
+    NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
+    NSString *pdfFileName = [sharedDirectory stringByAppendingPathComponent:@"PatientPDF.pdf"];
     
     UIGraphicsBeginPDFContextToFile(pdfFileName, CGRectZero, nil);
     UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
@@ -617,25 +618,30 @@
     
     for (int i=0; i<5;i++)
     {
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        
+        NSDictionary *attributes = @{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:14.0],NSParagraphStyleAttributeName: paragraphStyle };
         NSString *titleHeader = [headerValues objectAtIndex:i];
-        [titleHeader drawInRect:CGRectMake(20, pageOffset, 592, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:14] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentCenter];
+        [titleHeader drawInRect:CGRectMake(20, pageOffset, 592, 34) withAttributes:attributes];
         
         switch (i)
         {
             case 0:
-                pageOffset=[self  setGeneralInfo:pageOffset+34+10];
+                pageOffset=[self  setGeneralInfo:pageOffset+34+12];
                 break;
             case 1:
-                pageOffset=[self  setGeneralQuestion:pageOffset+34+10];
+                pageOffset=[self  setGeneralQuestion:pageOffset+34+12];
                 break;
             case 2:
-                pageOffset=[self  setFamilyIllness:pageOffset+34+10];
+                pageOffset=[self  setFamilyIllness:pageOffset+34+12];
                 break;
             case 3:
-                pageOffset=[self  setPresentHealth:pageOffset+34+10];
+                pageOffset=[self  setPresentHealth:pageOffset+34+12];
                 break;
             case 4:
-                pageOffset=[self  setPastHistory:pageOffset+34+10];
+                pageOffset=[self  setPastHistory:pageOffset+34+12];
                 break;
             default:
                 break;
@@ -648,9 +654,12 @@
 
 -(CGFloat)setGeneralInfo:(CGFloat)pageOffset
 {
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     for (int i=0;i<arrayGeneralInfo.count; i++)
     {
-        [[NSString stringWithFormat:@"%@:",[arrayGeneralInfo objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+        [[NSString stringWithFormat:@"%@:",[arrayGeneralInfo objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
         
         NSString *value=@"";
         switch (i)
@@ -680,8 +689,10 @@
                 value=@"";
                 break;
         }
-        [value drawInRect:CGRectMake(230, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"Helvetica" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
-        (pageOffset<780)?(pageOffset=pageOffset+34+10):(pageOffset=0);
+        
+        [value drawInRect:CGRectMake(230, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
+        
+        (pageOffset<780)?(pageOffset=pageOffset+34+12):(pageOffset=0);
         
         if (pageOffset==0)
         {
@@ -694,11 +705,15 @@
 
 -(CGFloat)setGeneralQuestion:(CGFloat)pageOffset
 {
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    
     for (int i=0;i<arrayGeneralQuestions.count; i++)
     {
         if (i==2)
             continue;
-        [[NSString stringWithFormat:@"%@:",[arrayGeneralQuestions objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+        [[NSString stringWithFormat:@"%@:",[arrayGeneralQuestions objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
         
         NSString *value=@"";
         switch (i)
@@ -719,8 +734,10 @@
                 value=@"";
                 break;
         }
-        [value drawInRect:CGRectMake(230, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"Helvetica" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
-        (pageOffset<780)?(pageOffset=pageOffset+34+10):(pageOffset=0);
+        
+        [value drawInRect:CGRectMake(230, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
+        
+        (pageOffset<780)?(pageOffset=pageOffset+34+12):(pageOffset=0);
         if (pageOffset==0)
         {
             UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
@@ -736,12 +753,16 @@
     if(history.patientFamilyIllness!=nil)
         illnessTypeArray=((IllnessType*)((FamilyIllness*)(history.patientFamilyIllness)).patientFamilyIllness).illnessTypeArray;
     
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    
     for (int i=0;i<arrayFamilyIllness.count; i++)
     {
-        [[NSString stringWithFormat:@"%@:",[arrayFamilyIllness objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+        [[NSString stringWithFormat:@"%@:",[arrayFamilyIllness objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
         IllnessDetails *detail=(IllnessDetails*)[illnessTypeArray objectAtIndex:i];
-        [detail.answer drawInRect:CGRectMake(230, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"Helvetica" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
-        (pageOffset<780)?(pageOffset=pageOffset+34+10):(pageOffset=0);
+        [detail.answer drawInRect:CGRectMake(230, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
+        (pageOffset<780)?(pageOffset=pageOffset+34+12):(pageOffset=0);
         if (pageOffset==0)
         {
             UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
@@ -753,15 +774,19 @@
 
 -(CGFloat)setPresentHealth:(CGFloat)pageOffset
 {
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
     for (int i=0;i<arrayPresentHealth.count; i++)
     {
-        [[NSString stringWithFormat:@"%@:",[arrayPresentHealth objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+        [[NSString stringWithFormat:@"%@:",[arrayPresentHealth objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
         
         NSString *str=@"";
         if(history.patientPresentHealth!=nil)
             str =[((PatientPresentHealth*)(history.patientPresentHealth)).patientPresentHealthArray objectAtIndex:i];
-        [str drawInRect:CGRectMake(230, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"Helvetica" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
-        (pageOffset<780)?(pageOffset=pageOffset+34+10):(pageOffset=0);
+        [str drawInRect:CGRectMake(230, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
+        
+        (pageOffset<780)?(pageOffset=pageOffset+34+12):(pageOffset=0);
         if (pageOffset==0)
         {
             UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);
@@ -773,9 +798,13 @@
 
 -(CGFloat)setPastHistory:(CGFloat)pageOffset
 {
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping ;
+    paragraphStyle.alignment = NSTextAlignmentLeft;
+    
     for (int i=0;i<arrayPastHistory.count; i++)
     {
-        [[NSString stringWithFormat:@"%@:",[arrayPastHistory objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
+        [[NSString stringWithFormat:@"%@:",[arrayPastHistory objectAtIndex:i]] drawInRect:CGRectMake(20, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica-Bold" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
         
         NSString *str=@"";
         if(history.patientPastHistory!=nil)
@@ -784,8 +813,9 @@
             PastRecord *pastRecord=(PastRecord*)[patientPastHistoryArray objectAtIndex:i];
             str = pastRecord.when;
         }
-        [str drawInRect:CGRectMake(230, pageOffset, 200, 34) withFont:[UIFont fontWithName:@"Helvetica" size:13] lineBreakMode:NSLineBreakByWordWrapping alignment:NSTextAlignmentLeft];
-        (pageOffset<780)?(pageOffset=pageOffset+34+10):(pageOffset=0);
+        
+        [str drawInRect:CGRectMake(230, pageOffset, 200, 34) withAttributes:@{ NSFontAttributeName: [UIFont fontWithName:@"Helvetica" size:13.0],NSParagraphStyleAttributeName: paragraphStyle }];
+        (pageOffset<780)?(pageOffset=pageOffset+34+12):(pageOffset=0);
         if (pageOffset==0)
         {
             UIGraphicsBeginPDFPageWithInfo(CGRectMake(0, 0, 612, 792), nil);

@@ -642,7 +642,7 @@ static dispatch_queue_t _dispathQueue;
         NSError *error;
         NSDictionary *fileInfo = [fileManager attributesOfItemAtPath:path error:nil];
         if (condition(fileInfo)) {
-            BOOL succeed = [fileManager removeItemAtPath:path error:&error];
+            [fileManager removeItemAtPath:path error:&error];
         }
     });
 }

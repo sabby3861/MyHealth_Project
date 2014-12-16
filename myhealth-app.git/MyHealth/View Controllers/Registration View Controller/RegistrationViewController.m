@@ -35,20 +35,20 @@ BOOL keyboardIsShown;
     
     // register for keyboard notifications
     /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:self.view.window];
-    // register for keyboard notifications
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:self.view.window];
-    
-    /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardFrameDidChange:)
-                                                 name:UIKeyboardDidChangeFrameNotification object:nil];*/
+     selector:@selector(keyboardWillShow:)
+     name:UIKeyboardWillShowNotification
+     object:self.view.window];
+     // register for keyboard notifications
+     [[NSNotificationCenter defaultCenter] addObserver:self
+     selector:@selector(keyboardWillHide:)
+     name:UIKeyboardWillHideNotification
+     object:self.view.window];
+     
+     //[[NSNotificationCenter defaultCenter] addObserver:self
+     selector:@selector(keyboardFrameDidChange:)
+     name:UIKeyboardDidChangeFrameNotification object:nil];*/
     keyboardIsShown = NO;
-
+    
     if ([[UIScreen mainScreen ] bounds ].size.height != 568) {
         self.vertical_space1.constant -=5;
         self.vertical_space2.constant -=5;
@@ -56,7 +56,7 @@ BOOL keyboardIsShown;
         self.vertical_space4.constant -=5;
         self.vertical_space5.constant -=5;
         self.vertical_space6.constant -=5;
-
+        
     }
 }
 CGFloat animatedDistance;
@@ -136,15 +136,15 @@ CGFloat animatedDistance;
 }
 
 -(void)keyboardFrameDidChange:(NSNotification*)notification{
-   /* NSDictionary* info = [notification userInfo];
-    
-    CGRect kKeyBoardFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];
-    [UIView commitAnimations];
-    */
+    /* NSDictionary* info = [notification userInfo];
+     
+     CGRect kKeyBoardFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+     
+     [UIView beginAnimations:nil context:NULL];
+     [UIView setAnimationBeginsFromCurrentState:YES];
+     [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];
+     [UIView commitAnimations];
+     */
     
     NSDictionary *info = [notification userInfo];
     NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
@@ -249,59 +249,60 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
     else if (!imageData){
         ShowAlertViewWithMessage(@"Please select the image", nil);
     }
-    else{
+    else
+    {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
-    [tempDictionary setValue:_txtfield_firstName.text forKeyPath:@"firstName"];
-    [tempDictionary setValue:_txtfield_lastName.text forKeyPath:@"lastName"];
-    [tempDictionary setValue:_txtfield_userPassword.text forKeyPath:@"user_password"];
-    [tempDictionary setValue:_txtfield_userEmail.text forKeyPath:@"user_email"];
-    [tempDictionary setValue:_txtfield_userName.text forKeyPath:@"user_name"];
-    [tempDictionary setValue:@"1" forKeyPath:@"user_type"];
-    [tempDictionary setValue:@"0" forKeyPath:@"user_fb_id"];
-    [tempDictionary setValue:[UIDevice currentDevice].identifierForVendor.UUIDString forKeyPath:@"user_device_token"];
-    
-    if (imageData) {
+        NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
+        [tempDictionary setValue:_txtfield_firstName.text forKeyPath:@"firstName"];
+        [tempDictionary setValue:_txtfield_lastName.text forKeyPath:@"lastName"];
+        [tempDictionary setValue:_txtfield_userPassword.text forKeyPath:@"user_password"];
+        [tempDictionary setValue:_txtfield_userEmail.text forKeyPath:@"user_email"];
+        [tempDictionary setValue:_txtfield_userName.text forKeyPath:@"user_name"];
+        [tempDictionary setValue:@"1" forKeyPath:@"user_type"];
+        [tempDictionary setValue:@"0" forKeyPath:@"user_fb_id"];
+        [tempDictionary setValue:[UIDevice currentDevice].identifierForVendor.UUIDString forKeyPath:@"user_device_token"];
         
-        //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        // ---- Start Registering ----
-        
-        [SVProgressHUD showWithStatus:@"Registering..."
-                             maskType:SVProgressHUDMaskTypeGradient];
-        [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/create_user?" parameters:tempDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-            [formData appendPartWithFileData:imageData name:@"user_image" fileName:@"newImage.jpeg" mimeType:@"image/jpeg"];
+        if (imageData)
+        {
+            //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // ---- Start Registering ----
             
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            NSLog(@"Success: %@", responseObject);
-            if (![[responseObject valueForKey:@"status"] isEqualToString:@"error"]) {
+            [SVProgressHUD showWithStatus:@"Registering..."
+                                 maskType:SVProgressHUDMaskTypeGradient];
+            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/create_user?" parameters:tempDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+                [formData appendPartWithFileData:imageData name:@"user_image" fileName:@"newImage.jpeg" mimeType:@"image/jpeg"];
                 
-                [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"login"];
-                //[MBProgressHUD hideHUDForView:self.view animated:YES];
+            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                NSLog(@"Success: %@", responseObject);
+                if (![[responseObject valueForKey:@"status"] isEqualToString:@"error"]) {
+                    
+                    [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"login"];
+                    //[MBProgressHUD hideHUDForView:self.view animated:YES];
+                    
+                    
+                    NSLog(@"JSON: %@", responseObject);
+                    NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+                [SVProgressHUD dismiss];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Registered successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
                 
-                NSLog(@"JSON: %@", responseObject);
-                NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
-                [self.navigationController popViewControllerAnimated:YES];
-            }
-            [SVProgressHUD dismiss];
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Registered successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                
+                NSLog(@"Error: %@", error);
+            }];
+            
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please upload photo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            NSLog(@"Error: %@", error);
-        }];
-        
-    } else {
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please upload photo" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
+        }
     }
 }
 
@@ -398,8 +399,11 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
 {
     CGImageRef imgRef = image.CGImage;
     
-    CGFloat width = CGImageGetWidth(imgRef);
-    CGFloat height = CGImageGetHeight(imgRef);
+    //    CGFloat width = CGImageGetWidth(imgRef);
+    //    CGFloat height = CGImageGetHeight(imgRef);
+    
+    CGFloat width = 100.0;
+    CGFloat height = 100.0;
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGRect bounds = CGRectMake(0, 0, width, height);

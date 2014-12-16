@@ -13,8 +13,9 @@
 #import "NSString+SCPaths.h"
 #import "ShareViewController.h"
 #import "MoveDocumentViewController.h"
-
+#import "Constants.h"
 #import "AppDelegate.h"
+#import "SSConstants.h"
 
 
 #define ShareViewControllerSI @"ShareViewController"
@@ -46,7 +47,9 @@
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
     //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
-    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+    //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
+    [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mFilePathSuffix]]];
+    
     filteredArray=[[NSMutableArray alloc]init];
     
     [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];
@@ -117,7 +120,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath == nil)
         return;
-    self.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+    //self.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+    NSLog(@"String is %@",[[theDocumentList valueForKey:@"Path"] objectAtIndex:indexPath.row]);
+    NSLog(@"String to remove is %@",[NSString getLibraryPath]);
+    NSLog(@"Name is %@",[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row]);
+
+    self.mPathSuffix=[[theDocumentList valueForKey:@"Path"] objectAtIndex:indexPath.row];
+    self.mPathSuffix=[self.mPathSuffix stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@/",[NSString getLibraryPath]] withString:@""];
+    NSLog(@"Path to remove is %@",self.mPathSuffix);
+
     if ([self.theDocumentsCount count] == 0) {
         // Do nothing, there are no items in the list. We don't want to download a file that doesn't exist (that'd cause a crash)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -126,14 +137,19 @@
         MedicalDocumentsViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
         viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
         viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
+        viewCrtl.mFilePathSuffix=self.mPathSuffix;
         NSLog(@"path extension is %@",self.mPathSuffix);
         [self.navigationController pushViewController:viewCrtl animated:YES];
     }
 }
 
 -(NSMutableArray*)theDocumentsCount{
+   
     return [NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]];
+    
+
 }
+
 #pragma mark -  MGSwipeTableCell Delegate
 
 -(BOOL) swipeTableCell:(MGSwipeTableCell*) cell canSwipe:(MGSwipeDirection) direction;
@@ -319,7 +335,8 @@ NSUInteger theIndex;
     NSLog(@"theDocumentList is %@",[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]);
     UIImage *theDocImage=[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
     NSLog(@"Image object is %@",theDocImage);
-    [[AppDelegate sharedAppDelegate]setTheDocImage:[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]]];
+    //[[AppDelegate sharedAppDelegate]setTheDocImage:[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]]];
+    [[AppDelegate sharedAppDelegate]setPathOfSharingItem:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
     theIndex=theIndexPath.row;
     ShowOptionsSheet(self);
     

@@ -11,6 +11,10 @@
 #import "MBProgressHUD.h"
 #import "Connection.h"
 #import "Macros.h"
+#import "AppDelegate.h"
+#import "SVProgressHUD.h"
+
+
 @interface LoginViewController ()
 
 @property (nonatomic, strong) AppDelegate *appDelegate;
@@ -22,7 +26,8 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
@@ -39,16 +44,16 @@
     _appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     // Initially hide all the user info subviews.
-  
+    
     _btn_login.layer.cornerRadius = 5.0;
     _btn_signUp.layer.cornerRadius = 5.0;
     
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"]) {
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"]&&[[NSUserDefaults standardUserDefaults] valueForKey:@"remember"]) {
         
         _txtField_userName.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"username"];
         _txtField_userPassword.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"password"];
     }
-
+    
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"remember"] isEqualToString:@"YES"]) {
         
         _btn_rememberMe.selected = YES;
@@ -66,14 +71,16 @@
         
     }
 }
+
 -(void)viewDidDisappear:(BOOL)animated
 {
     
 }
+
 -(IBAction)signIn:(id)sender
 {
-    if (_txtField_userName.text.length == 0){
-        
+    if (_txtField_userName.text.length == 0)
+    {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Please fill the user name." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
         _btn_rememberMe.selected = NO;
@@ -84,9 +91,12 @@
         [alert show];
         _btn_rememberMe.selected = NO;
         
-    } else {
+    } else
+    {
         
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [SVProgressHUD showWithStatus:@"Loggin In..."
+                             maskType:SVProgressHUDMaskTypeNone];
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
         [tempDictionary setValue:_txtField_userName.text forKeyPath:@"user_name"];
@@ -96,15 +106,31 @@
         [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/get_login?" parameters:tempDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
             
             [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"login"];
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            NSLog(@"JSON: %@", responseObject);
-            ((AppDelegate *)[UIApplication sharedApplication].delegate).patient = [[responseObject valueForKey:@"user_details"] objectAtIndex:0];
-            NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
-            [self.navigationController popToRootViewControllerAnimated:YES];
+            //[MBProgressHUD hideHUDForView:self.view animated:YES];
+            [SVProgressHUD dismiss];
+            if ([[responseObject objectForKey:@"status"] isEqualToString:@"success"])
+            {
+                NSLog(@"JSON: %@", responseObject);
+                ((AppDelegate *)[UIApplication sharedApplication].delegate).patient = [[responseObject valueForKey:@"user_details"] objectAtIndex:0];
+                NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
+                [[AppDelegate sharedAppDelegate]setIsUserLoggedIn:1];
+                
+                [[NSUserDefaults standardUserDefaults] setValue:_txtField_userName.text forKey:@"username"];
+                [[NSUserDefaults standardUserDefaults] setValue:_txtField_userPassword.text forKey:@"password"];
+                [[NSUserDefaults standardUserDefaults] setValue:_txtField_userName.text forKey:@"username"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+                
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            }
+            else
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"MyHealth" message:@"Login Failed, Please try again" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
             
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [SVProgressHUD dismiss];
+            //[MBProgressHUD hideHUDForView:self.view animated:YES];
             NSLog(@"Error: %@", error);
         }];
     }
@@ -194,7 +220,7 @@
         }
         else if (sessionState == FBSessionStateClosed || sessionState == FBSessionStateClosedLoginFailed){
             // A session was closed or the login was failed. Update the UI accordingly.
-           
+            
         }
     }
     else{
@@ -228,7 +254,7 @@
             [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"remember"];
             sender.selected = NO;
         }
-                
+        
         
     } else if (_txtField_userName.text.length == 0){
         

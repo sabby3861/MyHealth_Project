@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "SSConstants.h"
+
 @interface AppDelegate ()
 
 @end
@@ -23,6 +25,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    self.isUserLoggedIn=0;
     _patient = [[Patient alloc] init];
     [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"refresh"];
     

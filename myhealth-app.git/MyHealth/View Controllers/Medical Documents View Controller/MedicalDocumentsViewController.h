@@ -17,4 +17,5 @@
 @property (nonatomic, weak) IBOutlet UILabel *mTitle;
 @property (nonatomic, weak) IBOutlet UITextField *mSearchField;
 @property (nonatomic, strong) NSString *mPathSuffix;
+@property (nonatomic, strong) NSString *mFilePathSuffix;
 @end

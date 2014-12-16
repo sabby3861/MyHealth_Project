@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,63 +14,91 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" id="8P4-5u-CGE">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8P4-5u-CGE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" id="aql-6j-SlX">
-                                <rect key="frame" x="248" y="14" width="14" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor.png" translatesAutoresizingMaskIntoConstraints="NO" id="1cQ-MK-fF1">
+                                <rect key="frame" x="11" y="9" width="46" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Fev-X4-2AC"/>
+                                    <constraint firstAttribute="height" constant="46" id="zVA-Cx-Bbx"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mydoctor.png" id="c6y-6j-j2T">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mydoctor.png" translatesAutoresizingMaskIntoConstraints="NO" id="c6y-6j-j2T">
                                 <rect key="frame" x="63" y="16" width="10" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="10" id="Nql-6a-hyk"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JONATHAN DERRBY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iJv-QX-hgD">
-                                <rect key="frame" x="79" y="10" width="163" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JONATHAN DERRBY" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJv-QX-hgD">
+                                <rect key="frame" x="79" y="10" width="147" height="18"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" red="0.078431372550000003" green="0.43137254899999999" blue="0.64705882349999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" id="t28-cB-Pb6">
-                                <rect key="frame" x="234" y="14" width="14" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" id="gJO-QS-DDr">
-                                <rect key="frame" x="276" y="14" width="14" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" id="jHo-WE-8Or">
-                                <rect key="frame" x="262" y="14" width="14" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SENIOR SURGEON, 7 YEARS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ca2-ZE-Znc">
-                                <rect key="frame" x="80" y="28" width="232" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="SENIOR SURGEON, 7 YEARS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ca2-ZE-Znc">
+                                <rect key="frame" x="80" y="28" width="141" height="12"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor.png" id="1cQ-MK-fF1">
-                                <rect key="frame" x="11" y="9" width="46" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="t28-cB-Pb6">
+                                <rect key="frame" x="234" y="14" width="14" height="13"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EASTCHEAP 33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DmS-z0-kKN">
-                                <rect key="frame" x="235" y="29" width="124" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="aql-6j-SlX">
+                                <rect key="frame" x="248" y="14" width="14" height="13"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="jHo-WE-8Or">
+                                <rect key="frame" x="262" y="14" width="14" height="13"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_full.png" translatesAutoresizingMaskIntoConstraints="NO" id="gJO-QS-DDr">
+                                <rect key="frame" x="276" y="14" width="14" height="13"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_half.png" translatesAutoresizingMaskIntoConstraints="NO" id="evb-8g-qSC">
+                                <rect key="frame" x="290" y="14" width="14" height="13"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="EASTCHEAP 33" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DmS-z0-kKN">
+                                <rect key="frame" x="235" y="29" width="85" height="11"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="Z48-ek-3zf"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_ratespec_half.png" id="evb-8g-qSC">
-                                <rect key="frame" x="290" y="14" width="14" height="13"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aql-6j-SlX" firstAttribute="leading" secondItem="t28-cB-Pb6" secondAttribute="trailing" id="5fV-RU-fn6"/>
+                            <constraint firstItem="1cQ-MK-fF1" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="9" id="6or-Ca-04A"/>
+                            <constraint firstItem="t28-cB-Pb6" firstAttribute="leading" secondItem="iJv-QX-hgD" secondAttribute="trailing" constant="8" id="76q-wK-NKM"/>
+                            <constraint firstItem="iJv-QX-hgD" firstAttribute="leading" secondItem="c6y-6j-j2T" secondAttribute="trailing" constant="6" id="8l4-TX-efQ"/>
+                            <constraint firstItem="jHo-WE-8Or" firstAttribute="leading" secondItem="aql-6j-SlX" secondAttribute="trailing" id="AzH-YD-Oj2"/>
+                            <constraint firstItem="Ca2-ZE-Znc" firstAttribute="leading" secondItem="c6y-6j-j2T" secondAttribute="trailing" constant="7" id="D2t-oT-XFC"/>
+                            <constraint firstItem="Ca2-ZE-Znc" firstAttribute="top" secondItem="iJv-QX-hgD" secondAttribute="bottom" id="MQm-2A-rNc"/>
+                            <constraint firstItem="1cQ-MK-fF1" firstAttribute="leading" secondItem="8P4-5u-CGE" secondAttribute="leading" constant="11" id="N7e-IO-d2r"/>
+                            <constraint firstItem="jHo-WE-8Or" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="14" id="NFd-NJ-lw7"/>
+                            <constraint firstItem="c6y-6j-j2T" firstAttribute="leading" secondItem="1cQ-MK-fF1" secondAttribute="trailing" constant="6" id="NiF-Ij-j3f"/>
+                            <constraint firstItem="t28-cB-Pb6" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="14" id="Oba-DY-uCG"/>
+                            <constraint firstItem="evb-8g-qSC" firstAttribute="leading" secondItem="gJO-QS-DDr" secondAttribute="trailing" id="RCR-if-zMz"/>
+                            <constraint firstItem="c6y-6j-j2T" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="16" id="SLC-am-g81"/>
+                            <constraint firstItem="evb-8g-qSC" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="14" id="Wrf-zc-XQ5"/>
+                            <constraint firstItem="aql-6j-SlX" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="14" id="bNs-TW-3BE"/>
+                            <constraint firstItem="iJv-QX-hgD" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="10" id="exB-fV-qrX"/>
+                            <constraint firstItem="gJO-QS-DDr" firstAttribute="leading" secondItem="jHo-WE-8Or" secondAttribute="trailing" id="fBv-ay-EhM"/>
+                            <constraint firstAttribute="trailing" secondItem="DmS-z0-kKN" secondAttribute="trailing" id="g37-cl-N6V"/>
+                            <constraint firstAttribute="trailing" secondItem="evb-8g-qSC" secondAttribute="trailing" constant="16" id="jkL-g3-wVE"/>
+                            <constraint firstItem="DmS-z0-kKN" firstAttribute="top" secondItem="evb-8g-qSC" secondAttribute="bottom" constant="2" id="ogN-4J-Cnz"/>
+                            <constraint firstItem="gJO-QS-DDr" firstAttribute="top" secondItem="8P4-5u-CGE" secondAttribute="top" constant="14" id="yP4-cC-EjR"/>
+                        </constraints>
                     </view>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="8P4-5u-CGE" secondAttribute="bottom" constant="-1" id="IMD-XO-8U5"/>
+                    <constraint firstItem="8P4-5u-CGE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Nq1-4j-19y"/>
+                    <constraint firstAttribute="trailing" secondItem="8P4-5u-CGE" secondAttribute="trailing" id="Xub-Ln-SQV"/>
+                    <constraint firstItem="8P4-5u-CGE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="bl7-i4-4AB"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imgView_doctor" destination="1cQ-MK-fF1" id="0lW-tr-lJd"/>

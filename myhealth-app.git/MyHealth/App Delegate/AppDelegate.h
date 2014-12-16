@@ -11,10 +11,6 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "Patient.h"
-#import "SSConstants.h"
-#import "Constants.h"
-
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -26,6 +22,9 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSString *currentaddress;
 @property (strong, nonatomic) UIImage *theDocImage;
+@property (strong, nonatomic) NSString *pathOfSharingItem;
+@property (assign, nonatomic) BOOL isUserLoggedIn;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 -(void)openActiveSessionWithPermissions:(NSArray *)permissions allowLoginUI:(BOOL)allowLoginUI;

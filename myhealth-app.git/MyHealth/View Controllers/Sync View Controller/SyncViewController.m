@@ -44,19 +44,19 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
             self.restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
             self.restClient.delegate = self;
         }
-        break;
+            break;
         case 1:
         {
             //One Drive
             self.liveClient = [[LiveConnectClient alloc] initWithClientId:kClientIDOneDrive scopes:[NSArray arrayWithObjects:@"wl.signin",@"wl.basic",@"wl.skydrive_update", nil] delegate:self userState:@"initialize"];
         }
-        break;
+            break;
         case 2:
         {
             //iCloud
             [self showAlert:@"iCloud" message:@"Coming Soon..."];
         }
-        break;
+            break;
         case 3:
         {
             //Google Drive
@@ -69,11 +69,11 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
                 // Not yet authorized, request authorization and push the login UI onto the navigation stack.
                 [self presentViewController:[self createAuthController] animated:YES completion:nil];
             }
-
+            
         }
-        break;
+            break;
         default:
-        break;
+            break;
     }
     // Do any additional setup after loading the view.
 }
@@ -97,24 +97,29 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
         case 0:
         {
             // Write a file to the local documents directory
-            NSString *text = @"Hello world.";
-            NSString *filename = @"working-draft.txt";
-            NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-            NSString *localPath = [localDir stringByAppendingPathComponent:filename];
-            [text writeToFile:localPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            //            NSString *text = @"Hello world.";
+            //            NSString *filename = @"working-draft.txt";
+            //            NSString *localDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+            //            NSString *localPath = [localDir stringByAppendingPathComponent:filename];
+            //            [text writeToFile:localPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+            
+            NSString* theFilename = [[AppDelegate sharedAppDelegate].pathOfSharingItem lastPathComponent];
             // Upload file to Dropbox
             NSString *destDir = @"/";
-            [self.restClient uploadFile:filename toPath:destDir withParentRev:nil fromPath:localPath];
+            waitIndicator= [self showWaitIndicator:@"Uploading to DropBox"];
+            [self.restClient uploadFile:theFilename toPath:destDir withParentRev:nil fromPath:[AppDelegate sharedAppDelegate].pathOfSharingItem];
         }
-        break;
+            break;
         case 1:
         {
-            NSData *imgdata = UIImagePNGRepresentation(self.uploadImage.image);
-            NSString *filename = @"doctor.jpg";
-            [self.liveClient uploadToPath:@"me/skydrive" fileName:filename data:imgdata overwrite:LiveUploadRename delegate:self userState:@"Upoading"];
+            NSData *data = [NSData dataWithContentsOfFile:[AppDelegate sharedAppDelegate].pathOfSharingItem];
+            NSString* theFileName = [[AppDelegate sharedAppDelegate].pathOfSharingItem lastPathComponent];
+            //            NSData *imgdata = UIImagePNGRepresentation(self.uploadImage.image);
+            //            NSString *filename = @"doctor.jpg";
+            [self.liveClient uploadToPath:@"me/skydrive" fileName:theFileName data:data overwrite:LiveUploadRename delegate:self userState:@"Upoading"];
             waitIndicator= [self showWaitIndicator:@"Uploading to One Drive"];
         }
-        break;
+            break;
         case 2:
         {
             //iCloud
@@ -129,10 +134,13 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
             GTLDriveFile *file = [GTLDriveFile object];
             file.title = [dateFormat stringFromDate:[NSDate date]];
             file.descriptionProperty = @"Uploaded from the Google Drive iOS Quickstart";
-            file.mimeType = @"image/png";
+            //            file.mimeType = @"image/png";
             
-            NSData *imgdata = UIImagePNGRepresentation(self.uploadImage.image);
-            GTLUploadParameters *uploadParameters = [GTLUploadParameters uploadParametersWithData:imgdata MIMEType:file.mimeType];
+            //            NSData *imgdata = UIImagePNGRepresentation(self.uploadImage.image);
+            NSData *data = [NSData dataWithContentsOfFile:[AppDelegate sharedAppDelegate].pathOfSharingItem];
+            //            NSString* theFileName = [[AppDelegate sharedAppDelegate].pathOfSharingItem lastPathComponent];
+            
+            GTLUploadParameters *uploadParameters = [GTLUploadParameters uploadParametersWithData:data MIMEType:file.mimeType];
             GTLQueryDrive *query = [GTLQueryDrive queryForFilesInsertWithObject:file
                                                                uploadParameters:uploadParameters];
             
@@ -155,7 +163,7 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
                           }];
         }
         default:
-        break;
+            break;
     }
 }
 
@@ -170,12 +178,12 @@ static NSString *const kClientSecretOneDrive = @"bqUKE23WZb3mvQ5sqctZTBP88hgqcmF
 - (void)restClient:(DBRestClient *)client uploadedFile:(NSString *)destPath
               from:(NSString *)srcPath metadata:(DBMetadata *)metadata
 {
-    
+    [waitIndicator dismissWithClickedButtonIndex:0 animated:YES];
     NSLog(@"File uploaded successfully to path: %@", metadata.path);
 }
 
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error {
-    
+    [waitIndicator dismissWithClickedButtonIndex:0 animated:YES];
     NSLog(@"File upload failed with error: %@", error);
 }
 
