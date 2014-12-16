@@ -15,6 +15,9 @@
 #import "SettingsViewController.h"
 #import "MBProgressHUD.h"
 #import "AppDelegate.h"
+#import "PathHelper.h"
+#import "NSString+SCPaths.h"
+
 @interface HomeViewController ()<WYPopoverControllerDelegate,UIAlertViewDelegate>
 {
     MenuCustomCollectionViewCell *customCollectionViewCell;
@@ -33,6 +36,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    UIImage *theImage=[UIImage imageNamed:@"icon_file@2x.png"];
+    NSData *theData=UIImagePNGRepresentation(theImage);
+    NSString *path = [[PathHelper documentDirectoryPath] stringByAppendingPathComponent:@"icon_file@2x.png"];
+    
+    NSDictionary *dic = @{@"1":@"2",@"3":@"4",@"5":@"6"};
+    [NSString asyncSaveData:theData withPath:path callback:^(BOOL succeed) {
+        if (succeed) {
+            NSLog(@"Succcess");
+        }
+        [NSString asyncLoadDataFromPath:path
+                               callback:^(NSObject *data) {
+                                   NSLog(@"Data%@",data);
+                                   NSLog(@"Path is %@",path);
+                                   UIImageView *theImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+                                   theImageView.image=[UIImage imageWithData:data];
+                                   [self.view addSubview:theImageView];
+                                   /*
+                                   [NSString removeFileAtPath:[PathHelper documentDirectoryPath] condition:^BOOL(NSDictionary *fileInfo) {
+                                       NSLog(@"File info is %@",fileInfo);
+                                       return  true;
+                                   }];*/
+                                   
+                                   [NSString asyncRemoveDirectoryAtPath:[PathHelper documentDirectoryPath] condition:^BOOL(NSDictionary *fileInfo) {
+                                       NSLog(@"File info is %@",fileInfo);
+                                       return  true;
+                                   }];
+                                   
+                               }];
+        NSLog(@"开始读取...");
+    }];
+    NSLog(@"开始写入...");
+    
+    /*
+    [NSString writeAppendToFile:path fromObject:theData];
+    UIImageView *theImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
+    theImageView.image=[UIImage imageWithData:[NSString readFromFile:path toObject:2]];
+    [self.view addSubview:theImageView];
+    */
     arrayMenuItems = [[NSMutableArray alloc]init];
     [arrayMenuItems addObject:@"MEDICAL\nHISTORY"];
     [arrayMenuItems addObject:@"DOCTOR\nDIRECTORY"];

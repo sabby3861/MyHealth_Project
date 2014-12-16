@@ -268,6 +268,7 @@
 		75CBD40A19FC094F00686774 /* icon_connectg+.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CBD40619FC094F00686774 /* icon_connectg+.png */; };
 		75CBD40B19FC094F00686774 /* icon_connecticloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CBD40719FC094F00686774 /* icon_connecticloud.png */; };
 		75CBD40D19FC0FD100686774 /* icon_favorite_nactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 75CBD40C19FC0FD100686774 /* icon_favorite_nactive.png */; };
+		F8F8D76B1A40448C00E0299E /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F8D76A1A40448C00E0299E /* PathHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -673,6 +674,9 @@
 		7B8C5E22FBDC5BFD208D8D52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FBCF72415EE02F8ECC0B81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1643A5D5254EE71D3BABD40 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F8F8D7691A40448C00E0299E /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
+		F8F8D76A1A40448C00E0299E /* PathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathHelper.m; sourceTree = "<group>"; };
+		F8F8D76C1A40602900E0299E /* MyHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyHealth.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -723,6 +727,8 @@
 				18DB5E051A3F4DC9002F069C /* Data Models */,
 				18DB5E451A3F4DC9002F069C /* File Management */,
 				18DB5E481A3F4DC9002F069C /* Helper Classes */,
+				F8F8D7691A40448C00E0299E /* PathHelper.h */,
+				F8F8D76A1A40448C00E0299E /* PathHelper.m */,
 				18DB5E4C1A3F4DC9002F069C /* NSString+FilePath */,
 				18DB5E4F1A3F4DC9002F069C /* SC Log */,
 				18DB5E521A3F4DC9002F069C /* Validate Textfield */,
@@ -1399,6 +1405,7 @@
 		7528481419F2354B0016F54F /* MyHealth */ = {
 			isa = PBXGroup;
 			children = (
+				F8F8D76C1A40602900E0299E /* MyHealth.entitlements */,
 				18DB5ECE1A3F4E1B002F069C /* App Delegate */,
 				18DB5DFD1A3F4DC9002F069C /* Model */,
 				18DB5E7A1A3F4DD5002F069C /* View */,
@@ -1688,7 +1695,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1935,6 +1942,7 @@
 				25BB16F31A37470100CE80D2 /* GTLDriveChangeList.m in Sources */,
 				25BB17001A37470100CE80D2 /* GTLServiceDrive.m in Sources */,
 				18DB5EB51A3F4DD5002F069C /* AddDocCustomCell.m in Sources */,
+				F8F8D76B1A40448C00E0299E /* PathHelper.m in Sources */,
 				18DB5E791A3F4DC9002F069C /* SSTextFieldValidation.m in Sources */,
 				18DB5E581A3F4DC9002F069C /* Comments.m in Sources */,
 				18DB5E671A3F4DC9002F069C /* GeneralInfo.m in Sources */,
@@ -2144,8 +2152,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
+				CODE_SIGN_ENTITLEMENTS = MyHealth/MyHealth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2192,7 +2201,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "158f2e02-b482-4e04-9c85-e0b4c6725624";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 arm64";
 			};
@@ -2204,8 +2213,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BrilliSoft, LLC (W95KR4DHN8)";
+				CODE_SIGN_ENTITLEMENTS = MyHealth/MyHealth.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2252,7 +2262,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "158f2e02-b482-4e04-9c85-e0b4c6725624";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 				VALID_ARCHS = "armv7 arm64";
 			};

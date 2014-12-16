@@ -508,4 +508,291 @@ NSString *NSDCIMFolder()
 }
 
 
+
+
+/****************/
++ (BOOL)isDirectoryAtPath:(NSString *)path
+{
+    if ([path hasSuffix:@".DS_Store"])
+    {
+        return NO;
+    }
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    BOOL isDir = YES;
+    BOOL exists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+    return exists;
+}
+
++ (BOOL)isFileAtPath:(NSString *)path
+{
+    if ([path hasSuffix:@".DS_Store"])
+    {
+        return NO;
+    }
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    BOOL isDir = NO;
+    return [fileManager fileExistsAtPath:path isDirectory:&isDir];
+}
+
+
++ (NSData *)contentOfFileAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSData *content = [fileManager contentsAtPath:path];
+    return content;
+}
+/*
++ (UIImage *)imageAtFilePath:(NSString *)path
+{
+    NSData *imageData = [self contentOfFileAtPath:path];
+    return [UIImage imageWithData:imageData];
+}
+*/
+
+
+#pragma mark - Private Methods -
+static dispatch_queue_t _dispathQueue;
++ (dispatch_queue_t)defaultQueue
+{
+    if (!_dispathQueue) {
+        _dispathQueue = dispatch_queue_create("MyHealth.FileManager", NULL);
+    }
+    return _dispathQueue;
+}
++ (dispatch_queue_t)defaultQueue:(dispatch_queue_attr_t)theBlock
+{
+    if (!_dispathQueue) {
+        _dispathQueue = dispatch_queue_create("MyHealth.FileManager", theBlock);
+    }
+    return _dispathQueue;
+}
+#pragma mark - Public Methods -
+
+
++ (NSObject *)loadDataFromPath:(NSString *)path
+{
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:path];;
+}
+
++ (BOOL)asyncLoadDataFromPath:(NSString *)path callback:(void(^)(NSObject *data))callback
+{
+    BOOL fileExist = [self fileExistsAtPath:path];
+    dispatch_async([self defaultQueue], ^{
+        NSObject *data = [self loadDataFromPath:path];
+        callback(data);
+    });
+    return fileExist;
+}
+
+#pragma mark - 存储数据
++ (BOOL)saveData:(NSObject *)data withPath:(NSString *)path
+{
+    if ([PathHelper createPathIfNecessary:[path stringByDeletingLastPathComponent]])
+    {
+        return [NSKeyedArchiver archiveRootObject:data toFile:path];
+    }
+    return NO;
+}
+
++ (void)asyncSaveData:(NSObject *)data
+             withPath:(NSString *)path
+             callback:(void(^)(BOOL succeed))callback
+{
+    dispatch_async([self defaultQueue], ^{
+        BOOL succeed = [self saveData:data withPath:path];
+        callback(succeed);
+    });
+}
+
++ (BOOL)saveData:(NSObject *)data
+        withPath:(NSString *)path
+        fileName:(NSString *)fileName
+{
+    NSString *fullPath = [path stringByAppendingPathComponent:fileName];
+    return [self saveData:data withPath:fullPath];
+}
+
++ (void)asyncSaveData:(NSObject *)data
+             withPath:(NSString *)path
+             fileName:(NSString *)fileName
+             callback:(void(^)(BOOL succeed))callback
+{
+    NSString *fullPath = [path stringByAppendingPathComponent:fileName];
+    [self asyncSaveData:data withPath:fullPath callback:callback];
+}
+
+#pragma mark - 删除
++ (BOOL)removeFileAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    BOOL succeed = [fileManager removeItemAtPath:path error:&error];
+    return succeed;
+}
++ (void)asyncRemoveDirectoryAtPath:(NSString *)path condition:(BOOL (^)(NSDictionary *fileInfo))condition
+{
+  
+   
+    dispatch_async([self defaultQueue:condition], ^{
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        NSError *error;
+        NSDictionary *fileInfo = [fileManager attributesOfItemAtPath:path error:nil];
+        if (condition(fileInfo)) {
+            BOOL succeed = [fileManager removeItemAtPath:path error:&error];
+        }
+    });
+}
+
+
++ (void)removeFileAtPath:(NSString *)path condition:(BOOL (^)(NSDictionary *fileInfo))condition;
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *enumerate = [fm enumeratorAtPath:path];
+    for (NSString *fileName in enumerate)
+    {
+        NSString *filePath = [path stringByAppendingPathComponent:fileName];
+        NSDictionary *fileInfo = [fm attributesOfItemAtPath:filePath error:nil];
+        if (condition(fileInfo)) {
+            [fm removeItemAtPath:filePath error:nil];
+        }
+    }
+}
+
++ (void)asyncRemoveFileAtPath:(NSString *)path condition:(BOOL (^)(NSDictionary *fileInfo))condition;
+{
+    dispatch_async([self defaultQueue], ^{
+        [self removeFileAtPath:path condition:condition];
+    });
+}
+
+
+
+
+
++(id)readFromFile:(NSString *)fileFullPath toObject:(DataType)dataType
+{
+    id mId = nil;
+    switch (dataType)
+    {
+        case MyNSString:
+        {
+            NSError *error = nil;
+            mId = [NSString stringWithContentsOfFile:fileFullPath encoding:NSUTF8StringEncoding error:&error];
+        }
+            break;
+        case MyNSMutableString:
+        {
+            NSError *error = nil;
+            mId = [NSString stringWithContentsOfFile:fileFullPath encoding:NSUTF8StringEncoding error:&error];
+        }
+            break;
+        case MyNSArray:
+        {
+            mId = [NSArray arrayWithContentsOfFile:fileFullPath];
+        }
+            break;
+        case MyNSMutableArray:
+        {
+            mId = [NSMutableArray arrayWithContentsOfFile:fileFullPath];
+        }
+            break;
+        case MyNSDictionary:
+        {
+            mId = [NSDictionary dictionaryWithContentsOfFile:fileFullPath];
+        }
+            break;
+        case MyNSMutableDictionary:
+        {
+            mId = [NSMutableDictionary dictionaryWithContentsOfFile:fileFullPath];
+        }
+            break;
+        case MyNSData:
+        {
+            NSError *error = nil;
+            mId = [NSData dataWithContentsOfFile:fileFullPath options:NSDataReadingMapped error:&error];
+        }
+            break;
+        case MyNSMutableData:
+        {
+            NSError *error = nil;
+            mId = [NSMutableData dataWithContentsOfFile:fileFullPath options:NSDataReadingMapped error:&error];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    return mId;
+}
+
++(BOOL)writeAppendToFile:(NSString *)fileFullPath fromObject:(NSObject *)object
+{
+    BOOL flag = NO;
+    NSData *data = nil;
+    NSFileHandle *outFile = nil;
+    @try
+    {
+        outFile = [NSFileHandle fileHandleForWritingAtPath:fileFullPath];
+        
+        //找到并定位到outFile的末尾位置（在此后追加文件）
+        [outFile seekToEndOfFile];
+        
+        //将object的这些字符串，数组，data，字典等数据追加到文件中
+        if ([object isKindOfClass:[NSString class]])
+        {
+            NSString *content = (NSString *)object;
+            data = [content dataUsingEncoding:NSUTF8StringEncoding];
+            [outFile writeData:data];
+        }
+        else if ([object isKindOfClass:[NSArray class]])
+        {
+            NSArray *array = (NSArray *)object;
+            data = [NSKeyedArchiver archivedDataWithRootObject:array];
+            [outFile writeData:data];
+        }
+        else if ([object isKindOfClass:[NSData class]])
+        {
+            data = (NSData *)object;
+            [outFile writeData:data];
+        }
+        else if ([object isKindOfClass:[NSDictionary class]])
+        {
+            NSDictionary *dictionary = (NSDictionary *)object;
+            NSMutableData *mData = [[NSMutableData alloc] init];
+            NSKeyedArchiver *archiver= [[NSKeyedArchiver alloc]initForWritingWithMutableData:mData];
+            
+            //获取字典的所有key值
+            NSArray *arrayKeys = [dictionary allKeys];
+            for (NSString *key in arrayKeys)
+            {
+                [archiver encodeObject:dictionary forKey: key];
+                [archiver finishEncoding];
+            }
+            [outFile writeData:mData];
+            
+        }
+        flag = YES;
+    }
+    @catch (NSException *exception)
+    {
+        flag = NO;
+    }
+    @finally
+    {
+        if (!outFile) {
+            [outFile closeFile];
+        }
+        
+    }
+    
+    return flag;
+}
+
+
+
 @end
