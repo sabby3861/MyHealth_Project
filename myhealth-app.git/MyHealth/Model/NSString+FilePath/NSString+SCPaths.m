@@ -186,6 +186,33 @@
 	return cachedPath;
 }
 
+/*. This Methods provides the shared file manager instance
+ *. This will help to to alloc the file manager again and again.
+ *. @return NSFileManager containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++ (NSFileManager *)sharedFileManager
+{
+    static dispatch_once_t onceToken;
+    static NSFileManager *fileManger;
+    dispatch_once(&onceToken, ^{
+        fileManger = [NSFileManager defaultManager];
+    });
+    
+    return fileManger;
+}
+
+/*. This Methods get the readable name of file at the path, to show to user
+ *. @return NSString containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++(NSString*)getFileNameAtPath:(NSString*)thePath{
+    if ([[NSString sharedFileManager] fileExistsAtPath:thePath]) {
+        return [[NSString sharedFileManager] displayNameAtPath:thePath];
+    }
+    return nil;
+}
+
 
 +(NSMutableArray*)theDirectoryArray{
     NSString *file;
@@ -303,6 +330,7 @@
         if(isDir) {
             [directoryList addObject:file];
         }
+        NSLog(@"SubPaths are %@",[fm subpathsAtPath:folder]);
     }
     NSLog(@"Folders are %@",directoryList);
     return directoryList;
@@ -670,8 +698,42 @@ static dispatch_queue_t _dispathQueue;
 }
 
 
++ (void)moveFileAtPath:(NSString *)path toPath:(NSString*)destinationPath condition:(void (^)(BOOL fileInfo))callBack;
+{
+    //NSFileManager *fileManager = [NSFileManager defaultManager];
+    __block NSError *error;
+    dispatch_async([self defaultQueue], ^{
+        if ([[NSString sharedFileManager] fileExistsAtPath:path]) {
+            BOOL succeed = [[NSString sharedFileManager] moveItemAtPath:path toPath:destinationPath error:&error];
+            callBack(succeed);
+        }
+    });
+}
+
++ (void)asyncMoveFileAtPath:(NSString *)path toPath:(NSString*)destinationPath condition:(void (^)(BOOL succeed))callBack
+{
+    dispatch_async([self defaultQueue], ^{
+        [self moveFileAtPath:path toPath:destinationPath condition:callBack];
+    });
+}
 
 
+/*
++ (void)asyncSaveData:(NSObject *)data
+             withPath:(NSString *)path
+             callback:(void(^)(BOOL succeed))callback
+{
+    dispatch_async([self defaultQueue], ^{
+        BOOL succeed = [self saveData:data withPath:path];
+        callback(succeed);
+    });
+}
++ (void)asyncSaveData:(NSObject *)data
+             withPath:(NSString *)path
+             fileName:(NSString *)fileName
+             callback:(void(^)(BOOL succeed))callback
+
+*/
 
 +(id)readFromFile:(NSString *)fileFullPath toObject:(DataType)dataType
 {

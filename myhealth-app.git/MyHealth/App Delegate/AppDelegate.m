@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SSConstants.h"
+#import "UIAlertView+Helpers.h"
 
 @interface AppDelegate ()
 
@@ -48,6 +49,8 @@
     geocoder = [[CLGeocoder alloc] init];
     
     [self getCurrentLocation];
+    SCLogSetLogLevel(7);
+    //ShowAlertView(@"My Test",@"Please enter first name", nil);
     return YES;
 }
 

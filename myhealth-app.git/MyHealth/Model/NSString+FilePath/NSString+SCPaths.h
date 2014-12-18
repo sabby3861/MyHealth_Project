@@ -82,6 +82,13 @@
  */
 - (NSString *)pathByDeletingSequenceNumber;
 
+/*. This Methods get the readable name of file at the path, to show to user
+ *. @return NSString containing the folder names
+ *. @author Sanjay Chauhan
+ .*/
++(NSString*)getFileNameAtPath:(NSString*)thePath;
+
+
 + (BOOL)deleteFileAtPath:(NSString*)_path;
 +(BOOL)deleteFileOrDirectoryAtPath:(NSString*)theFilePath;
 
@@ -185,6 +192,8 @@
  @return 无
  */
 + (void)asyncRemoveFileAtPath:(NSString *)path condition:(BOOL (^)(NSDictionary *fileInfo))condition;
++ (void)asyncMoveFileAtPath:(NSString *)path toPath:(NSString*)destinationPath condition:(void (^)(BOOL succeed))callBack;
+
 
 typedef enum
 {

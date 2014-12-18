@@ -11,5 +11,6 @@
 @interface MoveDocumentViewController : UIViewController
 
 @property (nonatomic, strong) NSString *mPathSuffix;
+@property (nonatomic, strong) NSString *mfileAtPath;
 
 @end

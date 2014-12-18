@@ -10,12 +10,15 @@
 #import "MedicalDocumentsCustomCell.h"
 #import "Constants.h"
 #import "NSString+SCPaths.h"
+#import "SCLog.h"
+#import "AppDelegate.h"
+#import "SSConstants.h"
 
 
 @interface MoveDocumentViewController (){
     MedicalDocumentsCustomCell *cell;
     NSMutableArray *theDocumentList;
-
+//[fileManager moveItemAtPath:myPath toPath:myNewPath error:NULL];
 }
 @property (weak, nonatomic) IBOutlet UILabel *theTitle;
 @property (weak, nonatomic) IBOutlet UITableView *theDocumentTableView;
@@ -33,6 +36,7 @@
     
     self.theTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"MyHealth";
 
+    SCLogDebug(@"The Suffix is %@",self.mPathSuffix);
     [self.theDocumentTableView registerNib:[UINib nibWithNibName:@"MedicalDocumentsCustomCell" bundle:nil] forCellReuseIdentifier:@"Reuse"];
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
@@ -50,6 +54,9 @@
 }
 
 - (IBAction)moveFolderAction:(UIBarButtonItem *)sender {
+    [NSString asyncMoveFileAtPath:self.mfileAtPath toPath:self.mPathSuffix condition:^(BOOL succeed) {
+        NSLog(@"Result %d",succeed);
+    }];
 }
 
 - (IBAction)createFolderAction:(UIBarButtonItem *)sender {
@@ -116,12 +123,21 @@
         // Do nothing, there are no items in the list. We don't want to download a file that doesn't exist (that'd cause a crash)
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     } else {
+        /*
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         MoveDocumentViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
         viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
         viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];
         NSLog(@"path extension is %@",self.mPathSuffix);
         [self.navigationController pushViewController:viewCrtl animated:YES];
+        */
+        
+        MoveDocumentViewController *moveDocumentVC = [[[AppDelegate sharedAppDelegate]theMainStoryBoard] instantiateViewControllerWithIdentifier:MOVEDOCUMENT_VIEW];
+        moveDocumentVC.mPathSuffix = [[theDocumentList valueForKey:@"name"] objectAtIndex:indexPath.row];//[subpath lastPathComponent];
+        //moveDocumentVC.mPathSuffix=self.thePreviousFilePath;
+        NSLog(@"path extension is %@",self.mPathSuffix);
+        [self.navigationController pushViewController:moveDocumentVC animated:YES];
+        
     }
 }
 

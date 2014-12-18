@@ -11,6 +11,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <DropboxSDK/DropboxSDK.h>
 #import "Patient.h"
+#import "SCLog.h"
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,CLLocationManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

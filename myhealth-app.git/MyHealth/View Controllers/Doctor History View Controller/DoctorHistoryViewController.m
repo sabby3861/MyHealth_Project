@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "DoctorListing.h"
 #import "SVProgressHUD.h"
+#import "SCLog.h"
 
 @interface DoctorHistoryViewController ()<UITextFieldDelegate>
 {
@@ -185,7 +186,7 @@
         [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/searchDoctor?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"Response-->>%@",responseObject);
             [MBProgressHUD hideAllHUDsForView:_tblView_doctorHistory animated:YES];
-            
+            SCLogDebug(@"The doctor search array is %@",responseObject);
             model.arrayListing = [[responseObject valueForKey:@"DoctorData"] valueForKey:@"doctorDetail"];
             [_tblView_doctorHistory reloadData];
             if (model.arrayListing.count) {
