@@ -37,7 +37,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    /**
+    /*
     UIImage *theImage=[UIImage imageNamed:@"icon_file@2x.png"];
     NSData *theData=UIImagePNGRepresentation(theImage);
     NSString *path = [[PathHelper documentDirectoryPath] stringByAppendingPathComponent:@"icon_file@2x.png"];
