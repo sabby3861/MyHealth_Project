@@ -44,24 +44,23 @@
     NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Search documents..." attributes:@{ NSForegroundColorAttributeName : [UIColor colorWithRed:63.0/255.0 green:170.0/255.0 blue:247/255.0 alpha:1] }];
     self.mSearchField.attributedPlaceholder = str;
     
-    /*** Update the TableView once your view is loaded ***/
+     
+     
+     /*** Update the TableView once your view is loaded ***/
+    /*
     NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
     theDocumentList=[[NSMutableArray alloc]init];
     //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
-    //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]];
     [theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mFilePathSuffix]]];
-    
     filteredArray=[[NSMutableArray alloc]init];
-    
     [filteredArray addObjectsFromArray:[theDocumentList objectAtIndex:0]];
     NSLog(@"The Doc Array is %@",theDocumentList);
     NSLog(@"filteredArray Array is %@",filteredArray);
     NSLog(@"The Doc Array at index 0 %@",[theDocumentList objectAtIndex:0]);
-    
-    /** Adding Original Values to Filtered Array for search **/
     theDocumentList=[theDocumentList objectAtIndex:0];
     self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
     self.thePreviousFilePath=self.mPathSuffix;
+     */
     
 }
 
@@ -72,7 +71,24 @@
     NSLog(@"SPath Previus is %@",self.thePreviousFilePath);
     
      NSLog(@"On ViewWillAppear %@",[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mPathSuffix]]);
-    //[self.tblView_medicalHistory reloadData];
+    
+    
+    
+    /*** Update the TableView once your view is loaded ***/
+    NSLog(@"the values are %@",[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]);
+    theDocumentList=[[NSMutableArray alloc]init];
+    //[theDocumentList addObject:[NSString getDirectoriesandFilesinFolder:[NSString getLibraryPath]]];
+    [theDocumentList addObjectsFromArray:[NSString getDirectoriesandFilesinFolder:[[NSString getLibraryPath]stringByAppendingPathComponent:self.mFilePathSuffix]]];
+    filteredArray=[[NSMutableArray alloc]init];
+    [filteredArray addObjectsFromArray:theDocumentList];
+    NSLog(@"The Doc Array is %@",theDocumentList);
+    NSLog(@"filteredArray Array is %@",filteredArray);
+    NSLog(@"The Doc Array at index 0 %@",theDocumentList);
+    /** Adding Original Values to Filtered Array for search **/
+    //theDocumentList=[theDocumentList objectAtIndex:0];
+    self.mTitle.text=self.mPathSuffix.length>0 ?self.mPathSuffix:@"Documents";
+    self.thePreviousFilePath=self.mPathSuffix;
+    [self.tblView_medicalHistory reloadData];
 
     
 }

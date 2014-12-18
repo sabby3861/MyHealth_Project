@@ -374,10 +374,10 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
     
     //_uploadImage = YES;
     _btn_uploadImage.layer.masksToBounds=YES;
-    _btn_uploadImage.layer.cornerRadius = 40.0;
+    _btn_uploadImage.layer.cornerRadius = 45.0;
     imageData  = UIImageJPEGRepresentation(image, 1);
     [_btn_uploadImage setImage:[self generatePhotoThumbnail:[editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"]] forState:UIControlStateNormal];
-    _btn_uploadImage.contentMode=UIViewContentModeScaleToFill;
+    _btn_uploadImage.contentMode=UIViewContentModeScaleAspectFit;
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
