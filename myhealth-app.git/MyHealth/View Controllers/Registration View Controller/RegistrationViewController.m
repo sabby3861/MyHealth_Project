@@ -374,7 +374,7 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
     
     //_uploadImage = YES;
     _btn_uploadImage.layer.masksToBounds=YES;
-    _btn_uploadImage.layer.cornerRadius = 45.0;
+    _btn_uploadImage.layer.cornerRadius = 50.0;
     imageData  = UIImageJPEGRepresentation(image, 1);
     [_btn_uploadImage setImage:[self generatePhotoThumbnail:[editingInfo objectForKey:@"UIImagePickerControllerOriginalImage"]] forState:UIControlStateNormal];
     _btn_uploadImage.contentMode=UIViewContentModeScaleAspectFit;
@@ -417,11 +417,11 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
 {
     CGImageRef imgRef = image.CGImage;
     
-    //    CGFloat width = CGImageGetWidth(imgRef);
-    //    CGFloat height = CGImageGetHeight(imgRef);
+        CGFloat width = CGImageGetWidth(imgRef);
+        CGFloat height = CGImageGetHeight(imgRef);
     
-    CGFloat width = 100.0;
-    CGFloat height = 100.0;
+    //CGFloat width = 100.0;
+    //CGFloat height = 100.0;
     
     CGAffineTransform transform = CGAffineTransformIdentity;
     CGRect bounds = CGRectMake(0, 0, width, height);
