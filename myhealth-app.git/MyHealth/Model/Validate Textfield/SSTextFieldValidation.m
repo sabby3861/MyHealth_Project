@@ -87,12 +87,12 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertView(NSString *title, NSString *messa
 
 
 BOOL (^isTextFieldEmpty)(UITextField *,NSString*) = ^(UITextField *theTextField,NSString* message) {
-    //[make stringByAppendingFormat:@" %@", model];
     if(theTextField.text.length<1)
         return YES;
     else
         return NO;
 };
+
 
 /*
 - (void)setValidationStatus:(SSTextFieldValidationStatus)status;

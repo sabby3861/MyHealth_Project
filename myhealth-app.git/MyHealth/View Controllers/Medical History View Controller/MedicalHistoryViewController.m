@@ -117,6 +117,7 @@
 #import "MedicalHistory.h"
 #import "AFNetworking.h"
 #import "NSString+SCPaths.h"
+#import "SVProgressHUD.h"
 
 @interface MedicalHistoryViewController () <UITableViewDataSource, UITableViewDelegate>
 {
@@ -532,51 +533,64 @@
 
 -(void)getMedicalFormHistory
 {
-    [MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    //[MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    [SVProgressHUD showWithStatus:@"Fetching..."
+                         maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"patientID": @"1"};
     [manager GET:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getPatientHistoryData?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Resopnse-->%@",responseObject);
         [self parseResponseObject:responseObject];
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
+
         NSLog(@"Error: %@", error);
     }];
 }
 
 -(void)getMedication
 {
-    [MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    //[MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    [SVProgressHUD showWithStatus:@"Fetching..."
+                         maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"patientID": @"4"};
     [manager GET:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getPatientHistoryData?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Resopnse-->%@",responseObject);
         [self parseResponseObject:responseObject];
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
         NSLog(@"Error: %@", error);
     }];
 }
 
 -(void)getDoctorVisit
 {
-    [MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    //[MBProgressHUD showHUDAddedTo:_tableView animated:YES];
+    [SVProgressHUD showWithStatus:@"Fetching..."
+                         maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = @{@"patientID": @"4"};
     [manager GET:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getPatientHistoryData?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSLog(@"Resopnse-->%@",responseObject);
         [self parseResponseObject:responseObject];
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        //[MBProgressHUD hideAllHUDsForView:_tableView animated:YES];
+        [SVProgressHUD dismiss];
         NSLog(@"Error: %@", error);
     }];
 }

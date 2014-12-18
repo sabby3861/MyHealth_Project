@@ -58,6 +58,8 @@ BOOL keyboardIsShown;
         self.vertical_space6.constant -=5;
         
     }
+    
+    self.txtfield_userPassword.secureTextEntry=YES;
 }
 CGFloat animatedDistance;
 
@@ -234,6 +236,18 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
     return alert;
 }
 
+
+-(BOOL)validateEmailAddress{
+    NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:NULL];
+    NSArray *matches = [detector matchesInString:self.txtfield_userEmail.text options:0 range:NSMakeRange(0, self.txtfield_userEmail.text.length)];
+    for (NSTextCheckingResult *match in matches) {
+        if (match.resultType == NSTextCheckingTypeLink &&
+            [match.URL.absoluteString rangeOfString:@"mailto:"].location != NSNotFound) {
+            return true;
+        }
+    }
+    return false;
+}
 -(IBAction)registerUser:(id)sender
 {
     if(self.txtfield_firstName.text.length<1)
@@ -244,8 +258,12 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
         ShowAlertViewWithMessage(@"Please enter user name", nil);
     else if(self.txtfield_userEmail.text.length<1)
         ShowAlertViewWithMessage(@"Please enter user email", nil);
+    else if(self.validateEmailAddress==0)
+        ShowAlertViewWithMessage(@"Invalid email address", nil);
     else if(self.txtfield_userPassword.text.length<1)
         ShowAlertViewWithMessage(@"Please enter user password", nil);
+    else if(self.txtfield_userPassword.text.length>0 && self.txtfield_userPassword.text.length<7)
+        ShowAlertViewWithMessage(@"Password should be 6 digits in length", nil);
     else if (!imageData){
         ShowAlertViewWithMessage(@"Please select the image", nil);
     }

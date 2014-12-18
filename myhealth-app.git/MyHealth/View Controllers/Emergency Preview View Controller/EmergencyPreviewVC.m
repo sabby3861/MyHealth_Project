@@ -186,7 +186,7 @@
     [self.navbarImage setHidden:NO];
     [self.titleImage setHidden:NO];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Image saved to photo album." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:@"Image saved to photo album, Please set it as your lock screen by choosing it from photo library." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [alert show];
 }
 

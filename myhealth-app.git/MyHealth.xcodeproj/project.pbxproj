@@ -1707,6 +1707,7 @@
 					};
 					7528482D19F2354B0016F54F = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = W95KR4DHN8;
 						TestTargetID = 7528481119F2354B0016F54F;
 					};
 				};
@@ -2276,6 +2277,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2287,6 +2290,7 @@
 				INFOPLIST_FILE = MyHealthTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyHealth.app/MyHealth";
 			};
 			name = Debug;
@@ -2295,6 +2299,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Shubham Singh (32XB42FJJQ)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2302,6 +2308,7 @@
 				INFOPLIST_FILE = MyHealthTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyHealth.app/MyHealth";
 			};
 			name = Release;
