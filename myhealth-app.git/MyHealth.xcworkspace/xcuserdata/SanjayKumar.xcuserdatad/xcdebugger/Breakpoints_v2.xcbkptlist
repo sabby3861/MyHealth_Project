@@ -153,58 +153,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyHealth/View Controllers/Home View Controller/HomeViewController.m"
-            timestampString = "440428042.860714"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_2"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.661073"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "524">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_3"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.661256"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "746"
-            endingLineNumber = "746"
+            startingLineNumber = "807"
+            endingLineNumber = "807"
             landmarkName = "+writeAppendToFile:fromObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "679"
-            endingLineNumber = "679"
+            startingLineNumber = "740"
+            endingLineNumber = "740"
             landmarkName = "+readFromFile:toObject:"
             landmarkType = "5">
          </BreakpointContent>
@@ -231,104 +185,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyHealth/View Controllers/Home View Controller/HomeViewController.m"
-            timestampString = "440428018.396924"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_2"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.663462"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "524">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_3"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.663627"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyHealth/View Controllers/Home View Controller/HomeViewController.m"
-            timestampString = "440428019.625233"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_2"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.664548"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "524">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HomeViewController viewDidLoad]_block_invoke_3"
-                  moduleName = "MyHealth"
-                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Home%20View%20Controller/HomeViewController.m"
-                  timestampString = "440431544.664713"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "60">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
             landmarkName = "+removeFileAtPath:condition:"
             landmarkType = "5">
          </BreakpointContent>
@@ -340,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "657"
-            endingLineNumber = "657"
+            startingLineNumber = "684"
+            endingLineNumber = "684"
             landmarkName = "+removeFileAtPath:condition:"
             landmarkType = "5">
          </BreakpointContent>
@@ -356,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "594"
-            endingLineNumber = "594"
+            startingLineNumber = "621"
+            endingLineNumber = "621"
             landmarkName = "+saveData:withPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -420,11 +282,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431455.229737"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "631"
-            endingLineNumber = "631"
+            startingLineNumber = "658"
+            endingLineNumber = "658"
             landmarkName = "+removeFileAtPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -436,40 +298,40 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431343.177455"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "640"
-            endingLineNumber = "640"
-            landmarkName = "+removeDirectoryAtPath:condition:"
+            startingLineNumber = "667"
+            endingLineNumber = "667"
+            landmarkName = "+asyncRemoveDirectoryAtPath:condition:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "+[NSString(SCPaths) removeFileOrDirectoryAtPath:condition:]"
+                  symbolName = "+[NSString(SCPaths) asyncRemoveDirectoryAtPath:condition:]"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-                  timestampString = "440431544.670207"
+                  timestampString = "440604444.522646"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "640"
-                  endingLineNumber = "640"
+                  startingLineNumber = "667"
+                  endingLineNumber = "667"
                   offsetFromSymbolStart = "89">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__59+[NSString(SCPaths) removeFileOrDirectoryAtPath:condition:]_block_invoke"
+                  symbolName = "__58+[NSString(SCPaths) asyncRemoveDirectoryAtPath:condition:]_block_invoke"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-                  timestampString = "440431544.670385"
+                  timestampString = "440604444.522834"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "640"
-                  endingLineNumber = "640"
+                  startingLineNumber = "667"
+                  endingLineNumber = "667"
                   offsetFromSymbolStart = "21">
                </Location>
             </Locations>
@@ -482,12 +344,140 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-            timestampString = "440431344.353183"
+            timestampString = "440604444.148578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "643"
-            endingLineNumber = "643"
-            landmarkName = "+removeDirectoryAtPath:condition:"
+            startingLineNumber = "670"
+            endingLineNumber = "670"
+            landmarkName = "+asyncRemoveDirectoryAtPath:condition:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical History View Controller/MedicalHistoryViewController.m"
+            timestampString = "440581647.098488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "360"
+            endingLineNumber = "360"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical History View Controller/MedicalHistoryViewController.m"
+            timestampString = "440581702.488276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical History View Controller/MedicalHistoryViewController.m"
+            timestampString = "440581715.736116"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Doctor Profile View Controller/DoctorProfileViewController.m"
+            timestampString = "440581983.934443"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical Documents View Controller/MedicalDocumentsViewController.m"
+            timestampString = "440603824.017102"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "-showMoreOption:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
+            timestampString = "440604444.148578"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "332"
+            endingLineNumber = "332"
+            landmarkName = "+arrayOfFoldersInFolder:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical Documents View Controller/MedicalDocumentsViewController.m"
+            timestampString = "440604002.39449"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "398"
+            endingLineNumber = "398"
+            landmarkName = "-arrayOfFoldersInFolder:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Medical Documents View Controller/MedicalDocumentsViewController.m"
+            timestampString = "440603988.931403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "-arrayOfFoldersInFolder:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

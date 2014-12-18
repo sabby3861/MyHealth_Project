@@ -25,6 +25,7 @@
     MedicalDocumentsCustomCell *cell;
     NSMutableArray *theDocumentList;
     NSMutableArray *filteredArray;
+    NSUInteger theIndex;
     
 }
 
@@ -243,11 +244,10 @@
         SS_POPVIEWCONTROLLER;
     }
 }
-NSUInteger theIndex;
+
 
 -(void)showMoreOption:(NSIndexPath*)theIndexPath{
-    
-    
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     //NSString *sharedDirectory=@"/Users/Shared";
     NSString *sharedDirectory=[NSHomeDirectory() stringByAppendingPathComponent:@"Library/Private Documents"];
@@ -330,7 +330,12 @@ NSUInteger theIndex;
     
     NSMutableArray *array= [NSString loadAllDirectoriesandFiles];
     NSLog(@"array is %@",array);
-    [self arrayOfFoldersInFolder:[NSString getLibraryPath]];
+    
+    NSString *theString;
+    theString=[[theDocumentList valueForKey:@"Path"] objectAtIndex:theIndexPath.row];
+    theString=[theString stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%@/",[NSString getLibraryPath]] withString:@""];
+    
+    [self arrayOfFoldersInFolder:theString];
     //ShowAlertViewWithMessage(@"More Options", nil);
     NSLog(@"theDocumentList is %@",[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]);
     UIImage *theDocImage=[self theDocumentImageAtPath:[[theDocumentList valueForKey:@"Path"]objectAtIndex:theIndexPath.row]];
@@ -386,7 +391,11 @@ NSUInteger theIndex;
         if(isDir) {
             [directoryList addObject:file];
         }
-    }
+        
+}
+    SCLogDebug(@"Display name %@",[fm displayNameAtPath:folder]);
+    SCLogDebug(@"componentsToDisplayForPath name %@",[fm componentsToDisplayForPath:folder]);
+    NSLog(@"SubPaths are %@",[fm subpathsAtPath:folder]);
     NSLog(@"Folders are %@",directoryList);
     return directoryList;
 }

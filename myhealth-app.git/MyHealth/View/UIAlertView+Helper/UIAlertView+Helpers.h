@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+@import UIKit.UIAlertView;
+@import Foundation;
 
 @interface UIAlertView (Helpers)
 

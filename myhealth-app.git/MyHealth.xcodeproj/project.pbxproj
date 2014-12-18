@@ -674,6 +674,9 @@
 		7B8C5E22FBDC5BFD208D8D52 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2FBCF72415EE02F8ECC0B81 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1643A5D5254EE71D3BABD40 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		F8D52F161A43045500383EEA /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F8D52F171A43045500383EEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F8D52F1A1A43046A00383EEA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F8F8D7691A40448C00E0299E /* PathHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathHelper.h; sourceTree = "<group>"; };
 		F8F8D76A1A40448C00E0299E /* PathHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathHelper.m; sourceTree = "<group>"; };
 		F8F8D76C1A40602900E0299E /* MyHealth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MyHealth.entitlements; sourceTree = "<group>"; };
@@ -1622,6 +1625,9 @@
 		8EB29941551C4B68755BE50E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8D52F1A1A43046A00383EEA /* UIKit.framework */,
+				F8D52F161A43045500383EEA /* CoreFoundation.framework */,
+				F8D52F171A43045500383EEA /* Foundation.framework */,
 				18A352631A3CAE4900C89CD7 /* AssetsLibrary.framework */,
 				25BE81C31A369B6500B412AD /* LiveSDK.framework */,
 				75AF342E1A13B4DF0018F3B9 /* MobileCoreServices.framework */,
@@ -2159,7 +2165,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/MyHealth",
-					"/Users/Noushad/Desktop/MyHealth/myhealth-app.git",
 				);
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -2202,7 +2207,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyHealth/View/UIAlertView+Helper\"";
 				VALID_ARCHS = "armv7 arm64";
 			};
 			name = Debug;
@@ -2220,7 +2225,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/MyHealth",
-					"/Users/Noushad/Desktop/MyHealth/myhealth-app.git",
 				);
 				HEADER_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -2263,7 +2267,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
-				USER_HEADER_SEARCH_PATHS = "";
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/MyHealth/View/UIAlertView+Helper\"";
 				VALID_ARCHS = "armv7 arm64";
 			};
 			name = Release;
