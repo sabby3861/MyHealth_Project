@@ -203,7 +203,7 @@
     
     [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"refresh"];
     //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [SVProgressHUD showWithStatus:@""
+    [SVProgressHUD showWithStatus:@"Signing in..."
                          maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
