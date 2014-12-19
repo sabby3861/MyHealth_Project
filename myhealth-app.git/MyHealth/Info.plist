@@ -42,7 +42,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb733653706713421</string>
+				<string>fb600099893456053</string>
 			</array>
 		</dict>
 		<dict>
@@ -57,7 +57,7 @@
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>733653706713421</string>
+	<string>600099893456053</string>
 	<key>FacebookDisplayName</key>
 	<string>MyHealth</string>
 	<key>LSRequiresIPhoneOS</key>

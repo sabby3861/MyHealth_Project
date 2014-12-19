@@ -109,7 +109,7 @@
 }
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
     
-    if ([[url scheme] isEqualToString:@"fb733653706713421"]) {
+    if ([[url scheme] isEqualToString:@"fb600099893456053"]) {
         
         return [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
         
