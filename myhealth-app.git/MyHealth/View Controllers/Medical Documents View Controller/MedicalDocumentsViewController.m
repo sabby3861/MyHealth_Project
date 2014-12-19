@@ -376,11 +376,20 @@
         
         MoveDocumentViewController *moveDocumentVC = [[[AppDelegate sharedAppDelegate]theMainStoryBoard] instantiateViewControllerWithIdentifier:MOVEDOCUMENT_VIEW];
         moveDocumentVC.mPathSuffix = [[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];//[subpath lastPathComponent];
-        //viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];
-        //moveDocumentVC.mPathSuffix=self.thePreviousFilePath;
+        moveDocumentVC.mfileAtPath=@"";
         NSLog(@"path extension is %@",self.mPathSuffix);
         [self.navigationController pushViewController:moveDocumentVC animated:YES];
         
+        
+        /*
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        MedicalDocumentsViewController *viewCrtl = [storyboard instantiateViewControllerWithIdentifier:@"MedicalDocumentsViewController"];
+        viewCrtl.title = [[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];//[subpath lastPathComponent];
+        viewCrtl.mPathSuffix=[[theDocumentList valueForKey:@"name"] objectAtIndex:theIndex];
+        viewCrtl.mFilePathSuffix=self.mPathSuffix;
+        NSLog(@"path extension is %@",self.mPathSuffix);
+        [self.navigationController pushViewController:viewCrtl animated:YES];
+        */
         
     } else if (buttonIndex == 1){
         //UIStoryboard *stroryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
