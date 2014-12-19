@@ -1031,8 +1031,8 @@
                                     <action selector="navigateback:" destination="DQy-kS-kEc" eventType="touchUpInside" id="uZw-nZ-7Me"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fU-KE-RUL">
-                                <rect key="frame" x="286" y="29" width="12" height="12"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fU-KE-RUL">
+                                <rect key="frame" x="282" y="26" width="20" height="22"/>
                                 <state key="normal" image="button_plus.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
