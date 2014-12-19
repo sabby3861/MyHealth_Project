@@ -262,7 +262,7 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
         ShowAlertViewWithMessage(@"Invalid email address", nil);
     else if(self.txtfield_userPassword.text.length<1)
         ShowAlertViewWithMessage(@"Please enter user password", nil);
-    else if(self.txtfield_userPassword.text.length>0 && self.txtfield_userPassword.text.length<7)
+    else if(self.txtfield_userPassword.text.length>0 && self.txtfield_userPassword.text.length<6)
         ShowAlertViewWithMessage(@"Password should be 6 digits in length", nil);
     else if (!imageData){
         ShowAlertViewWithMessage(@"Please select the image", nil);
