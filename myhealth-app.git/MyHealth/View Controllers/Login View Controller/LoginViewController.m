@@ -13,7 +13,7 @@
 #import "Macros.h"
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
-
+#import "SCLog.h"
 
 @interface LoginViewController ()
 
@@ -289,17 +289,18 @@
     
     [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/create_user?" parameters:tempDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
+        SCLogDebug(@"Success: %@", responseObject);
+
         [[NSUserDefaults standardUserDefaults] setValue:[userDetails valueForKey:@"email"] forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] setValue:@"facebook" forKey:@"password"];
         [[NSUserDefaults standardUserDefaults] setValue:@"facebook" forKey:@"login"];
         [[NSUserDefaults standardUserDefaults] setValue:[userDetails valueForKey:@"id"]  forKey:@"fb_id"];
         
-        NSLog(@"Success: %@", responseObject);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
-        NSLog(@"Response-->>%@",operation.responseString);
-        NSLog(@"Success: %@", error);
+        SCLogDebug(@"Response-->>%@",operation.responseString);
+        SCLogDebug(@"Success: %@", error);
     }];
     
     

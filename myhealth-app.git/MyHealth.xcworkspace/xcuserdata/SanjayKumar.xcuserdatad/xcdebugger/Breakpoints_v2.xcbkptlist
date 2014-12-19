@@ -313,7 +313,7 @@
                   symbolName = "+[NSString(SCPaths) asyncRemoveDirectoryAtPath:condition:]"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-                  timestampString = "440680236.947553"
+                  timestampString = "440684746.015957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "668"
@@ -327,7 +327,7 @@
                   symbolName = "__58+[NSString(SCPaths) asyncRemoveDirectoryAtPath:condition:]_block_invoke"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/Model/NSString+FilePath/NSString+SCPaths.m"
-                  timestampString = "440680236.947712"
+                  timestampString = "440684746.016221"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "668"
@@ -471,7 +471,7 @@
                   symbolName = "-[MedicalDocumentsViewController actionSheet:clickedButtonAtIndex:]"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Medical%20Documents%20View%20Controller/MedicalDocumentsViewController.m"
-                  timestampString = "440680236.952158"
+                  timestampString = "440684746.022627"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "394"
@@ -485,7 +485,7 @@
                   symbolName = "-[MedicalDocumentsViewController actionSheet:clickedButtonAtIndex:]"
                   moduleName = "MyHealth"
                   urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Medical%20Documents%20View%20Controller/MedicalDocumentsViewController.m"
-                  timestampString = "440680236.952306"
+                  timestampString = "440684746.022856"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "394"
@@ -508,6 +508,116 @@
             startingLineNumber = "83"
             endingLineNumber = "83"
             landmarkName = "+deleteFileOrDirectoryAtPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Login View Controller/LoginViewController.m"
+            timestampString = "440684587.480677"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "-registerFacebookUser:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Login View Controller/LoginViewController.m"
+            timestampString = "440684596.335912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "-handleFBSessionStateChangeWithNotification:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Login View Controller/LoginViewController.m"
+            timestampString = "440684606.935219"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "-registerFacebookUser:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[LoginViewController registerFacebookUser:]"
+                  moduleName = "MyHealth"
+                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Login%20View%20Controller/LoginViewController.m"
+                  timestampString = "440684746.025936"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "1175">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[LoginViewController registerFacebookUser:]_block_invoke"
+                  moduleName = "MyHealth"
+                  urlString = "file:///Users/SanjayKumar/Desktop/Sanjay%20Codes/MyHealth_Project/myhealth-app.git/MyHealth/View%20Controllers/Login%20View%20Controller/LoginViewController.m"
+                  timestampString = "440684746.026093"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "290"
+                  endingLineNumber = "290"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Login View Controller/LoginViewController.m"
+            timestampString = "440684690.625921"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "-registerFacebookUser:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyHealth/View Controllers/Login View Controller/LoginViewController.m"
+            timestampString = "440684680.196549"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "-registerFacebookUser:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
