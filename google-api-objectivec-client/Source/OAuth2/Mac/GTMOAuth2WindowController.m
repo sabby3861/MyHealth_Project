@@ -575,6 +575,8 @@ decisionListener:(id<WebPolicyDecisionListener>)listener {
     NSString *prefKey = [self prefsKeyForName:keychainItemName];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:YES forKey:prefKey];
+    [defaults synchronize];
+
   }
 
   return didSucceed;

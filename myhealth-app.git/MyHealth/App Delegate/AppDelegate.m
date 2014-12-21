@@ -26,9 +26,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    self.isUserLoggedIn=0;
+//    self.isUserLoggedIn=0;
     _patient = [[Patient alloc] init];
     [[NSUserDefaults standardUserDefaults] setValue:@"YES" forKey:@"refresh"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     
     DBSession *dbSession = [[DBSession alloc]
                             initWithAppKey:@"9bbmoyag3po37v2"

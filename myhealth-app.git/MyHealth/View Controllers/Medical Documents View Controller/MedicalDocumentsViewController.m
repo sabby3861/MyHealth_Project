@@ -22,7 +22,7 @@
 
 @interface MedicalDocumentsViewController ()
 {
-    MedicalDocumentsCustomCell *cell;
+    MedicalDocumentsCustomCell *medDocCustomCell;
     NSMutableArray *theDocumentList;
     NSMutableArray *filteredArray;
     NSUInteger theIndex;
@@ -101,34 +101,33 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    cell = [tableView dequeueReusableCellWithIdentifier:@"Reuse"];
-    cell.delegate = self;
-    if ((indexPath.row == 0)) {
-        
-        cell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_ratebg.png"]];
-        
-    } else {
-        
-        cell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_doctorspecial_middle.png"]];
+    medDocCustomCell = [tableView dequeueReusableCellWithIdentifier:@"Reuse"];
+    medDocCustomCell.delegate = self;
+    if ((indexPath.row == 0))
+    {
+        medDocCustomCell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_ratebg.png"]];
     }
-    NSLog(@"Value at index is %@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]);
-    //cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]];
-    cell.theFolderName.text=[NSString stringWithFormat:@"%@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]];
+    else
+    {
+        medDocCustomCell.imgView_bg.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"icon_doctorspecial_middle.png"]];
+    }
     
-    //if ([[[[[DocumentsDatabase sharedInstance]loadMyHealthDocs] objectAtIndex:indexPath.row]pathExtension]length]>1) {
-    if ([[[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]pathExtension]length]>1) {
-        cell.mDocImageView.image=[UIImage imageNamed:@"icon_file.png"];
-    }
-    else{
-        cell.mDocImageView.image=[UIImage imageNamed:@"icon_doc.png"];
-    }
-    return  cell;
+    NSLog(@"Value at index is %@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]);
+    medDocCustomCell.theFolderName.text=[NSString stringWithFormat:@"%@",[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]];
+    
+    if ([[[[theDocumentList objectAtIndex:indexPath.row]valueForKey:@"name"]pathExtension]length]>1)
+        medDocCustomCell.mDocImageView.image=[UIImage imageNamed:@"icon_file.png"];
+        else
+        medDocCustomCell.mDocImageView.image=[UIImage imageNamed:@"icon_doc.png"];
+    
+    return  medDocCustomCell;
 }
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //return [[[DocumentsDatabase sharedInstance]loadMyHealthDocs]count];// 20;
     return [theDocumentList count];
 }
+
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 64;
@@ -426,12 +425,13 @@
 }
 
 
--(void)filterDataWithSegmentValueChanged:(NSString*)theValue{
-    NSPredicate *predicate1 =[NSComparisonPredicate predicateWithLeftExpression:[NSExpression expressionForKeyPath:@"MeasureCategory"]
-                                                                rightExpression:[NSExpression expressionForConstantValue:theValue]
-                                                                       modifier:NSDirectPredicateModifier
-                                                                           type:NSEqualToPredicateOperatorType
-                                                                        options:0];
+-(void)filterDataWithSegmentValueChanged:(NSString*)theValue
+{
+//    NSPredicate *predicate1 =[NSComparisonPredicate predicateWithLeftExpression:[NSExpression expressionForKeyPath:@"MeasureCategory"]
+//                                                                rightExpression:[NSExpression expressionForConstantValue:theValue]
+//                                                                       modifier:NSDirectPredicateModifier
+//                                                                           type:NSEqualToPredicateOperatorType
+//                                                                        options:0];
     
     //NSArray *result = [self.unfilteredMetricsDataSource filteredArrayUsingPredicate:predicate1];
     //[theDocumentList addObjectsFromArray:result];

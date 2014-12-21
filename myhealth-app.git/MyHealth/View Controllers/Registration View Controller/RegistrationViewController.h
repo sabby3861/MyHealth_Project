@@ -11,6 +11,9 @@
 #import "SVProgressHUD.h"
 
 @interface RegistrationViewController : UIViewController
+{
+    UITextField *genericTextField;
+}
 
 @property (nonatomic, retain) IBOutlet UITextField *txtfield_userName;
 @property (nonatomic, retain) IBOutlet UITextField *txtfield_lastName;

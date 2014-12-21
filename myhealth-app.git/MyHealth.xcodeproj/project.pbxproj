@@ -94,6 +94,7 @@
 		18DB5FB81A3F5140002F069C /* TermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FA41A3F5140002F069C /* TermsViewController.m */; };
 		18DB5FBE1A3F5999002F069C /* SSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FBD1A3F5999002F069C /* SSConstants.m */; };
 		18DB5FCF1A3F616A002F069C /* MoveDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB5FCE1A3F616A002F069C /* MoveDocumentViewController.m */; };
+		255CA44D1A448F3200B0E8E3 /* MyHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 255CA44B1A448F3200B0E8E3 /* MyHealth.xcdatamodeld */; };
 		25BB16EF1A37470100CE80D2 /* GTLDriveAbout.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */; };
 		25BB16F01A37470100CE80D2 /* GTLDriveApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16CE1A37470100CE80D2 /* GTLDriveApp.m */; };
 		25BB16F11A37470100CE80D2 /* GTLDriveAppList.m in Sources */ = {isa = PBXBuildFile; fileRef = 25BB16D01A37470100CE80D2 /* GTLDriveAppList.m */; };
@@ -146,7 +147,6 @@
 		25BE81C41A369B6500B412AD /* LiveSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BE81C31A369B6500B412AD /* LiveSDK.framework */; };
 		2FF3A13AC64BF7A56E1B2BEB /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B8C5E22FBDC5BFD208D8D52 /* libPods.a */; };
 		7528481819F2354B0016F54F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528481719F2354B0016F54F /* main.m */; };
-		7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */; };
 		7528482619F2354B0016F54F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7528482519F2354B0016F54F /* Images.xcassets */; };
 		7528482919F2354B0016F54F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7528482719F2354B0016F54F /* LaunchScreen.xib */; };
 		7528483519F2354B0016F54F /* MyHealthTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7528483419F2354B0016F54F /* MyHealthTests.m */; };
@@ -444,6 +444,7 @@
 		18DB5FBD1A3F5999002F069C /* SSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSConstants.m; sourceTree = "<group>"; };
 		18DB5FCD1A3F616A002F069C /* MoveDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveDocumentViewController.h; sourceTree = "<group>"; };
 		18DB5FCE1A3F616A002F069C /* MoveDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveDocumentViewController.m; sourceTree = "<group>"; };
+		255CA44C1A448F3200B0E8E3 /* MyHealth.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHealth.xcdatamodel; sourceTree = "<group>"; };
 		25BB16CA1A37470100CE80D2 /* GTLDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDrive.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDrive.h"; sourceTree = "<group>"; };
 		25BB16CB1A37470100CE80D2 /* GTLDriveAbout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GTLDriveAbout.h; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.h"; sourceTree = "<group>"; };
 		25BB16CC1A37470100CE80D2 /* GTLDriveAbout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTLDriveAbout.m; path = "../google-api-objectivec-client/Source/Services/Drive/Generated/GTLDriveAbout.m"; sourceTree = "<group>"; };
@@ -547,7 +548,6 @@
 		7528481219F2354B0016F54F /* MyHealth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHealth.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7528481619F2354B0016F54F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7528481719F2354B0016F54F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		7528481D19F2354B0016F54F /* MyHealth.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHealth.xcdatamodel; sourceTree = "<group>"; };
 		7528482519F2354B0016F54F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7528482819F2354B0016F54F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7528482E19F2354B0016F54F /* MyHealthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHealthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1417,8 +1417,8 @@
 				7528484819F23CCD0016F54F /* Images */,
 				18C38D641A40CBB8007D38DC /* Main.storyboard */,
 				7528482519F2354B0016F54F /* Images.xcassets */,
+				255CA44B1A448F3200B0E8E3 /* MyHealth.xcdatamodeld */,
 				7528482719F2354B0016F54F /* LaunchScreen.xib */,
-				7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */,
 				7528481519F2354B0016F54F /* Supporting Files */,
 			);
 			path = MyHealth;
@@ -1980,7 +1980,6 @@
 				18DB5ED11A3F4E1B002F069C /* AppDelegate.m in Sources */,
 				25BB17151A3747DD00CE80D2 /* GTLBatchQuery.m in Sources */,
 				18DB5E641A3F4DC9002F069C /* DoctorVisitDetail.m in Sources */,
-				7528481E19F2354B0016F54F /* MyHealth.xcdatamodeld in Sources */,
 				18DB5E5D1A3F4DC9002F069C /* NoteDetails.m in Sources */,
 				18DB5FB71A3F5140002F069C /* SyncViewController.m in Sources */,
 				25BB17281A37483F00CE80D2 /* GTLFramework.m in Sources */,
@@ -1992,6 +1991,7 @@
 				18DB5FB11A3F5140002F069C /* MedicalDocumentsViewController.m in Sources */,
 				18DB5E6A1A3F4DC9002F069C /* IllnessType.m in Sources */,
 				25BB17271A37483F00CE80D2 /* GTLBase64.m in Sources */,
+				255CA44D1A448F3200B0E8E3 /* MyHealth.xcdatamodeld in Sources */,
 				25BB174B1A374A0E00CE80D2 /* SBJsonParser.m in Sources */,
 				18DB5E5E1A3F4DC9002F069C /* Notes.m in Sources */,
 				18DB5FB01A3F5140002F069C /* LoginViewController.m in Sources */,
@@ -2104,7 +2104,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
@@ -2143,7 +2143,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "78c31b1f-4ed1-4295-9280-3c84249af87b";
@@ -2177,7 +2177,7 @@
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
 				);
 				INFOPLIST_FILE = MyHealth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -2237,7 +2237,7 @@
 					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
 				);
 				INFOPLIST_FILE = MyHealth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
@@ -2346,12 +2346,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7528481C19F2354B0016F54F /* MyHealth.xcdatamodeld */ = {
+		255CA44B1A448F3200B0E8E3 /* MyHealth.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7528481D19F2354B0016F54F /* MyHealth.xcdatamodel */,
+				255CA44C1A448F3200B0E8E3 /* MyHealth.xcdatamodel */,
 			);
-			currentVersion = 7528481D19F2354B0016F54F /* MyHealth.xcdatamodel */;
+			currentVersion = 255CA44C1A448F3200B0E8E3 /* MyHealth.xcdatamodel */;
 			path = MyHealth.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

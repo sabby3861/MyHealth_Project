@@ -79,6 +79,12 @@
     NSLog(@"%@ %@",destAddress,delegate.currentaddress);
 }
 
+UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id delegate){
+    UIAlertView *alert =[[UIAlertView alloc] initWithTitle:@"MyHealth" message:message delegate:delegate cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+    return alert;
+}
+
 #pragma mark  CustomIOS7AlertView
 - (void)customIOS7dialogButtonTouchUpInside:(id)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -89,22 +95,31 @@
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
         NSLog(@"User details-->>%@",(APP_DELEGATE).patient);
         [parameters setValue:[_docInfo valueForKey:@"doctorID"] forKey:@"doctorID"];
-        [parameters setValue:[((APP_DELEGATE).patient) valueForKey:@"patientID"] forKey:@"patientID"];
+        [parameters setValue:[NSString stringWithFormat:@"%@",[((APP_DELEGATE).patient) valueForKey:@"patientID"]] forKey:@"patientID"];
         
         if ([addLable.text isEqualToString:@"Add Comment"])
         {
             [parameters setValue:textViewComment.text forKey:@"commentText"];
-            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addComment?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addComment?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+            {
                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
-                [_tblView_profile reloadData];
+                NSLog(@"JSON: %@", responseObject);
                 
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+                {
+                    _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
+                    [_tblView_profile reloadData];
+                }
+                else if ([[responseObject valueForKey:@"status"] isEqualToString:@"warning"]||[[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+                {
+                    ShowAlertViewWithMessage([NSString stringWithFormat:@"%@",[responseObject valueForKey:@"msg"]], nil);
+                }
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error)
+            {
                 [MBProgressHUD hideAllHUDsForView:_tblView_profile animated:YES];
                 NSLog(@"Error: %@", error);
             }];
-            
         }
         else
         {
@@ -115,13 +130,22 @@
                                      encoding:NSUTF8StringEncoding error:nil];
             
             [parameters setValue:textViewComment.text forKey:@"noteText"];
-            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addNotes?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                NSLog(@"JSON: %@", responseObject);
+            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/addNotes?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+            {
                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
-                [_tblView_profile reloadData];
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"JSON: %@", responseObject);
+
+                if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+                {
+                    _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
+                    [_tblView_profile reloadData];
+                }
+                else if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+                {
+                    ShowAlertViewWithMessage([NSString stringWithFormat:@"%@",[responseObject valueForKey:@"msg"]], nil);
+                }
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 [MBProgressHUD hideHUDForView:self.view animated:YES];
                 NSLog(@"Response-->%@",operation.responseString);
                 NSLog(@"Error: %@", error);
@@ -359,17 +383,24 @@
     //[parameters setValue:[((APP_DELEGATE).patient) valueForKey:@"patientID"] forKey:@"patientID"];
     
     
-    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getDoctorDetails?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        
+    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/getDoctorDetails?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
-        _degreeArray.doctorEducation = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorEducation"];
-        _docNotes.arrayNotes = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorNotes"];
-        [self showRating:[[[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"thisPatientRate"] intValue]];
-        [_tblView_profile reloadData];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"JSON: %@", responseObject);
+         if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+         {
+             _comments.arrayComments = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorComments"];
+             _degreeArray.doctorEducation = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorEducation"];
+             _docNotes.arrayNotes = [[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"doctorNotes"];
+             [self showRating:[[[responseObject valueForKey:@"DoctorDetails"] valueForKey:@"thisPatientRate"] intValue]];
+             [_tblView_profile reloadData];
+         }
+         else if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+         {
+             ShowAlertViewWithMessage([NSString stringWithFormat:@"%@",[responseObject valueForKey:@"msg"]], nil);
+         }
+     }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:_tblView_profile animated:YES];
         NSLog(@"Error: %@", error);
     }];
@@ -422,7 +453,6 @@
     [view addSubview:addLable];
     
     textViewComment = [[UITextView alloc] initWithFrame:CGRectMake(0, 30, 250, 170)];
-    //    textViewComment.text = @"Write Note..";
     [view addSubview:textViewComment];
     [alert setContainerView:view];
     [alert show];
@@ -437,8 +467,8 @@
         return;
     }
     
-    if (sender.tag == 11) {
-        
+    if (sender.tag == 11)
+    {
         rating = 1;
         ((UIButton *)[docViewFooter viewWithTag:11]).selected = YES;
         ((UIButton *)[docViewFooter viewWithTag:12]).selected = NO;
@@ -488,23 +518,34 @@
     
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:[_docInfo valueForKey:@"doctorID"] forKey:@"doctorID"];
-    [parameters setValue:[((APP_DELEGATE).patient) valueForKey:@"patientID"] forKey:@"patientID"];
+    [parameters setValue:[NSString stringWithFormat:@"%@",[((APP_DELEGATE).patient) valueForKey:@"patientID"]] forKey:@"patientID"];
+
     [parameters setValue:[NSString stringWithFormat:@"%d",rating] forKey:@"ratingPoint"];
     
-    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/rating?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/rating?" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
         NSLog(@"JSON: %@", responseObject);
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+        {
+             //code later after response
+        }
+        else if ([[responseObject valueForKey:@"status"] isEqualToString:@"warning"]||[[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+        {
+            ShowAlertViewWithMessage([NSString stringWithFormat:@"%@",[responseObject valueForKey:@"msg"]], nil);
+        }
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+     {
         [MBProgressHUD hideAllHUDsForView:_tblView_profile animated:YES];
         NSLog(@"Error: %@", error);
     }];
 }
+
 -(void)showRating:(int)docRating
 {
-    if (docRating == 1) {
-        
+    if (docRating == 1)
+    {
         rating = 1;
         ((UIButton *)[docViewFooter viewWithTag:11]).selected = YES;
         ((UIButton *)[docViewFooter viewWithTag:12]).selected = NO;
@@ -512,8 +553,9 @@
         ((UIButton *)[docViewFooter viewWithTag:14]).selected = NO;
         ((UIButton *)[docViewFooter viewWithTag:15]).selected = NO;
         
-    } else if (docRating == 2) {
-        
+    }
+    else if (docRating == 2)
+    {
         rating = 2;
         ((UIButton *)[docViewFooter viewWithTag:11]).selected = YES;
         ((UIButton *)[docViewFooter viewWithTag:12]).selected = YES;

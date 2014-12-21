@@ -52,7 +52,7 @@
     [NSString scanPath:[NSString getLibraryPath]];
     
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [NSString getLibraryPath];//[paths objectAtIndex:0];
     NSError * error;
     directoryContents =  [[NSFileManager defaultManager]

@@ -8,7 +8,6 @@
 
 #import "RegistrationViewController.h"
 #import "AppDelegate.h"
-#import "MBProgressHUD.h"
 #import "Connection.h"
 #import "Macros.h"
 #import "SSTextFieldValidation.h"
@@ -25,7 +24,10 @@
 
 @implementation RegistrationViewController
 BOOL keyboardIsShown;
-- (void)viewDidLoad {
+
+#pragma mark - ˚ VIEWLIFECYCLE ˚
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     _btn_register.layer.cornerRadius = 5.0f;
@@ -61,12 +63,19 @@ BOOL keyboardIsShown;
     
     self.txtfield_userPassword.secureTextEntry=YES;
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 CGFloat animatedDistance;
 
-#pragma ˚˚
-#pragma ˚ TEXTFIELD DELEGATES ˚
-#pragma ˚˚
--(void)textFieldDidBeginEditing:(UITextField *)textField{
+#pragma mark - ˚ TEXTFIELD DELEGATES ˚
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    genericTextField=textField;
     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.3;
     static const CGFloat MINIMUM_SCROLL_FRACTION = 0.2;
     static const CGFloat MAXIMUM_SCROLL_FRACTION = 0.8;
@@ -120,7 +129,8 @@ CGFloat animatedDistance;
     [UIView commitAnimations];
 }
 
--(void)textFieldDidEndEditing:(UITextField *)textField{
+-(void)textFieldDidEndEditing:(UITextField *)textField
+{
     static const CGFloat KEYBOARD_ANIMATION_DURATION = 0.2;
     CGRect viewFrame;
     
@@ -137,6 +147,14 @@ CGFloat animatedDistance;
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    return [textField resignFirstResponder];
+    //return YES;
+}
+
+#pragma mark - ˚ KEYBOARD METHODS ˚
+
 -(void)keyboardFrameDidChange:(NSNotification*)notification{
     /* NSDictionary* info = [notification userInfo];
      
@@ -149,15 +167,15 @@ CGFloat animatedDistance;
      */
     
     NSDictionary *info = [notification userInfo];
-    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
+//    NSValue *kbFrame = [info objectForKey:UIKeyboardFrameEndUserInfoKey];
     NSTimeInterval animationDuration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    CGRect keyboardFrame = [kbFrame CGRectValue];
-    CGFloat height = keyboardFrame.size.height;
+//    CGRect keyboardFrame = [kbFrame CGRectValue];
+//    CGFloat height = keyboardFrame.size.height;
     CGRect kKeyBoardFrame = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
     [UIView animateWithDuration:animationDuration animations:^{
-        [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];        [self.view setNeedsLayout];
+        [self.view setFrame:CGRectMake(0, kKeyBoardFrame.origin.y-self.view.frame.size.height, 320, self.view.frame.size.height)];
+        [self.view setNeedsLayout];
     }];
-    
 }
 
 - (void)keyboardWillHide:(NSNotification *)n
@@ -205,15 +223,11 @@ CGFloat animatedDistance;
     keyboardIsShown = YES;
 }
 
+#pragma mark - ˚ UITOUCHES METHOD ˚
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view  endEditing:YES];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 /*
  #pragma mark - Navigation
@@ -237,7 +251,8 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
 }
 
 
--(BOOL)validateEmailAddress{
+-(BOOL)validateEmailAddress
+{
     NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:NULL];
     NSArray *matches = [detector matchesInString:self.txtfield_userEmail.text options:0 range:NSMakeRange(0, self.txtfield_userEmail.text.length)];
     for (NSTextCheckingResult *match in matches) {
@@ -250,19 +265,27 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
 }
 -(IBAction)registerUser:(id)sender
 {
-    if(self.txtfield_firstName.text.length<1)
+    [genericTextField resignFirstResponder];
+    if ([[self.txtfield_firstName.text stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         ShowAlertViewWithMessage(@"Please enter first name", nil);
-    else if(self.txtfield_lastName.text.length<1)
+    else if ([[self.txtfield_lastName.text stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         ShowAlertViewWithMessage(@"Please enter last name", nil);
-    else if(self.txtfield_userName.text.length<1)
+    else if ([[self.txtfield_userName.text stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         ShowAlertViewWithMessage(@"Please enter user name", nil);
-    else if(self.txtfield_userEmail.text.length<1)
+    else if ([[self.txtfield_userEmail.text stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         ShowAlertViewWithMessage(@"Please enter user email", nil);
     else if(self.validateEmailAddress==0)
         ShowAlertViewWithMessage(@"Invalid email address", nil);
-    else if(self.txtfield_userPassword.text.length<1)
+    else if ([[self.txtfield_userPassword.text stringByTrimmingCharactersInSet:
+          [NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
         ShowAlertViewWithMessage(@"Please enter user password", nil);
-    else if(self.txtfield_userPassword.text.length>0 && self.txtfield_userPassword.text.length<6)
+    else if([[self.txtfield_userPassword.text stringByTrimmingCharactersInSet:
+                   [NSCharacterSet whitespaceAndNewlineCharacterSet]] length]>0 && [[self.txtfield_userPassword.text stringByTrimmingCharactersInSet:
+                                                                                     [NSCharacterSet whitespaceAndNewlineCharacterSet]] length]<6)
         ShowAlertViewWithMessage(@"Password should be 6 digits in length", nil);
     else if (!imageData){
         ShowAlertViewWithMessage(@"Please select the image", nil);
@@ -283,38 +306,36 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
         
         if (imageData)
         {
-            //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            
             // ---- Start Registering ----
-            
             [SVProgressHUD showWithStatus:@"Registering..."
                                  maskType:SVProgressHUDMaskTypeGradient];
-            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/create_user?" parameters:tempDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/create_user?" parameters:tempDictionary constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+            {
                 [formData appendPartWithFileData:imageData name:@"user_image" fileName:@"newImage.jpeg" mimeType:@"image/jpeg"];
-                
-            } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                NSLog(@"Success: %@", responseObject);
-                if (![[responseObject valueForKey:@"status"] isEqualToString:@"error"]) {
-                    
-                    [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"login"];
-                    //[MBProgressHUD hideHUDForView:self.view animated:YES];
-                    
-                    
-                    NSLog(@"JSON: %@", responseObject);
-                    NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
-                    [self.navigationController popViewControllerAnimated:YES];
-                }
-                [SVProgressHUD dismiss];
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Registered successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-                
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            }
+            success:^(AFHTTPRequestOperation *operation, id responseObject)
+             {
+                 [SVProgressHUD dismiss];
+                  NSLog(@"Success: %@", responseObject);
+                  if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+                  {
+                        [[NSUserDefaults standardUserDefaults] setValue:@"manual" forKey:@"loginType"];
+                      [[NSUserDefaults standardUserDefaults] synchronize];
+
+                      ((AppDelegate *)[UIApplication sharedApplication].delegate).patient = [[responseObject valueForKey:@"user_details"] objectAtIndex:0];
+
+                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"MyHealth" message:@"Registered successfully." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                      [alert show];
+                   }
+                 else if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+                 {
+                     ShowAlertViewWithMessage([NSString stringWithFormat:@"%@",[responseObject valueForKey:@"msg"]], nil);
+                 }
+            }
+            failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 
                 NSLog(@"Error: %@", error);
             }];
-            
         }
         else
         {
@@ -324,11 +345,6 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
     }
 }
 
-#pragma mark-  Text Field Delegate Method  -
-- (BOOL)textFieldShouldReturn:(UITextField *)textField{
-    return [textField resignFirstResponder];
-    //return YES;
-}
 #pragma mark-  Image Picker
 -(IBAction)uploadPhoto:(id)sender
 {
@@ -516,6 +532,7 @@ UIKIT_STATIC_INLINE UIAlertView * ShowAlertViewWithMessage(NSString *message, id
 #pragma mark -  UIActionSheet delegate methods
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    [self.navigationController popViewControllerAnimated:YES];
+   if([alertView.message isEqualToString:@"Registered successfully."])
+          [self.navigationController popViewControllerAnimated:YES];
 }
 @end

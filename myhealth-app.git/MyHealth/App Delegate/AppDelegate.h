@@ -26,7 +26,7 @@
 @property (strong, nonatomic) NSString *currentaddress;
 @property (strong, nonatomic) UIImage *theDocImage;
 @property (strong, nonatomic) NSString *pathOfSharingItem;
-@property (assign, nonatomic) BOOL isUserLoggedIn;
+//@property (assign, nonatomic) BOOL isUserLoggedIn;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
@@ -41,7 +41,7 @@
   **/
 +(AppDelegate*)sharedAppDelegate;
 
--(NSString*)mSetDateFormat:(NSString*)dateToBeConverted;
+//-(NSString*)mSetDateFormat:(NSString*)dateToBeConverted;
 
 
 /**

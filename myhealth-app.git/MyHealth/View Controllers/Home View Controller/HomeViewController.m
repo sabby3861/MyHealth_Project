@@ -54,7 +54,7 @@
                                    UIImageView *theImageView=[[UIImageView alloc]initWithFrame:self.view.frame];
                                    theImageView.image=[UIImage imageWithData:data];
                                    [self.view addSubview:theImageView];
-                                   /*
+                                   /
                                    [NSString removeFileAtPath:[PathHelper documentDirectoryPath] condition:^BOOL(NSDictionary *fileInfo) {
                                        NSLog(@"File info is %@",fileInfo);
                                        return  true;
@@ -103,43 +103,29 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    
-    
-    
-    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"remember"]) {
-        
-        _btn_login.hidden = YES;
-        
-        btn_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn_menu.frame = CGRectMake(20, 30, 30, 30);
-        btn_menu.layer.cornerRadius = 15.0f;
-        btn_menu.layer.masksToBounds = YES;
-        [btn_menu addTarget:self action:@selector(showPopover:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btn_menu];
-        
-        if ([[[NSUserDefaults standardUserDefaults]valueForKey:@"refresh"] isEqualToString:@"YES"]) {
+    if ([[NSUserDefaults standardUserDefaults] valueForKey:@"login"])
+    {
+        if ([[NSUserDefaults standardUserDefaults] valueForKey:@"username"] && [[NSUserDefaults standardUserDefaults] valueForKey:@"password"])
+        {
+            _btn_login.hidden = YES;
+            btn_menu = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn_menu.frame = CGRectMake(20, 30, 30, 30);
+            btn_menu.layer.cornerRadius = 15.0f;
+            btn_menu.layer.masksToBounds = YES;
+            [btn_menu addTarget:self action:@selector(showPopover:) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:btn_menu];
             
-            [self loginAppAutomatically];
+            if ([[[NSUserDefaults standardUserDefaults]valueForKey:@"refresh"] isEqualToString:@"YES"])
+                [self loginAppAutomatically];
         }
-        
     }
-    else if ([[AppDelegate sharedAppDelegate]isUserLoggedIn]==1) {
-        _btn_login.hidden = YES;
-        btn_menu = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn_menu.frame = CGRectMake(20, 30, 30, 30);
-        btn_menu.layer.cornerRadius = 15.0f;
-        btn_menu.layer.masksToBounds = YES;
-        [btn_menu addTarget:self action:@selector(showPopover:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:btn_menu];
-        [self loginAppAutomatically];
-    }
-    else {
-        
+    else
+    {
         _btn_login.hidden = NO;
         btn_menu.hidden = YES;
     }
-    
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -202,61 +188,60 @@
     _btn_login.hidden = YES;
     
     [[NSUserDefaults standardUserDefaults] setValue:@"NO" forKey:@"refresh"];
-    //[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [SVProgressHUD showWithStatus:@"Signing in..."
                          maskType:SVProgressHUDMaskTypeNone];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *tempDictionary = [[NSMutableDictionary alloc] init];
     [tempDictionary setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"username"] forKeyPath:@"user_name"];
     [tempDictionary setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"password"] forKeyPath:@"user_password"];
-    if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"login"] isEqualToString:@"facebook"]) {
-        
+    if (![[[NSUserDefaults standardUserDefaults] valueForKey:@"loginType"] isEqualToString:@"facebook"])
+    {
         [tempDictionary setValue:@"1" forKeyPath:@"user_type"];
-        
-    } else {
-        
+    }
+    else
+    {
         [tempDictionary setValue:@"2" forKeyPath:@"user_type"];
         [tempDictionary setValue:[[NSUserDefaults standardUserDefaults] valueForKey:@"fb_id"] forKeyPath:@"user_fb_id"];
     }
     
-    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/get_login?" parameters:tempDictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        [[NSUserDefaults standardUserDefaults] setValue:@"LoggedIn" forKey:@"login"];
-        //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    [manager POST:@"http://myhealth.brillisoft.net/iphoneAPIs/api/get_login?" parameters:tempDictionary success:^(AFHTTPRequestOperation *operation, id responseObject)
+    {
         [SVProgressHUD dismiss];
         NSLog(@"JSON: %@", responseObject);
-        if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"]) {
-            
+
+        if ([[responseObject valueForKey:@"status"] isEqualToString:@"success"])
+        {
+            [[NSUserDefaults standardUserDefaults] setValue:@"LoggedIn" forKey:@"login"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+
+            ((AppDelegate *)[UIApplication sharedApplication].delegate).patient = [[responseObject valueForKey:@"user_details"] objectAtIndex:0];
+
+            btn_menu.hidden = NO;
+            [btn_menu setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[responseObject valueForKey:@"user_details"] objectAtIndex:0] valueForKey:@"user_image"]]]] forState:UIControlStateNormal];
+            _btn_login.hidden = YES;
+        }
+        else if ([[responseObject valueForKey:@"status"] isEqualToString:@"error"])
+        {
             _btn_login.hidden = NO;
             btn_menu.hidden = YES;
-            
-        } else {
-            
-            btn_menu.hidden = NO;
-            _btn_login.hidden = YES;
-            
         }
-        [btn_menu setImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[[responseObject valueForKey:@"user_details"] objectAtIndex:0] valueForKey:@"user_image"]]]] forState:UIControlStateNormal];
-        ((AppDelegate *)[UIApplication sharedApplication].delegate).patient = [[responseObject valueForKey:@"user_details"] objectAtIndex:0];
-        NSLog(@"user details:%@",((AppDelegate *)[UIApplication sharedApplication].delegate).patient);
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
-        //[MBProgressHUD hideHUDForView:self.view animated:YES];
+    }
+    failure:^(AFHTTPRequestOperation *operation, NSError *error)
+    {
         [SVProgressHUD dismiss];
          NSLog(@"Response-->>%@",operation.responseString);
         NSLog(@"Error: %@", error);
     }];
 }
+
 #pragma mark - Popover Delegates
 - (IBAction)showPopover:(UIButton *)sender
 {
     UIViewController *controller = [[UIViewController alloc] init];
     popoverController = [[WYPopoverController alloc] initWithContentViewController:controller];
     
-   //controller.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
     popoverController.delegate = self;
-
     popoverController.theme = [WYPopoverTheme theme];
     
     
@@ -300,16 +285,16 @@
     [alert show];
     
 }
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == 1) {
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"remember"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        
+    if (buttonIndex == 1)
+    {
         _btn_login.hidden = NO;
+        [btn_menu setImage:nil forState:UIControlStateNormal];
         btn_menu.hidden = YES;
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"login"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [popoverController dismissPopoverAnimated:YES];
     }
 }
